@@ -1,43 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geist = Geist({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Proxfi",
+  title: "Solerya | Bien vieillir à domicile",
   description:
-    "Conseil stratégique patrimonial pour profils internationaux, expatriés et entrepreneurs.",
+    "Les meilleures technologies connectées pour préserver l'autonomie des seniors et rassurer leurs proches.",
+
   icons: {
     icon: "/icon.png",
-    shortcut: "/icon.png",
     apple: "/icon.png",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="fr"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white text-slate-900">
+    <html lang="fr">
+      <body className={geist.className}>
         <Header />
-        <main className="flex-1">{children}</main>
+
+        {children}
+
         <Footer />
       </body>
     </html>
