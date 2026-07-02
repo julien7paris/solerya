@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 const highlights = [
-  ["♡", "Solutions simples", "Des technologies faciles à installer et à utiliser au quotidien."],
+  ["♡", "Solutions simples", "Faciles à installer et à utiliser au quotidien."],
   ["♢", "Données sécurisées", "Respect de la vie privée et informations protégées."],
   ["☏", "Accompagnement humain", "Un conseiller vous aide à choisir les bonnes solutions."],
   ["✦", "Produits testés", "Une sélection fiable, utile et adaptée aux seniors."],
 ];
 
 const solutions = [
-  ["⌂", "Sécurité au quotidien", "Détecteurs de chute, alertes, capteurs : protégez vos proches 24h/24."],
+  ["⌂", "Sécurité au quotidien", "Détecteurs de chute, alertes et capteurs pour protéger vos proches 24h/24."],
   ["⌂", "Maintien à domicile", "Des solutions pour vivre chez soi plus longtemps, en toute sérénité."],
   ["♁", "Lien et autonomie", "Gardez le lien avec vos proches et soutenez leur indépendance."],
   ["✦", "Technologies fiables", "Des objets connectés sélectionnés pour leur efficacité et leur simplicité."],
@@ -17,9 +17,8 @@ const solutions = [
 export default function SoleryaHomePage() {
   return (
     <main className="min-h-screen bg-white text-[#08122E]">
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_20%_10%,#FFF1E6_0%,transparent_28%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 pb-14 pt-14 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-20 lg:pt-16">
-          
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 pb-14 pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-20 lg:pt-16">
           <div className="relative overflow-hidden rounded-[34px] shadow-[0_30px_80px_rgba(8,18,46,0.16)]">
             <video
               className="h-full min-h-[460px] w-full object-cover"
@@ -28,14 +27,13 @@ export default function SoleryaHomePage() {
               muted
               loop
               playsInline
-              poster="/images/julien-lallemand.jpg"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
 
             <button
               aria-label="Lire la vidéo"
-              className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl text-[#08122E] shadow-2xl backdrop-blur transition hover:scale-105"
+              className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl text-[#08122E] shadow-2xl transition hover:scale-105"
             >
               ▶
             </button>
@@ -47,8 +45,7 @@ export default function SoleryaHomePage() {
 
           <div className="flex flex-col justify-center">
             <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
-              <span>♢</span>
-              N°1 des objets connectés pour le bien vieillir à domicile
+              ♢ N°1 des objets connectés pour le bien vieillir à domicile
             </div>
 
             <h1 className="max-w-2xl text-5xl font-bold leading-[1.08] tracking-[-0.04em] text-[#08122E] md:text-6xl">
@@ -68,8 +65,12 @@ export default function SoleryaHomePage() {
                     {icon}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#08122E]">{title}</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{text}</p>
+                    <p className="text-sm font-semibold text-[#08122E]">
+                      {title}
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                      {text}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -97,7 +98,10 @@ export default function SoleryaHomePage() {
       <section id="solutions" className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
         <div className="grid gap-6 rounded-[36px] bg-[#FFF7EF] p-6 shadow-[0_18px_60px_rgba(8,18,46,0.06)] md:grid-cols-4 md:p-8">
           {solutions.map(([icon, title, text]) => (
-            <div key={title} className="rounded-[28px] bg-white/70 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg">
+            <div
+              key={title}
+              className="rounded-[28px] bg-white/70 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg"
+            >
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl text-[#F58220] shadow-sm">
                 {icon}
               </div>
