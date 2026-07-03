@@ -279,12 +279,22 @@ export default function SoleryaHomePage() {
                   {pack.price}
                 </div>
 
-                <button
-                  className="mt-6 text-sm font-bold transition hover:translate-x-1"
-                  style={{ color: pack.color }}
-                >
-                  Découvrir →
-                </button>
+                {pack.name === "Solerya Sérénité" ? (
+                  <Link
+                    href="/packs/serenite"
+                    className="mt-6 inline-flex items-center justify-center text-sm font-bold transition hover:translate-x-1"
+                    style={{ color: pack.color }}
+                  >
+                    Découvrir →
+                  </Link>
+                ) : (
+                  <button
+                    className="mt-6 text-sm font-bold transition hover:translate-x-1"
+                    style={{ color: pack.color }}
+                  >
+                    Découvrir →
+                  </button>
+                )}
               </div>
             );
           })}
