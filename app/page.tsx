@@ -1,5 +1,16 @@
 import Link from "next/link";
-import { HeartHandshake } from "lucide-react";
+import Image from "next/image";
+import {
+  HeartHandshake,
+  Home,
+  LampDesk,
+  CalendarClock,
+  UsersRound,
+  Check,
+  ShieldCheck,
+  Bell,
+  PhoneCall,
+} from "lucide-react";
 
 const highlights = [
   ["♡", "Solutions simples", "Faciles à installer et à utiliser au quotidien."],
@@ -8,43 +19,180 @@ const highlights = [
   ["✦", "Produits testés", "Une sélection fiable, utile et adaptée aux seniors."],
 ];
 
-const solutions = [
-  ["⌂", "Sécurité au quotidien", "Détecteurs de chute, alertes et capteurs pour protéger vos proches 24h/24."],
-  ["⌂", "Maintien à domicile", "Des solutions pour vivre chez soi plus longtemps, en toute sérénité."],
-  ["♁", "Lien et autonomie", "Gardez le lien avec vos proches et soutenez leur indépendance."],
-  ["✦", "Technologies fiables", "Des objets connectés sélectionnés pour leur efficacité et leur simplicité."],
+const packs = [
+  {
+    name: "Solerya Sérénité",
+    color: "#0B8A4A",
+    bg: "bg-emerald-50",
+    icon: Home,
+    text: "Sécurité essentielle : chute, SOS, fumée, ouverture de porte et alertes famille 24h/24.",
+    price: "Dès 39 €/mois",
+    features: [
+      "Montre avec détection de chute",
+      "Bouton SOS",
+      "Détecteur de fumée connecté",
+      "Détecteur d’ouverture de porte",
+      "Alertes sur smartphone",
+      "Application famille",
+    ],
+  },
+  {
+    name: "Solerya Confort",
+    color: "#0967D2",
+    bg: "bg-blue-50",
+    icon: LampDesk,
+    text: "Sécurité et confort à domicile : capteurs intelligents, veilleuses et surveillance du logement.",
+    price: "Dès 59 €/mois",
+    features: [
+      "Tout le pack Sérénité",
+      "Veilleuses automatiques",
+      "Capteurs de mouvement",
+      "Détecteur de fuite d’eau",
+      "Détecteur de gaz",
+      "Sonnette vidéo & caméra",
+    ],
+  },
+  {
+    name: "Solerya Autonomie",
+    color: "#8E44CC",
+    bg: "bg-purple-50",
+    icon: CalendarClock,
+    text: "Pour préserver l’indépendance : pilulier, rappels, appels vidéo et suivi des aidants.",
+    price: "Dès 79 €/mois",
+    features: [
+      "Tout le pack Confort",
+      "Pilulier intelligent",
+      "Rappels de médicaments",
+      "Appels vidéo simplifiés",
+      "Tableau de bord aidants",
+      "Suivi des habitudes de vie",
+    ],
+  },
+  {
+    name: "Solerya Signature",
+    color: "#F25A1D",
+    bg: "bg-orange-50",
+    icon: UsersRound,
+    text: "L’accompagnement complet : maintenance, Passeport Senior, assistance et coordination.",
+    price: "Dès 99 €/mois",
+    features: [
+      "Tout le pack Autonomie",
+      "Maintenance & assistance 24/7",
+      "Passeport Numérique Senior",
+      "Suivi personnalisé",
+      "Coordination à domicile",
+      "Aides & démarches simplifiées",
+    ],
+  },
 ];
 
 export default function SoleryaHomePage() {
   return (
     <main className="min-h-screen bg-white text-[#08122E]">
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto grid max-w-7xl items-start gap-14 px-6 pb-14 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-16 lg:pt-14">
-          <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_rgba(8,18,46,0.16)]">
-            <video
-              className="h-[380px] w-full object-cover lg:h-[400px]"
-              src="/family-international.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
+      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-xl">
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/solerya-logo.png"
+              alt="Solerya"
+              width={150}
+              height={60}
+              priority
+              className="h-auto w-[150px] object-contain"
             />
+          </Link>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+          <nav className="hidden items-center gap-10 text-sm font-semibold text-[#08122E] lg:flex">
+            <Link href="#solutions" className="transition hover:text-[#F58220]">
+              Nos solutions
+            </Link>
+            <Link href="#familles" className="transition hover:text-[#F58220]">
+              Pour les familles
+            </Link>
+            <Link href="#engagements" className="transition hover:text-[#F58220]">
+              Nos engagements
+            </Link>
+            <Link href="#conseils" className="transition hover:text-[#F58220]">
+              Conseils
+            </Link>
+          </nav>
 
-            <button
-              aria-label="Lire la vidéo"
-              className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl text-[#08122E] shadow-2xl transition hover:scale-105"
+          <div className="hidden items-center gap-6 lg:flex">
+            <a href="tel:0184804045" className="text-sm font-semibold">
+              01 84 80 40 45
+            </a>
+
+            <Link
+              href="#contact"
+              className="rounded-full bg-[#F58220] px-7 py-4 text-sm font-bold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
             >
-              ▶
-            </button>
+              Découvrir Solerya →
+            </Link>
+          </div>
+        </div>
+      </header>
 
-            <div className="absolute bottom-5 left-5 rounded-full bg-black/55 px-5 py-3 text-sm font-semibold text-white backdrop-blur">
-              Découvrir Solerya en 90 secondes
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
+        <div className="mx-auto grid max-w-7xl items-stretch gap-14 px-6 pb-14 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-16 lg:pt-14">
+          <div className="flex flex-col">
+            <div className="relative overflow-hidden rounded-[28px] shadow-[0_30px_80px_rgba(8,18,46,0.16)]">
+              <video
+                className="h-[380px] w-full object-cover lg:h-[400px]"
+                src="/family-international.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+
+              <button
+                aria-label="Lire la vidéo"
+                className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl text-[#08122E] shadow-2xl transition hover:scale-105"
+              >
+                ▶
+              </button>
+
+              <div className="absolute bottom-5 left-5 rounded-full bg-black/55 px-5 py-3 text-sm font-semibold text-white backdrop-blur">
+                Découvrir Solerya en 90 secondes
+              </div>
+            </div>
+
+            <div
+              id="familles"
+              className="mt-6 grid gap-4 rounded-[28px] bg-white/75 p-6 shadow-[0_18px_50px_rgba(8,18,46,0.06)] backdrop-blur sm:grid-cols-3"
+            >
+              <div className="flex gap-3">
+                <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                <p className="text-sm leading-6 text-slate-700">
+                  <strong className="text-[#08122E]">Être rassuré</strong>
+                  <br />
+                  même quand vous êtes loin.
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <Bell className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                <p className="text-sm leading-6 text-slate-700">
+                  <strong className="text-[#08122E]">Recevoir une alerte</strong>
+                  <br />
+                  au bon moment, sans intrusion.
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <PhoneCall className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                <p className="text-sm leading-6 text-slate-700">
+                  <strong className="text-[#08122E]">Être accompagné</strong>
+                  <br />
+                  par un conseiller humain.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex h-fit flex-col self-start">
+          <div className="flex h-full flex-col">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
               <HeartHandshake className="h-4 w-4 text-[#F58220]" />
               <span>Des solutions connectées pour bien vieillir chez soi</span>
@@ -66,6 +214,7 @@ export default function SoleryaHomePage() {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-lg text-[#F58220]">
                     {icon}
                   </div>
+
                   <div>
                     <p className="text-sm font-semibold text-[#08122E]">
                       {title}
@@ -78,7 +227,7 @@ export default function SoleryaHomePage() {
               ))}
             </div>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-auto flex flex-col gap-4 pt-8 sm:flex-row">
               <Link
                 href="#solutions"
                 className="rounded-full bg-[#F58220] px-8 py-4 text-center text-sm font-semibold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
@@ -97,24 +246,71 @@ export default function SoleryaHomePage() {
         </div>
       </section>
 
-      <section id="solutions" className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+      <section id="solutions" className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
         <div className="grid gap-6 rounded-[36px] bg-[#FFF7EF] p-6 shadow-[0_18px_60px_rgba(8,18,46,0.06)] md:grid-cols-4 md:p-8">
-          {solutions.map(([icon, title, text]) => (
-            <div
-              key={title}
-              className="rounded-[28px] bg-white/70 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg"
-            >
-              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl text-[#F58220] shadow-sm">
-                {icon}
+          {packs.map((pack) => {
+            const Icon = pack.icon;
+
+            return (
+              <div
+                key={pack.name}
+                className="flex min-h-[560px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
+              >
+                <div
+                  className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full ${pack.bg}`}
+                >
+                  <Icon
+                    className="h-12 w-12"
+                    strokeWidth={2.1}
+                    style={{ color: pack.color }}
+                  />
+                </div>
+
+                <h3
+                  className="text-2xl font-extrabold tracking-tight"
+                  style={{ color: pack.color }}
+                >
+                  {pack.name}
+                </h3>
+
+                <p className="mt-5 min-h-[72px] text-sm leading-6 text-slate-600">
+                  {pack.text}
+                </p>
+
+                <div className="mt-6 space-y-4 text-left">
+                  {pack.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0"
+                        strokeWidth={3}
+                        style={{ color: pack.color }}
+                      />
+                      <span className="text-sm leading-5 text-slate-700">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div
+                  className="mt-auto rounded-full px-5 py-3 text-sm font-bold"
+                  style={{
+                    color: pack.color,
+                    backgroundColor: `${pack.color}12`,
+                  }}
+                >
+                  {pack.price}
+                </div>
+
+                <button
+                  className="mt-6 text-sm font-bold transition hover:translate-x-1"
+                  style={{ color: pack.color }}
+                >
+                  Découvrir →
+                </button>
               </div>
-
-              <h3 className="text-lg font-bold tracking-tight text-[#08122E]">
-                {title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
