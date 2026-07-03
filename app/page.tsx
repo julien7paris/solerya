@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { HeartHandshake } from "lucide-react";
+import {
+  HeartHandshake,
+  Home,
+  LampDesk,
+  CalendarClock,
+  UsersRound,
+  Check,
+} from "lucide-react";
 
 const highlights = [
   ["♡", "Solutions simples", "Faciles à installer et à utiliser au quotidien."],
@@ -9,26 +16,70 @@ const highlights = [
 ];
 
 const solutions = [
-  [
-    "🟢",
-    "Solerya Sérénité",
-    "Sécurité essentielle : montre avec détection de chute, bouton SOS, détecteurs connectés et alertes famille 24h/24.",
-  ],
-  [
-    "🔵",
-    "Solerya Confort",
-    "Une maison plus sûre et agréable grâce aux capteurs intelligents, veilleuses automatiques et surveillance du domicile.",
-  ],
-  [
-    "🟣",
-    "Solerya Autonomie",
-    "Préservez l'indépendance avec rappels de médicaments, appels vidéo, pilulier intelligent et suivi des aidants.",
-  ],
-  [
-    "🟠",
-    "Solerya Signature",
-    "Notre accompagnement le plus complet : maintenance, Passeport Numérique Senior, assistance et coordination à domicile.",
-  ],
+  {
+    name: "Solerya Sérénité",
+    color: "#0B8A4A",
+    bg: "bg-emerald-50",
+    icon: Home,
+    text: "Sécurité essentielle : chute, SOS, fumée, ouverture de porte et alertes famille 24h/24.",
+    price: "Dès 39 €/mois",
+    features: [
+      "Montre avec détection de chute",
+      "Bouton SOS",
+      "Détecteur de fumée connecté",
+      "Détecteur d’ouverture de porte",
+      "Alertes sur smartphone",
+      "Application famille",
+    ],
+  },
+  {
+    name: "Solerya Confort",
+    color: "#0967D2",
+    bg: "bg-blue-50",
+    icon: LampDesk,
+    text: "Sécurité et confort à domicile : capteurs intelligents, veilleuses et surveillance du logement.",
+    price: "Dès 59 €/mois",
+    features: [
+      "Tout le pack Sérénité",
+      "Veilleuses automatiques",
+      "Capteurs de mouvement",
+      "Détecteur de fuite d’eau",
+      "Détecteur de gaz",
+      "Sonnette vidéo & caméra",
+    ],
+  },
+  {
+    name: "Solerya Autonomie",
+    color: "#8E44CC",
+    bg: "bg-purple-50",
+    icon: CalendarClock,
+    text: "Pour préserver l’indépendance : pilulier, rappels, appels vidéo et suivi des aidants.",
+    price: "Dès 79 €/mois",
+    features: [
+      "Tout le pack Confort",
+      "Pilulier intelligent",
+      "Rappels de médicaments",
+      "Appels vidéo simplifiés",
+      "Tableau de bord aidants",
+      "Suivi des habitudes de vie",
+    ],
+  },
+  {
+    name: "Solerya Signature",
+    color: "#F25A1D",
+    bg: "bg-orange-50",
+    icon: UsersRound,
+    text: "L’accompagnement complet : maintenance, Passeport Senior, assistance et coordination.",
+    price: "Dès 99 €/mois",
+    features: [
+      "Tout le pack Autonomie",
+      "Maintenance & assistance 24/7",
+      "Passeport Numérique Senior",
+      "Suivi personnalisé",
+      "Coordination à domicile",
+      "Aides & démarches simplifiées",
+    ],
+  },
 ];
 
 export default function SoleryaHomePage() {
@@ -63,9 +114,7 @@ export default function SoleryaHomePage() {
           <div className="flex flex-col">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
               <HeartHandshake className="h-4 w-4 text-[#F58220]" />
-              <span>
-                Des solutions connectées pour bien vieillir chez soi
-              </span>
+              <span>Des solutions connectées pour bien vieillir chez soi</span>
             </div>
 
             <h1 className="max-w-2xl text-5xl font-bold leading-[1.08] tracking-[-0.04em] text-[#08122E] md:text-6xl">
@@ -89,7 +138,6 @@ export default function SoleryaHomePage() {
                     <p className="text-sm font-semibold text-[#08122E]">
                       {title}
                     </p>
-
                     <p className="mt-1 text-sm leading-6 text-slate-600">
                       {text}
                     </p>
@@ -117,33 +165,71 @@ export default function SoleryaHomePage() {
         </div>
       </section>
 
-      <section
-        id="solutions"
-        className="mx-auto max-w-7xl px-6 py-8 lg:px-8"
-      >
+      <section id="solutions" className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
         <div className="grid gap-6 rounded-[36px] bg-[#FFF7EF] p-6 shadow-[0_18px_60px_rgba(8,18,46,0.06)] md:grid-cols-4 md:p-8">
-          {solutions.map(([icon, title, text]) => (
-            <div
-              key={title}
-              className="rounded-[28px] bg-white/70 p-6 transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
-            >
-              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-white text-3xl shadow-sm">
-                {icon}
+          {solutions.map((pack) => {
+            const Icon = pack.icon;
+
+            return (
+              <div
+                key={pack.name}
+                className="flex min-h-[560px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
+              >
+                <div
+                  className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full ${pack.bg}`}
+                >
+                  <Icon
+                    className="h-12 w-12"
+                    strokeWidth={2.1}
+                    style={{ color: pack.color }}
+                  />
+                </div>
+
+                <h3
+                  className="text-2xl font-extrabold tracking-tight"
+                  style={{ color: pack.color }}
+                >
+                  {pack.name}
+                </h3>
+
+                <p className="mt-5 min-h-[72px] text-sm leading-6 text-slate-600">
+                  {pack.text}
+                </p>
+
+                <div className="mt-6 space-y-4 text-left">
+                  {pack.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0"
+                        strokeWidth={3}
+                        style={{ color: pack.color }}
+                      />
+                      <span className="text-sm leading-5 text-slate-700">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div
+                  className="mt-auto rounded-full px-5 py-3 text-sm font-bold"
+                  style={{
+                    color: pack.color,
+                    backgroundColor: `${pack.color}12`,
+                  }}
+                >
+                  {pack.price}
+                </div>
+
+                <button
+                  className="mt-6 text-sm font-bold transition hover:translate-x-1"
+                  style={{ color: pack.color }}
+                >
+                  Découvrir →
+                </button>
               </div>
-
-              <h3 className="text-lg font-bold tracking-tight text-[#08122E]">
-                {title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {text}
-              </p>
-
-              <button className="mt-6 text-sm font-semibold text-[#F58220] transition hover:translate-x-1">
-                Découvrir →
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
