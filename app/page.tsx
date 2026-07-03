@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   HeartHandshake,
   Home,
@@ -17,6 +16,12 @@ const highlights = [
   ["♢", "Données sécurisées", "Respect de la vie privée et informations protégées."],
   ["☏", "Accompagnement humain", "Un conseiller vous aide à choisir les bonnes solutions."],
   ["✦", "Produits testés", "Une sélection fiable, utile et adaptée aux seniors."],
+];
+
+const stats = [
+  ["90 %", "des seniors souhaitent rester vivre chez eux le plus longtemps possible."],
+  ["1/3", "des plus de 65 ans chutent au moins une fois par an."],
+  ["24/7", "des alertes utiles pour rassurer la famille, même à distance."],
 ];
 
 const packs = [
@@ -89,49 +94,6 @@ const packs = [
 export default function SoleryaHomePage() {
   return (
     <main className="min-h-screen bg-white text-[#08122E]">
-      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/solerya-logo.png"
-              alt="Solerya"
-              width={150}
-              height={60}
-              priority
-              className="h-auto w-[150px] object-contain"
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-10 text-sm font-semibold text-[#08122E] lg:flex">
-            <Link href="#solutions" className="transition hover:text-[#F58220]">
-              Nos solutions
-            </Link>
-            <Link href="#familles" className="transition hover:text-[#F58220]">
-              Pour les familles
-            </Link>
-            <Link href="#engagements" className="transition hover:text-[#F58220]">
-              Nos engagements
-            </Link>
-            <Link href="#conseils" className="transition hover:text-[#F58220]">
-              Conseils
-            </Link>
-          </nav>
-
-          <div className="hidden items-center gap-6 lg:flex">
-            <a href="tel:0184804045" className="text-sm font-semibold">
-              01 84 80 40 45
-            </a>
-
-            <Link
-              href="#contact"
-              className="rounded-full bg-[#F58220] px-7 py-4 text-sm font-bold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
-            >
-              Découvrir Solerya →
-            </Link>
-          </div>
-        </div>
-      </header>
-
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
         <div className="mx-auto grid max-w-7xl items-stretch gap-14 px-6 pb-14 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-16 lg:pt-14">
           <div className="flex flex-col">
@@ -161,33 +123,48 @@ export default function SoleryaHomePage() {
 
             <div
               id="familles"
-              className="mt-6 grid gap-4 rounded-[28px] bg-white/75 p-6 shadow-[0_18px_50px_rgba(8,18,46,0.06)] backdrop-blur sm:grid-cols-3"
+              className="mt-6 rounded-[28px] bg-white/80 p-6 shadow-[0_18px_50px_rgba(8,18,46,0.06)] backdrop-blur"
             >
-              <div className="flex gap-3">
-                <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
-                <p className="text-sm leading-6 text-slate-700">
-                  <strong className="text-[#08122E]">Être rassuré</strong>
-                  <br />
-                  même quand vous êtes loin.
-                </p>
+              <div className="grid gap-5 sm:grid-cols-3">
+                <div className="flex gap-3">
+                  <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                  <p className="text-sm leading-6 text-slate-700">
+                    <strong className="text-[#08122E]">Être rassuré</strong>
+                    <br />
+                    même quand vous êtes loin.
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <Bell className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                  <p className="text-sm leading-6 text-slate-700">
+                    <strong className="text-[#08122E]">Recevoir une alerte</strong>
+                    <br />
+                    au bon moment, sans intrusion.
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <PhoneCall className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
+                  <p className="text-sm leading-6 text-slate-700">
+                    <strong className="text-[#08122E]">Être accompagné</strong>
+                    <br />
+                    par un conseiller humain.
+                  </p>
+                </div>
               </div>
 
-              <div className="flex gap-3">
-                <Bell className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
-                <p className="text-sm leading-6 text-slate-700">
-                  <strong className="text-[#08122E]">Recevoir une alerte</strong>
-                  <br />
-                  au bon moment, sans intrusion.
-                </p>
-              </div>
-
-              <div className="flex gap-3">
-                <PhoneCall className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
-                <p className="text-sm leading-6 text-slate-700">
-                  <strong className="text-[#08122E]">Être accompagné</strong>
-                  <br />
-                  par un conseiller humain.
-                </p>
+              <div className="mt-6 grid gap-4 border-t border-orange-100 pt-5 sm:grid-cols-3">
+                {stats.map(([number, text]) => (
+                  <div key={number}>
+                    <p className="text-3xl font-extrabold tracking-tight text-[#F58220]">
+                      {number}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-slate-600">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
