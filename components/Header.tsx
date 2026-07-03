@@ -38,7 +38,7 @@ export default function Header() {
             href="tel:0618100348"
             className="text-[15px] font-semibold text-[#12223B]"
           >
-            01&nbsp;84&nbsp;80&nbsp;40&nbsp;45
+            06&nbsp;18&nbsp;10&nbsp;03&nbsp;48
           </a>
 
           <Link
