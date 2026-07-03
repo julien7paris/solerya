@@ -5,45 +5,63 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/40 bg-white/75 backdrop-blur-2xl">
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
+        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/Logo Solerya.png"
             alt="Solerya"
-            width={230}
-            height={80}
+            width={190}
+            height={55}
             priority
-            className="h-16 w-auto"
+            className="h-14 w-auto object-contain"
           />
         </Link>
 
-        <nav className="hidden items-center gap-9 text-[15px] font-medium text-[#12223B] lg:flex">
-          <Link href="#solutions" className="hover:text-[#F58220]">
+        {/* Navigation */}
+        <nav className="hidden items-center gap-10 text-[15px] font-medium text-[#12223B] lg:flex">
+          <Link
+            href="#solutions"
+            className="transition-colors duration-200 hover:text-[#F58220]"
+          >
             Nos solutions
           </Link>
-          <Link href="#familles" className="hover:text-[#F58220]">
+
+          <Link
+            href="#familles"
+            className="transition-colors duration-200 hover:text-[#F58220]"
+          >
             Pour les familles
           </Link>
-          <Link href="#engagements" className="hover:text-[#F58220]">
+
+          <Link
+            href="#engagements"
+            className="transition-colors duration-200 hover:text-[#F58220]"
+          >
             Nos engagements
           </Link>
-          <Link href="#conseils" className="hover:text-[#F58220]">
+
+          <Link
+            href="#conseils"
+            className="transition-colors duration-200 hover:text-[#F58220]"
+          >
             Conseils
           </Link>
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        {/* CTA */}
+        <div className="hidden items-center gap-6 lg:flex">
           <a
             href="tel:0184804045"
-            className="text-sm font-medium text-[#12223B]"
+            className="text-[15px] font-semibold text-[#12223B]"
           >
-            01 84 80 40 45
+            01&nbsp;84&nbsp;80&nbsp;40&nbsp;45
           </a>
 
           <Link
             href="#solutions"
-            className="rounded-full bg-[#F58220] px-6 py-3 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(245,130,32,0.28)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
+            className="rounded-full bg-[#F58220] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E36E08]"
           >
             Découvrir Solerya →
           </Link>
