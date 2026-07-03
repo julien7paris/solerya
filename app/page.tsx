@@ -86,7 +86,7 @@ export default function SoleryaHomePage() {
   return (
     <main className="min-h-screen bg-white text-[#08122E]">
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto grid max-w-7xl items-start gap-14 px-6 pb-14 pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-20 lg:pt-16">
+        <div className="mx-auto grid max-w-7xl items-stretch gap-14 px-6 pb-14 pt-12 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:pb-20 lg:pt-16">
           <div className="relative overflow-hidden rounded-[34px] shadow-[0_30px_80px_rgba(8,18,46,0.16)]">
             <video
               className="h-full min-h-[460px] w-full object-cover"
@@ -111,7 +111,7 @@ export default function SoleryaHomePage() {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          <div className="flex h-full min-h-[460px] flex-col">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
               <HeartHandshake className="h-4 w-4 text-[#F58220]" />
               <span>Des solutions connectées pour bien vieillir chez soi</span>
@@ -146,7 +146,7 @@ export default function SoleryaHomePage() {
               ))}
             </div>
 
-            <div className="mt-11 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-auto flex flex-col gap-4 pt-10 sm:flex-row">
               <Link
                 href="#solutions"
                 className="rounded-full bg-[#F58220] px-8 py-4 text-center text-sm font-semibold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
@@ -165,7 +165,7 @@ export default function SoleryaHomePage() {
         </div>
       </section>
 
-      <section id="solutions" className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+      <section id="solutions" className="mx-auto -mt-8 max-w-7xl px-6 pb-8 lg:px-8">
         <div className="grid gap-6 rounded-[36px] bg-[#FFF7EF] p-6 shadow-[0_18px_60px_rgba(8,18,46,0.06)] md:grid-cols-4 md:p-8">
           {solutions.map((pack) => {
             const Icon = pack.icon;
