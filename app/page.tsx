@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeartHandshake } from "lucide-react";
 
 const highlights = [
   ["♡", "Solutions simples", "Faciles à installer et à utiliser au quotidien."],
@@ -45,7 +46,10 @@ export default function SoleryaHomePage() {
 
           <div className="flex flex-col justify-center">
             <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
-              ♢ N°1 des objets connectés pour le bien vieillir à domicile
+              <HeartHandshake className="h-4 w-4 text-[#F58220]" />
+              <span>
+                Des solutions connectées pour bien vieillir chez soi
+              </span>
             </div>
 
             <h1 className="max-w-2xl text-5xl font-bold leading-[1.08] tracking-[-0.04em] text-[#08122E] md:text-6xl">
