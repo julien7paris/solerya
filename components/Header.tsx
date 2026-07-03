@@ -35,7 +35,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-6 lg:flex">
           <a
-            href="tel:0184804045"
+            href="tel:0618100348"
             className="text-[15px] font-semibold text-[#12223B]"
           >
             01&nbsp;84&nbsp;80&nbsp;40&nbsp;45
