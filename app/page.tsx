@@ -27,6 +27,7 @@ const stats = [
 const packs = [
   {
     name: "Solerya Sérénité",
+    href: "/packs/serenite",
     color: "#0B8A4A",
     bg: "bg-emerald-50",
     icon: Home,
@@ -43,6 +44,7 @@ const packs = [
   },
   {
     name: "Solerya Confort",
+    href: "#solutions",
     color: "#0967D2",
     bg: "bg-blue-50",
     icon: LampDesk,
@@ -59,6 +61,7 @@ const packs = [
   },
   {
     name: "Solerya Autonomie",
+    href: "#solutions",
     color: "#8E44CC",
     bg: "bg-purple-50",
     icon: CalendarClock,
@@ -75,6 +78,7 @@ const packs = [
   },
   {
     name: "Solerya Signature",
+    href: "#solutions",
     color: "#F25A1D",
     bg: "bg-orange-50",
     icon: UsersRound,
@@ -229,9 +233,10 @@ export default function SoleryaHomePage() {
             const Icon = pack.icon;
 
             return (
-              <div
+              <Link
                 key={pack.name}
-                className="flex min-h-[560px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
+                href={pack.href}
+                className="group flex min-h-[560px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
               >
                 <div
                   className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full ${pack.bg}`}
@@ -279,23 +284,13 @@ export default function SoleryaHomePage() {
                   {pack.price}
                 </div>
 
-                {pack.name === "Solerya Sérénité" ? (
-                  <Link
-                    href="/packs/serenite"
-                    className="mt-6 inline-flex items-center justify-center text-sm font-bold transition hover:translate-x-1"
-                    style={{ color: pack.color }}
-                  >
-                    Découvrir →
-                  </Link>
-                ) : (
-                  <button
-                    className="mt-6 text-sm font-bold transition hover:translate-x-1"
-                    style={{ color: pack.color }}
-                  >
-                    Découvrir →
-                  </button>
-                )}
-              </div>
+                <span
+                  className="mt-6 text-sm font-bold transition group-hover:translate-x-1"
+                  style={{ color: pack.color }}
+                >
+                  Découvrir →
+                </span>
+              </Link>
             );
           })}
         </div>
