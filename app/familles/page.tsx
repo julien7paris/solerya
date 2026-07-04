@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Bath,
   BedDouble,
-  Bell,
   CalendarClock,
   CheckCircle2,
   ChefHat,
@@ -17,7 +16,6 @@ import {
   Phone,
   ShieldCheck,
   Sofa,
-  Watch,
 } from "lucide-react";
 
 const rooms = [
@@ -27,13 +25,25 @@ const rooms = [
     icon: BedDouble,
     color: "#8E44CC",
     soft: "#F5ECFF",
-    grid: "col-start-1 row-start-1",
+    area: "col-start-1 col-span-2 row-start-1 row-span-2",
     description:
       "Un espace clé pour prévenir les chutes nocturnes, sécuriser les levers et rassurer les proches.",
     products: [
-      ["Montre détecteur de chute", "Alerte automatique en cas de chute ou d’immobilité."],
-      ["Veilleuse automatique", "S’allume la nuit pour sécuriser les déplacements."],
-      ["Bouton SOS", "Permet de déclencher une alerte rapidement."],
+      {
+        type: "watch",
+        title: "Montre détecteur de chute",
+        text: "Alerte automatique en cas de chute ou d’immobilité.",
+      },
+      {
+        type: "nightlight",
+        title: "Veilleuse automatique",
+        text: "S’allume la nuit pour sécuriser les déplacements.",
+      },
+      {
+        type: "sos",
+        title: "Bouton SOS",
+        text: "Permet de déclencher une alerte rapidement.",
+      },
     ],
     benefit:
       "Votre proche reste indépendant, et vous êtes alerté uniquement en cas d’anomalie.",
@@ -47,13 +57,25 @@ const rooms = [
     icon: Bath,
     color: "#0B8A4A",
     soft: "#E9FFF3",
-    grid: "col-start-2 row-start-1",
+    area: "col-start-3 col-span-1 row-start-1 row-span-2",
     description:
       "Une pièce sensible où la détection rapide d’un incident peut faire toute la différence.",
     products: [
-      ["Montre détecteur de chute", "Alerte automatiquement en cas de chute."],
-      ["Détecteur de fuite", "Préviens en cas de présence d’eau anormale."],
-      ["Capteur de présence", "Aide à identifier les situations inhabituelles."],
+      {
+        type: "watch",
+        title: "Montre détecteur de chute",
+        text: "Alerte automatiquement en cas de chute.",
+      },
+      {
+        type: "leak",
+        title: "Détecteur de fuite",
+        text: "Préviens en cas de présence d’eau anormale.",
+      },
+      {
+        type: "sensor",
+        title: "Capteur de présence",
+        text: "Aide à identifier les situations inhabituelles.",
+      },
     ],
     benefit:
       "La famille peut être prévenue rapidement dans l’une des pièces les plus à risque.",
@@ -67,13 +89,25 @@ const rooms = [
     icon: Sofa,
     color: "#0967D2",
     soft: "#EAF4FF",
-    grid: "col-start-1 row-start-2",
+    area: "col-start-1 col-span-2 row-start-3 row-span-2",
     description:
       "Le salon devient un espace rassurant pour garder le lien et suivre les habitudes de vie.",
     products: [
-      ["Appels vidéo simplifiés", "Maintient le lien avec la famille sans complexité."],
-      ["Capteur de mouvement", "Repère les habitudes sans intrusion."],
-      ["Caméra optionnelle", "Permet une levée de doute en cas d’alerte."],
+      {
+        type: "tablet",
+        title: "Appels vidéo simplifiés",
+        text: "Maintient le lien avec la famille sans complexité.",
+      },
+      {
+        type: "sensor",
+        title: "Capteur de mouvement",
+        text: "Repère les habitudes sans intrusion.",
+      },
+      {
+        type: "camera",
+        title: "Caméra optionnelle",
+        text: "Permet une levée de doute en cas d’alerte.",
+      },
     ],
     benefit:
       "La famille garde un lien simple et reçoit les bonnes informations au bon moment.",
@@ -87,13 +121,25 @@ const rooms = [
     icon: ChefHat,
     color: "#F25A1D",
     soft: "#FFF1E6",
-    grid: "col-start-2 row-start-2",
+    area: "col-start-3 col-span-2 row-start-3 row-span-2",
     description:
       "La cuisine est sécurisée grâce aux alertes fumée, fuite et rappels de traitement.",
     products: [
-      ["Détecteur de fumée connecté", "Alerte en cas de fumée détectée."],
-      ["Détecteur de fuite", "Préviens avant qu’un dégât ne s’aggrave."],
-      ["Pilulier intelligent", "Rappelle les prises de médicaments à l’heure."],
+      {
+        type: "smoke",
+        title: "Détecteur de fumée connecté",
+        text: "Alerte en cas de fumée détectée.",
+      },
+      {
+        type: "leak",
+        title: "Détecteur de fuite",
+        text: "Préviens avant qu’un dégât ne s’aggrave.",
+      },
+      {
+        type: "pillbox",
+        title: "Pilulier intelligent",
+        text: "Rappelle les prises de médicaments à l’heure.",
+      },
     ],
     benefit:
       "Les incidents domestiques sont détectés plus tôt, sans perturber la vie quotidienne.",
@@ -107,13 +153,25 @@ const rooms = [
     icon: DoorOpen,
     color: "#D97706",
     soft: "#FFF7E6",
-    grid: "col-start-1 row-start-3",
+    area: "col-start-1 col-span-1 row-start-5 row-span-1",
     description:
       "L’entrée sécurise les accès et permet de mieux comprendre les sorties inhabituelles.",
     products: [
-      ["Détecteur d’ouverture", "Alerte en cas d’ouverture inhabituelle."],
-      ["Sonnette vidéo", "Permet de voir qui se présente au domicile."],
-      ["Application famille", "Centralise les alertes importantes."],
+      {
+        type: "door",
+        title: "Détecteur d’ouverture",
+        text: "Alerte en cas d’ouverture inhabituelle.",
+      },
+      {
+        type: "doorbell",
+        title: "Sonnette vidéo",
+        text: "Permet de voir qui se présente au domicile.",
+      },
+      {
+        type: "phone",
+        title: "Application famille",
+        text: "Centralise les alertes importantes.",
+      },
     ],
     benefit:
       "Vous êtes rassuré sur les entrées, les sorties et les visites au domicile.",
@@ -127,13 +185,25 @@ const rooms = [
     icon: LampDesk,
     color: "#64748B",
     soft: "#F1F5F9",
-    grid: "col-start-2 row-start-3",
+    area: "col-start-2 col-span-3 row-start-5 row-span-1",
     description:
       "Les zones de passage deviennent plus sûres, surtout pendant les déplacements nocturnes.",
     products: [
-      ["Veilleuse automatique", "S’allume au passage la nuit."],
-      ["Capteur de mouvement", "Repère les déplacements inhabituels."],
-      ["Éclairage intelligent", "Limite les risques de chute."],
+      {
+        type: "nightlight",
+        title: "Veilleuse automatique",
+        text: "S’allume au passage la nuit.",
+      },
+      {
+        type: "sensor",
+        title: "Capteur de mouvement",
+        text: "Repère les déplacements inhabituels.",
+      },
+      {
+        type: "phone",
+        title: "Alerte famille",
+        text: "Informe uniquement en cas de situation anormale.",
+      },
     ],
     benefit:
       "Les déplacements sont plus sûrs, sans que votre proche ait besoin d’y penser.",
@@ -187,79 +257,78 @@ export default function FamillesPage() {
 
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="relative overflow-hidden rounded-[44px] bg-[linear-gradient(145deg,#F8FBFF,#FFF8F1)] p-6 shadow-[0_30px_90px_rgba(8,18,46,0.10)] md:p-10">
-            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-100/60 blur-3xl" />
-            <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-blue-100/70 blur-3xl" />
+            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-orange-100/70 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-100/70 blur-3xl" />
 
-            <div className="relative mx-auto max-w-4xl">
-              <div className="mb-8 flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm font-extrabold text-[#F58220]">
-                    Maison virtuelle
-                  </p>
-                  <h2 className="mt-2 text-3xl font-extrabold">
-                    Les pièces connectées
-                  </h2>
-                </div>
-
-                <div className="hidden rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-600 shadow-sm sm:block">
-                  6 pièces à explorer
-                </div>
+            <div className="relative mb-8 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-extrabold text-[#F58220]">
+                  Maison virtuelle
+                </p>
+                <h2 className="mt-2 text-3xl font-extrabold">
+                  Les pièces connectées
+                </h2>
               </div>
 
-              <div className="relative mx-auto min-h-[620px] max-w-[760px]">
-                <div className="absolute left-1/2 top-1/2 h-[500px] w-[620px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rotate-[30deg] skew-x-[-30deg] rounded-[46px] bg-white shadow-[34px_44px_80px_rgba(8,18,46,0.16)]" />
+              <div className="hidden rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-600 shadow-sm sm:block">
+                6 pièces à explorer
+              </div>
+            </div>
 
-                <div className="absolute left-1/2 top-1/2 grid h-[500px] w-[620px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2 rotate-[30deg] skew-x-[-30deg] grid-cols-2 grid-rows-3 gap-4 p-5">
-                  {rooms.map((room) => {
-                    const isActive = activeRoom.id === room.id;
+            <div className="relative rounded-[38px] border border-white bg-white/70 p-5 shadow-inner backdrop-blur">
+              <div className="grid min-h-[620px] grid-cols-4 grid-rows-5 gap-4">
+                {rooms.map((room) => {
+                  const Icon = room.icon;
+                  const isActive = activeRoom.id === room.id;
 
-                    return (
-                      <button
-                        key={room.id}
-                        type="button"
-                        onClick={() => setActiveRoom(room)}
-                        className={`${room.grid} relative overflow-hidden rounded-[26px] border text-left shadow-sm transition duration-300 hover:-translate-y-1 ${
-                          isActive
-                            ? "border-[#F58220] bg-white shadow-2xl"
-                            : "border-white/80 bg-white/80"
-                        }`}
-                      >
-                        <div
-                          className="absolute inset-0 opacity-80"
-                          style={{
-                            background: `linear-gradient(135deg, ${room.soft}, #ffffff)`,
-                          }}
-                        />
+                  return (
+                    <button
+                      key={room.id}
+                      type="button"
+                      onClick={() => setActiveRoom(room)}
+                      className={`${room.area} group relative overflow-hidden rounded-[30px] border p-5 text-left transition duration-300 hover:-translate-y-1 ${
+                        isActive
+                          ? "border-[#F58220] bg-white shadow-[0_22px_60px_rgba(8,18,46,0.16)]"
+                          : "border-slate-100 bg-white/85 shadow-[0_12px_35px_rgba(8,18,46,0.07)] hover:bg-white"
+                      }`}
+                    >
+                      <div
+                        className="absolute inset-0 opacity-90"
+                        style={{
+                          background: `radial-gradient(circle at 20% 10%, ${room.soft}, transparent 45%), linear-gradient(135deg, #ffffff, ${room.soft})`,
+                        }}
+                      />
 
-                        <div className="absolute inset-x-4 top-4 h-10 rounded-full bg-white/70 blur-xl" />
-
-                        <div className="relative flex h-full rotate-[-30deg] skew-x-[30deg] flex-col justify-between p-5">
-                          <div>
-                            <RoomFurniture roomId={room.id} color={room.color} />
-
-                            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#08122E] px-3 py-2 text-xs font-extrabold text-white shadow-lg">
-                              {room.name}
-                            </div>
+                      <div className="relative flex h-full flex-col justify-between">
+                        <div className="flex items-start justify-between gap-4">
+                          <div
+                            className="flex h-13 w-13 items-center justify-center rounded-2xl p-3 shadow-sm"
+                            style={{ backgroundColor: room.soft, color: room.color }}
+                          >
+                            <Icon className="h-7 w-7" />
                           </div>
 
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-slate-500">
-                              Découvrir
-                            </span>
-                            <span
-                              className="h-3 w-3 rounded-full shadow-[0_0_18px_currentColor]"
-                              style={{ color: room.color, backgroundColor: room.color }}
-                            />
-                          </div>
+                          <span
+                            className="h-3 w-3 rounded-full shadow-[0_0_18px_currentColor]"
+                            style={{
+                              color: room.color,
+                              backgroundColor: room.color,
+                            }}
+                          />
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
 
-                <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#08122E] text-white shadow-2xl">
-                  <Home className="h-11 w-11" />
-                </div>
+                        <RoomScene roomId={room.id} color={room.color} />
+
+                        <div>
+                          <p className="text-2xl font-extrabold">{room.name}</p>
+                          <p className="mt-2 text-sm font-semibold text-slate-500">
+                            Découvrir les solutions →
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -269,7 +338,10 @@ export default function FamillesPage() {
               <div>
                 <div
                   className="flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{ backgroundColor: activeRoom.soft, color: activeRoom.color }}
+                  style={{
+                    backgroundColor: activeRoom.soft,
+                    color: activeRoom.color,
+                  }}
                 >
                   <ActiveIcon className="h-8 w-8" />
                 </div>
@@ -285,7 +357,10 @@ export default function FamillesPage() {
 
               <div
                 className="flex h-24 w-24 items-center justify-center rounded-[28px]"
-                style={{ backgroundColor: activeRoom.soft, color: activeRoom.color }}
+                style={{
+                  backgroundColor: activeRoom.soft,
+                  color: activeRoom.color,
+                }}
               >
                 <ActiveIcon className="h-11 w-11" />
               </div>
@@ -301,19 +376,17 @@ export default function FamillesPage() {
               </p>
 
               <div className="mt-5 space-y-3">
-                {activeRoom.products.map(([title, text]) => (
+                {activeRoom.products.map((product) => (
                   <div
-                    key={title}
-                    className="grid grid-cols-[46px_1fr_22px] items-center gap-4 rounded-[20px] bg-white p-3 shadow-sm"
+                    key={product.title}
+                    className="grid grid-cols-[70px_1fr_22px] items-center gap-4 rounded-[22px] bg-white p-3 shadow-[0_8px_24px_rgba(8,18,46,0.08)]"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50">
-                      <Watch className="h-6 w-6 text-[#08122E]" />
-                    </div>
+                    <ProductVisual type={product.type} color={activeRoom.color} />
 
                     <div>
-                      <p className="text-sm font-extrabold">{title}</p>
+                      <p className="text-sm font-extrabold">{product.title}</p>
                       <p className="mt-1 text-xs leading-5 text-slate-500">
-                        {text}
+                        {product.text}
                       </p>
                     </div>
 
@@ -347,7 +420,10 @@ export default function FamillesPage() {
                 <div className="flex items-center justify-between gap-4">
                   <div
                     className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
-                    style={{ backgroundColor: activeRoom.soft, color: activeRoom.color }}
+                    style={{
+                      backgroundColor: activeRoom.soft,
+                      color: activeRoom.color,
+                    }}
                   >
                     <CalendarClock className="h-7 w-7" />
                   </div>
@@ -406,7 +482,7 @@ export default function FamillesPage() {
   );
 }
 
-function RoomFurniture({
+function RoomScene({
   roomId,
   color,
 }: {
@@ -415,61 +491,194 @@ function RoomFurniture({
 }) {
   if (roomId === "chambre") {
     return (
-      <div className="relative h-20">
-        <div className="absolute left-2 top-4 h-11 w-20 rounded-xl bg-white shadow-md" />
-        <div className="absolute left-5 top-1 h-7 w-14 rounded-lg bg-slate-200" />
-        <div className="absolute right-7 top-3 h-12 w-8 rounded-lg bg-amber-100 shadow-sm" />
-        <div className="absolute right-11 top-0 h-4 w-4 rounded-full bg-amber-300 shadow-[0_0_18px_rgba(245,158,11,0.65)]" />
+      <div className="relative my-5 h-28">
+        <div className="absolute left-3 top-6 h-16 w-36 rounded-[24px] bg-white shadow-xl" />
+        <div className="absolute left-8 top-1 h-11 w-24 rounded-[18px] bg-slate-200" />
+        <div className="absolute right-8 top-6 h-20 w-12 rounded-[18px] bg-amber-100 shadow-lg" />
+        <div className="absolute right-12 top-1 h-6 w-6 rounded-full bg-amber-300 shadow-[0_0_30px_rgba(245,158,11,0.7)]" />
+        <div className="absolute bottom-2 left-20 h-3 w-20 rounded-full bg-slate-200" />
       </div>
     );
   }
 
   if (roomId === "salon") {
     return (
-      <div className="relative h-20">
-        <div className="absolute left-2 top-7 h-9 w-24 rounded-2xl bg-slate-300 shadow-md" />
-        <div className="absolute right-5 top-5 h-14 w-14 rounded-full bg-amber-100 shadow-sm" />
-        <div className="absolute right-9 top-9 h-5 w-5 rounded-full" style={{ backgroundColor: color }} />
+      <div className="relative my-5 h-28">
+        <div className="absolute left-4 top-8 h-16 w-40 rounded-[26px] bg-slate-300 shadow-xl" />
+        <div className="absolute right-10 top-8 h-16 w-16 rounded-full bg-amber-100 shadow-lg" />
+        <div
+          className="absolute right-16 top-14 h-6 w-6 rounded-full"
+          style={{ backgroundColor: color }}
+        />
+        <div className="absolute bottom-2 left-12 h-4 w-32 rounded-full bg-slate-200" />
       </div>
     );
   }
 
   if (roomId === "cuisine") {
     return (
-      <div className="relative h-20">
-        <div className="absolute left-2 top-5 h-12 w-28 rounded-xl bg-white shadow-md" />
-        <div className="absolute left-6 top-8 h-5 w-5 rounded-full bg-slate-300" />
-        <div className="absolute left-14 top-8 h-5 w-5 rounded-full bg-slate-300" />
-        <div className="absolute right-7 top-2 h-14 w-8 rounded-lg bg-slate-300 shadow-sm" />
+      <div className="relative my-5 h-28">
+        <div className="absolute left-4 top-7 h-16 w-44 rounded-[22px] bg-white shadow-xl" />
+        <div className="absolute left-10 top-12 h-7 w-7 rounded-full bg-slate-300" />
+        <div className="absolute left-24 top-12 h-7 w-7 rounded-full bg-slate-300" />
+        <div className="absolute right-8 top-4 h-22 w-12 rounded-[18px] bg-slate-300 shadow-lg" />
+        <div className="absolute bottom-1 left-20 h-4 w-24 rounded-full bg-amber-200" />
       </div>
     );
   }
 
   if (roomId === "salle-bain") {
     return (
-      <div className="relative h-20">
-        <div className="absolute left-3 top-7 h-11 w-16 rounded-full bg-white shadow-md" />
-        <div className="absolute right-7 top-3 h-16 w-10 rounded-xl bg-slate-200 shadow-sm" />
-        <div className="absolute right-10 top-5 h-3 w-3 rounded-full" style={{ backgroundColor: color }} />
+      <div className="relative my-5 h-28">
+        <div className="absolute left-5 top-10 h-14 w-24 rounded-full bg-white shadow-xl" />
+        <div className="absolute right-7 top-4 h-24 w-14 rounded-[22px] bg-slate-200 shadow-lg" />
+        <div
+          className="absolute right-12 top-9 h-4 w-4 rounded-full"
+          style={{ backgroundColor: color }}
+        />
+        <div className="absolute left-12 top-5 h-6 w-14 rounded-full bg-blue-100" />
       </div>
     );
   }
 
   if (roomId === "entree") {
     return (
-      <div className="relative h-20">
-        <div className="absolute left-8 top-2 h-16 w-10 rounded-xl bg-amber-200 shadow-md" />
-        <div className="absolute left-11 top-9 h-2 w-2 rounded-full bg-[#08122E]" />
-        <div className="absolute right-7 top-8 h-7 w-14 rounded-lg bg-slate-200 shadow-sm" />
+      <div className="relative my-5 h-20">
+        <div className="absolute left-6 top-0 h-20 w-14 rounded-[20px] bg-amber-200 shadow-xl" />
+        <div className="absolute left-12 top-10 h-2 w-2 rounded-full bg-[#08122E]" />
+        <div className="absolute right-10 top-8 h-8 w-20 rounded-xl bg-slate-200 shadow-md" />
       </div>
     );
   }
 
   return (
-    <div className="relative h-20">
-      <div className="absolute left-8 top-2 h-16 w-12 rounded-xl bg-slate-200 shadow-md" />
-      <div className="absolute right-8 top-9 h-5 w-5 rounded-full bg-amber-300 shadow-[0_0_18px_rgba(245,158,11,0.65)]" />
-      <div className="absolute right-14 top-6 h-10 w-2 rounded-full bg-slate-300" />
+    <div className="relative my-5 h-20">
+      <div className="absolute left-10 top-0 h-20 w-16 rounded-[20px] bg-slate-200 shadow-xl" />
+      <div className="absolute right-12 top-11 h-7 w-7 rounded-full bg-amber-300 shadow-[0_0_30px_rgba(245,158,11,0.75)]" />
+      <div className="absolute right-20 top-5 h-14 w-3 rounded-full bg-slate-300" />
+    </div>
+  );
+}
+
+function ProductVisual({
+  type,
+  color,
+}: {
+  type: string;
+  color: string;
+}) {
+  return (
+    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8FAFC] shadow-inner">
+      {type === "watch" && (
+        <div className="relative h-12 w-8">
+          <div className="absolute left-2 top-0 h-4 w-4 rounded-t-lg bg-[#111827]" />
+          <div className="absolute left-2 bottom-0 h-4 w-4 rounded-b-lg bg-[#111827]" />
+          <div className="absolute left-0 top-3 h-7 w-8 rounded-xl bg-[#111827] shadow-lg" />
+          <div
+            className="absolute left-2 top-5 h-4 w-4 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "nightlight" && (
+        <div className="relative h-12 w-8 rounded-2xl bg-white shadow-lg">
+          <div className="absolute inset-x-2 top-2 h-3 rounded-full bg-slate-200" />
+          <div className="absolute bottom-2 left-1/2 h-5 w-3 -translate-x-1/2 rounded-full bg-amber-300 shadow-[0_0_22px_rgba(245,158,11,0.8)]" />
+        </div>
+      )}
+
+      {type === "sos" && (
+        <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg">
+          <div
+            className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-black text-white"
+            style={{ backgroundColor: color }}
+          >
+            SOS
+          </div>
+        </div>
+      )}
+
+      {type === "leak" && (
+        <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg">
+          <div className="h-8 w-6 rounded-b-full rounded-t-[20px] bg-blue-300" />
+        </div>
+      )}
+
+      {type === "sensor" && (
+        <div className="relative h-12 w-12 rounded-full bg-white shadow-lg">
+          <div className="absolute inset-2 rounded-full border-4 border-slate-200" />
+          <div
+            className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "tablet" && (
+        <div className="relative h-12 w-16 rounded-xl bg-[#111827] p-1 shadow-lg">
+          <div className="h-full w-full rounded-lg bg-blue-100" />
+          <div
+            className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "camera" && (
+        <div className="relative h-12 w-12 rounded-2xl bg-white shadow-lg">
+          <div className="absolute left-3 top-3 h-6 w-6 rounded-full bg-[#111827]" />
+          <div
+            className="absolute left-5 top-5 h-2 w-2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "smoke" && (
+        <div className="relative h-10 w-14 rounded-full bg-white shadow-lg">
+          <div className="absolute left-3 top-3 h-2 w-8 rounded-full bg-slate-200" />
+          <div
+            className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "pillbox" && (
+        <div className="grid h-12 w-12 grid-cols-2 gap-1 rounded-xl bg-white p-1 shadow-lg">
+          <div className="rounded-lg bg-blue-100" />
+          <div className="rounded-lg bg-orange-100" />
+          <div className="rounded-lg bg-emerald-100" />
+          <div className="rounded-lg bg-purple-100" />
+        </div>
+      )}
+
+      {type === "door" && (
+        <div className="relative h-12 w-8 rounded-lg bg-amber-200 shadow-lg">
+          <div className="absolute right-1 top-6 h-1.5 w-1.5 rounded-full bg-[#08122E]" />
+        </div>
+      )}
+
+      {type === "doorbell" && (
+        <div className="relative h-12 w-8 rounded-xl bg-white shadow-lg">
+          <div className="absolute left-2 top-2 h-4 w-4 rounded-full bg-[#111827]" />
+          <div
+            className="absolute bottom-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
+
+      {type === "phone" && (
+        <div className="relative h-12 w-7 rounded-xl bg-[#111827] p-1 shadow-lg">
+          <div className="h-full w-full rounded-lg bg-white" />
+          <div
+            className="absolute left-1/2 top-5 h-3 w-3 -translate-x-1/2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        </div>
+      )}
     </div>
   );
 }
