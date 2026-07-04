@@ -68,7 +68,7 @@ const packs = [
     text: "Pour préserver l’indépendance : pilulier, rappels, appels vidéo et suivi des aidants.",
     price: "Dès 79 €/mois",
     features: [
-      "Tout le pack Confort",
+      "Tout le pack Sérénité",
       "Pilulier intelligent",
       "Rappels de médicaments",
       "Appels vidéo simplifiés",
