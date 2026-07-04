@@ -21,7 +21,7 @@ const highlights = [
 const stats = [
   ["90 %", "des seniors souhaitent rester vivre chez eux le plus longtemps possible."],
   ["1/3", "des plus de 65 ans chutent au moins une fois par an."],
-  ["24/7", "des alertes utiles pour rassurer la famille, même à distance."],
+  ["24/7", "des informations utiles pour rassurer la famille, même à distance."],
 ];
 
 const packs = [
@@ -143,7 +143,7 @@ export default function SoleryaHomePage() {
                 <div className="flex gap-3">
                   <Bell className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
                   <p className="text-sm leading-6 text-slate-700">
-                    <strong className="text-[#08122E]">Recevoir une alerte</strong>
+                    <strong className="text-[#08122E]">Être prévenu</strong>
                     <br />
                     au bon moment, sans intrusion.
                   </p>
@@ -281,14 +281,16 @@ export default function SoleryaHomePage() {
                   ))}
                 </div>
 
-                <div
-                  className="mt-auto rounded-full px-5 py-3 text-sm font-bold"
-                  style={{
-                    color: pack.color,
-                    backgroundColor: `${pack.color}12`,
-                  }}
-                >
-                  {pack.price}
+                <div className="mt-auto pt-10">
+                  <div
+                    className="rounded-full px-5 py-3 text-sm font-bold"
+                    style={{
+                      color: pack.color,
+                      backgroundColor: `${pack.color}12`,
+                    }}
+                  >
+                    {pack.price}
+                  </div>
                 </div>
 
                 <span
