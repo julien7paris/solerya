@@ -80,8 +80,8 @@ const packs = [
     price: "Dès 99 €/mois",
     features: [
       "Tout le pack Autonomie",
-      "La coordination des soins et des auxiliaires de vie",
-      "Un interlocuteur pour simplifier le quotidien",
+      "Une protection renforcée dans tout le logement",
+      "Un accompagnement facilitant l’organisation des intervenants à domicile",
       "Un suivi personnalisé et une assistance prioritaire",
     ],
   },

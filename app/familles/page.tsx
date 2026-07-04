@@ -18,6 +18,25 @@ import {
   Sofa,
 } from "lucide-react";
 
+const packStyles = {
+  serenite: {
+    color: "#0B8A4A",
+    soft: "#EAF8F0",
+  },
+  confort: {
+    color: "#0967D2",
+    soft: "#EAF4FF",
+  },
+  autonomie: {
+    color: "#8E44CC",
+    soft: "#F5ECFF",
+  },
+  signature: {
+    color: "#F25A1D",
+    soft: "#FFF1E6",
+  },
+};
+
 const rooms = [
   {
     id: "chambre",
@@ -51,6 +70,8 @@ const rooms = [
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
+    packColor: packStyles.autonomie.color,
+    packSoft: packStyles.autonomie.soft,
   },
   {
     id: "salle-bain",
@@ -84,6 +105,8 @@ const rooms = [
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
+    packColor: packStyles.confort.color,
+    packSoft: packStyles.confort.soft,
   },
   {
     id: "salon",
@@ -117,6 +140,8 @@ const rooms = [
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
+    packColor: packStyles.autonomie.color,
+    packSoft: packStyles.autonomie.soft,
   },
   {
     id: "cuisine",
@@ -150,6 +175,8 @@ const rooms = [
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
+    packColor: packStyles.confort.color,
+    packSoft: packStyles.confort.soft,
   },
   {
     id: "entree",
@@ -183,6 +210,8 @@ const rooms = [
     pack: "Solerya Sérénité",
     price: "39",
     href: "/packs/serenite",
+    packColor: packStyles.serenite.color,
+    packSoft: packStyles.serenite.soft,
   },
   {
     id: "couloir",
@@ -216,6 +245,8 @@ const rooms = [
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
+    packColor: packStyles.confort.color,
+    packSoft: packStyles.confort.soft,
   },
 ];
 
@@ -451,8 +482,8 @@ export default function FamillesPage() {
                 <div
                   className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
                   style={{
-                    backgroundColor: activeRoom.soft,
-                    color: activeRoom.color,
+                    backgroundColor: activeRoom.packSoft,
+                    color: activeRoom.packColor,
                   }}
                 >
                   <CalendarClock className="h-7 w-7" />
@@ -461,7 +492,7 @@ export default function FamillesPage() {
                 <div className="min-w-0 flex-1">
                   <p
                     className="text-xl font-extrabold"
-                    style={{ color: activeRoom.color }}
+                    style={{ color: activeRoom.packColor }}
                   >
                     {activeRoom.pack}
                   </p>
@@ -481,7 +512,7 @@ export default function FamillesPage() {
               <Link
                 href={activeRoom.href}
                 className="mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
-                style={{ backgroundColor: activeRoom.color }}
+                style={{ backgroundColor: activeRoom.packColor }}
               >
                 Découvrir ce pack
                 <ArrowRight className="h-4 w-4" />
