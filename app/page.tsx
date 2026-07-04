@@ -125,9 +125,10 @@ export default function SoleryaHomePage() {
               </div>
             </div>
 
-            <div
+            <Link
+              href="/familles"
               id="familles"
-              className="mt-6 rounded-[28px] bg-white/80 p-6 shadow-[0_18px_50px_rgba(8,18,46,0.06)] backdrop-blur"
+              className="group mt-6 block rounded-[28px] bg-white/80 p-6 shadow-[0_18px_50px_rgba(8,18,46,0.06)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_60px_rgba(8,18,46,0.10)]"
             >
               <div className="grid gap-5 sm:grid-cols-3">
                 <div className="flex gap-3">
@@ -170,7 +171,13 @@ export default function SoleryaHomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+
+              <div className="mt-5 flex items-center justify-end border-t border-orange-100 pt-4">
+                <span className="text-sm font-bold text-[#F58220] transition group-hover:translate-x-1">
+                  Découvrir l’espace familles →
+                </span>
+              </div>
+            </Link>
           </div>
 
           <div className="flex h-full flex-col">
