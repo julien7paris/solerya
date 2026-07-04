@@ -44,7 +44,7 @@ const packs = [
   },
   {
     name: "Solerya Confort",
-    href: "#solutions",
+    href: "/packs/confort",
     color: "#0967D2",
     bg: "bg-blue-50",
     icon: LampDesk,
@@ -61,7 +61,7 @@ const packs = [
   },
   {
     name: "Solerya Autonomie",
-    href: "#solutions",
+    href: "/packs/autonomie",
     color: "#8E44CC",
     bg: "bg-purple-50",
     icon: CalendarClock,
@@ -78,7 +78,7 @@ const packs = [
   },
   {
     name: "Solerya Signature",
-    href: "#solutions",
+    href: "/packs/signature",
     color: "#F25A1D",
     bg: "bg-orange-50",
     icon: UsersRound,
