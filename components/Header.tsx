@@ -19,16 +19,31 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-10 text-[15px] font-medium text-[#12223B] lg:flex">
-          <Link href="#solutions" className="transition hover:text-[#F58220]">
+          <Link
+            href="/#solutions"
+            className="transition hover:text-[#F58220]"
+          >
             Nos solutions
           </Link>
-          <Link href="#familles" className="transition hover:text-[#F58220]">
+
+          <Link
+            href="/familles"
+            className="transition hover:text-[#F58220]"
+          >
             Pour les familles
           </Link>
-          <Link href="#engagements" className="transition hover:text-[#F58220]">
+
+          <Link
+            href="/#engagements"
+            className="transition hover:text-[#F58220]"
+          >
             Nos engagements
           </Link>
-          <Link href="#conseils" className="transition hover:text-[#F58220]">
+
+          <Link
+            href="/#conseils"
+            className="transition hover:text-[#F58220]"
+          >
             Conseils
           </Link>
         </nav>
@@ -42,7 +57,7 @@ export default function Header() {
           </a>
 
           <Link
-            href="#solutions"
+            href="/#solutions"
             className="rounded-full bg-[#F58220] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
           >
             Découvrir Solerya →

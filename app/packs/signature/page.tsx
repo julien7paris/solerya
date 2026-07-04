@@ -1,92 +1,92 @@
 import Link from "next/link";
 import {
   ShieldCheck,
-  Bell,
-  UsersRound,
-  FileText,
-  Wrench,
-  Headphones,
-  ClipboardCheck,
-  Home,
   Check,
   ArrowRight,
+  Home,
   HeartHandshake,
   Lock,
   PhoneCall,
+  UsersRound,
+  Headphones,
+  Wrench,
+  ClipboardCheck,
   Sparkles,
+  HandHeart,
 } from "lucide-react";
 
 const benefits = [
   {
-    icon: Headphones,
-    title: "Assistance renforcée",
-    text: "Un accompagnement plus complet pour rassurer les familles.",
-  },
-  {
-    icon: Wrench,
-    title: "Maintenance incluse",
-    text: "Les équipements sont suivis pour garantir une continuité de service.",
-  },
-  {
-    icon: FileText,
-    title: "Passeport Senior",
-    text: "Un dossier numérique utile pour centraliser les informations importantes.",
-  },
-  {
     icon: UsersRound,
-    title: "Coordination à domicile",
-    text: "Une approche premium pour mieux organiser l’accompagnement autour du senior.",
+    title: "Accompagnement humain",
+    text: "Un niveau de service renforcé pour aider la famille à organiser le quotidien.",
+  },
+  {
+    icon: HandHeart,
+    title: "Coordination des auxiliaires de vie",
+    text: "Un appui pour faciliter l’organisation autour des intervenants du domicile.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Coordination des soins infirmiers",
+    text: "Une aide à la coordination des soins à domicile selon les besoins de la personne.",
+  },
+  {
+    icon: Headphones,
+    title: "Assistance prioritaire",
+    text: "Un suivi personnalisé pour maintenir la solution dans la durée.",
   },
 ];
 
 const equipments = [
   {
     icon: ShieldCheck,
-    title: "Tout le pack Autonomie",
-    text: "Sécurité, confort, pilulier intelligent, appels vidéo, tableau de bord aidants et suivi des habitudes.",
+    title: "Toute l’autonomie incluse",
+    text: "Signature reprend toute la protection Autonomie, avec présence sans caméra et vision rassurante du quotidien.",
   },
   {
-    icon: Headphones,
-    title: "Assistance et maintenance",
-    text: "Un niveau d’accompagnement renforcé pour sécuriser l’usage dans la durée.",
-  },
-  {
-    icon: FileText,
-    title: "Passeport Numérique Senior",
-    text: "Un espace structuré pour regrouper les informations utiles à la famille et aux intervenants.",
+    icon: Home,
+    title: "Protection adaptée à l’ensemble du logement",
+    text: "L’installation est pensée pour couvrir les pièces essentielles selon la configuration du domicile.",
   },
   {
     icon: ClipboardCheck,
-    title: "Suivi personnalisé",
-    text: "Une coordination plus fine pour adapter les solutions au fil de l’évolution des besoins.",
+    title: "Coordination à domicile",
+    text: "Un accompagnement pour organiser les soins infirmiers et les auxiliaires de vie.",
+  },
+  {
+    icon: Wrench,
+    title: "Suivi personnalisé et assistance prioritaire",
+    text: "Un niveau de service premium pour l’installation, l’usage et l’évolution des besoins.",
   },
 ];
 
 const steps = [
-  "Nous réalisons un diagnostic complet des besoins.",
-  "Nous déployons les équipements et les services adaptés.",
-  "Nous assurons le suivi, la maintenance et l’accompagnement.",
-  "La famille bénéficie d’une solution premium, structurée et évolutive.",
+  "Nous réalisons un diagnostic complet du logement et des besoins.",
+  "Nous déployons toute la protection Autonomie avec une couverture renforcée.",
+  "Nous coordonnons les intervenants à domicile selon le cadre défini avec la famille.",
+  "Nous assurons un suivi personnalisé pour faire évoluer la solution dans le temps.",
 ];
 
 const faq = [
   {
     q: "À qui s’adresse le pack Signature ?",
-    a: "Il s’adresse aux familles qui veulent une solution très complète avec davantage d’accompagnement, de maintenance et de coordination.",
+    a: "Aux familles qui veulent une solution complète avec technologie, accompagnement humain et coordination à domicile.",
   },
   {
-    q: "Le Passeport Numérique Senior est-il inclus ?",
-    a: "Oui. Il fait partie des éléments différenciants du pack Signature.",
+    q: "Les soins infirmiers sont-ils inclus dans le prix ?",
+    a: "Le pack prévoit la coordination ou la mise en relation selon le cadre choisi. Les prestations de soins restent à préciser dans l’offre commerciale.",
   },
   {
-    q: "La maintenance est-elle comprise ?",
-    a: "Oui. Le pack Signature inclut un niveau de maintenance et d’assistance renforcé.",
+    q: "Les auxiliaires de vie sont-ils fournis par Solerya ?",
+    a: "Solerya peut coordonner ou faciliter l’organisation avec les intervenants. La page contrat devra préciser ce qui est inclus ou facturé séparément.",
   },
   {
-    q: "Peut-on personnaliser le pack ?",
-    a: "Oui. Le pack Signature est le plus adapté pour construire une solution sur mesure.",
+    q: "Le pack Signature inclut-il Autonomie ?",
+    a: "Oui. Signature inclut tout le pack Autonomie avec un niveau de service supérieur.",
   },
 ];
+
 
 export default function SignaturePage() {
   return (
@@ -104,39 +104,40 @@ export default function SignaturePage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-xl leading-9 text-slate-600">
-              L’offre la plus complète pour accompagner le vieillissement à domicile avec équipements, maintenance, assistance, Passeport Senior et coordination personnalisée.
+              La solution la plus complète pour rester chez soi, entouré et accompagné, avec toute l’autonomie Solerya incluse.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#cta"
-                className="rounded-full bg-[#F25A1D] px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                className="rounded-full px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                style={{ backgroundColor: "#F25A1D" }}
               >
                 Être rappelé
               </Link>
 
               <Link
                 href="#equipements"
-                className="rounded-full border border-orange-200 px-8 py-4 text-center text-sm font-bold text-[#F25A1D] transition hover:bg-orange-50"
+                className="rounded-full border px-8 py-4 text-center text-sm font-bold transition hover:bg-white"
+                style={{ borderColor: "#FED7AA", color: "#F25A1D" }}
               >
-                Voir les équipements
+                Voir ce qui est inclus
               </Link>
             </div>
 
-            <p className="mt-6 text-3xl font-extrabold text-[#F25A1D]">
+            <p className="mt-6 text-3xl font-extrabold" style={{ color: "#F25A1D" }}>
               Dès 99 €/mois
             </p>
           </div>
 
           <div className="rounded-[36px] bg-white p-6 shadow-[0_30px_90px_rgba(8,18,46,0.12)]">
-            <div className="rounded-[28px] bg-gradient-to-br from-orange-50 to-white p-8">
-              <UsersRound className="h-20 w-20 text-[#F25A1D]" />
+            <div className="rounded-[28px] p-8" style={{ background: "linear-gradient(135deg, #FFF1E6, #ffffff)" }}>
+              <UsersRound className="h-20 w-20" style={{ color: "#F25A1D" }} />
               <h2 className="mt-8 text-3xl font-extrabold">
-                Une expérience premium pour sécuriser toute la famille.
+                Technologie discrète, accompagnement humain et coordination à domicile.
               </h2>
               <p className="mt-4 text-slate-600">
-                Solerya Signature protège discrètement avec des objets simples,
-                utiles et pensés pour les familles.
+                Solerya Signature ajoute un niveau de service pour accompagner la famille, le senior et les intervenants au fil des besoins.
               </p>
             </div>
           </div>
@@ -157,7 +158,7 @@ export default function SignaturePage() {
                 key={item.title}
                 className="rounded-[28px] bg-white p-6 shadow-[0_18px_50px_rgba(8,18,46,0.08)] transition hover:-translate-y-1"
               >
-                <Icon className="h-10 w-10 text-[#F25A1D]" />
+                <Icon className="h-10 w-10" style={{ color: "#F25A1D" }} />
                 <h3 className="mt-6 text-xl font-bold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
                   {item.text}
@@ -170,11 +171,12 @@ export default function SignaturePage() {
 
       <section
         id="equipements"
-        className="bg-[#FFFAF5] px-6 py-20 lg:px-8"
+        className="px-6 py-20 lg:px-8"
+        style={{ backgroundColor: "#FFFAF5" }}
       >
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-extrabold tracking-tight">
-            Les équipements inclus
+            Ce qui est inclus
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -186,7 +188,7 @@ export default function SignaturePage() {
                   key={item.title}
                   className="rounded-[32px] bg-white p-8 shadow-[0_18px_50px_rgba(8,18,46,0.06)]"
                 >
-                  <Icon className="h-12 w-12 text-[#F25A1D]" />
+                  <Icon className="h-12 w-12" style={{ color: "#F25A1D" }} />
                   <h3 className="mt-6 text-2xl font-extrabold">
                     {item.title}
                   </h3>
@@ -205,8 +207,8 @@ export default function SignaturePage() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={step} className="rounded-[28px] bg-orange-50 p-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F25A1D] text-lg font-extrabold text-white">
+            <div key={step} className="rounded-[28px] p-6" style={{ backgroundColor: "#FFF1E6" }}>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-extrabold text-white" style={{ backgroundColor: "#F25A1D" }}>
                 {index + 1}
               </div>
               <p className="mt-6 font-semibold leading-7">{step}</p>
@@ -225,12 +227,7 @@ export default function SignaturePage() {
           </div>
 
           <div className="space-y-5 md:col-span-2">
-            {[
-              "Une solution pensée pour les seniors et leurs proches.",
-              "Des équipements utiles, simples et non intrusifs.",
-              "Un accompagnement humain pour choisir le bon pack.",
-              "Une offre évolutive selon le niveau d’autonomie.",
-            ].map((item) => (
+            {["Une solution pensée pour les seniors et leurs proches.","Des équipements utiles, simples et non intrusifs.","Un accompagnement humain pour choisir le bon niveau de protection.","Une offre évolutive selon les besoins du domicile et de la famille."].map((item) => (
               <div key={item} className="flex gap-4">
                 <Check className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
                 <p className="text-lg leading-8 text-white/85">{item}</p>
@@ -261,7 +258,7 @@ export default function SignaturePage() {
       </section>
 
       <section id="cta" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-[40px] bg-gradient-to-br from-[#F25A1D] to-[#B53D0D] p-10 text-white shadow-[0_30px_90px_rgba(242,90,29,0.28)] md:p-14">
+        <div className="mx-auto max-w-6xl rounded-[40px] p-10 text-white shadow-[0_30px_90px_rgba(8,18,46,0.22)] md:p-14" style={{ background: "linear-gradient(135deg, #F25A1D, #B53D0D)" }}>
           <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center">
             <div>
               <Lock className="h-12 w-12 text-white" />
@@ -269,16 +266,15 @@ export default function SignaturePage() {
                 Offrez l’accompagnement le plus complet.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/85">
-                Solerya Signature apporte une première couche de sécurité simple,
-                rassurante et accessible.
+                Solerya Signature associe protection du logement, assistance prioritaire et coordination humaine pour simplifier le maintien à domicile.
               </p>
             </div>
 
             <div className="rounded-[28px] bg-white p-6 text-[#08122E]">
               <p className="text-sm font-semibold text-slate-500">
-                Pack Signature
+                Solerya Signature
               </p>
-              <p className="mt-2 text-4xl font-extrabold text-[#F25A1D]">
+              <p className="mt-2 text-4xl font-extrabold" style={{ color: "#F25A1D" }}>
                 99 €/mois
               </p>
 
@@ -291,7 +287,7 @@ export default function SignaturePage() {
               </Link>
 
               <div className="mt-5 flex items-center gap-2 text-sm text-slate-600">
-                <PhoneCall className="h-4 w-4 text-[#F25A1D]" />
+                <PhoneCall className="h-4 w-4" style={{ color: "#F25A1D" }} />
                 Conseil personnalisé inclus
               </div>
             </div>

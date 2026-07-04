@@ -1,92 +1,89 @@
 import Link from "next/link";
 import {
   ShieldCheck,
-  Bell,
-  LampDesk,
-  Droplets,
-  Video,
-  Lightbulb,
-  Camera,
-  Smartphone,
   Check,
   ArrowRight,
-  Home,
   HeartHandshake,
   Lock,
   PhoneCall,
+  LampDesk,
+  Droplets,
+  ThermometerSun,
+  Activity,
 } from "lucide-react";
 
 const benefits = [
   {
-    icon: Lightbulb,
-    title: "Confort nocturne",
-    text: "Des veilleuses automatiques facilitent les déplacements la nuit.",
+    icon: LampDesk,
+    title: "Chemin lumineux la nuit",
+    text: "Un éclairage doux s’allume automatiquement pour sécuriser les déplacements nocturnes.",
   },
   {
-    icon: Bell,
-    title: "Alertes utiles",
-    text: "Les proches sont informés en cas d’événement inhabituel au domicile.",
+    icon: Activity,
+    title: "Déplacements plus sûrs",
+    text: "Les zones de passage deviennent plus confortables, notamment la nuit.",
   },
   {
     icon: Droplets,
-    title: "Détection de fuites",
-    text: "Un capteur prévient rapidement en cas de fuite d’eau.",
+    title: "Fuites repérées tôt",
+    text: "Un capteur aide à éviter qu’un petit incident d’eau devienne un vrai dégât.",
   },
   {
-    icon: Video,
-    title: "Visibilité du logement",
-    text: "Sonnette vidéo et caméra permettent de rassurer la famille à distance.",
+    icon: ThermometerSun,
+    title: "Logement plus protecteur",
+    text: "La famille garde un repère sur les fortes chaleurs, le froid et le confort intérieur.",
   },
 ];
 
 const equipments = [
   {
     icon: ShieldCheck,
-    title: "Tout le pack Sérénité",
-    text: "Montre connectée, bouton SOS, détecteur de fumée, détecteur d’ouverture et application famille.",
+    title: "Toute la sérénité incluse",
+    text: "Le pack reprend les fonctions essentielles : SOS, fumée, porte d’entrée et application famille.",
   },
   {
-    icon: Lightbulb,
-    title: "Veilleuses automatiques",
-    text: "Un éclairage doux s’active automatiquement pour sécuriser les déplacements nocturnes.",
+    icon: LampDesk,
+    title: "Éclairage automatique la nuit",
+    text: "Des veilleuses accompagnent les déplacements sans avoir à chercher un interrupteur.",
+  },
+  {
+    icon: Activity,
+    title: "Capteurs de mouvement dans les zones clés",
+    text: "Ils rendent les scénarios du domicile plus utiles et plus rassurants.",
   },
   {
     icon: Droplets,
-    title: "Détecteur de fuites",
-    text: "Une alerte est envoyée en cas de présence d’eau anormale.",
-  },
-  {
-    icon: Camera,
-    title: "Sonnette vidéo et caméra",
-    text: "Un moyen simple de voir qui se présente au domicile et de rassurer les proches.",
+    title: "Détecteur de fuite d’eau",
+    text: "Une protection simple pour la cuisine, la salle de bain ou la buanderie.",
   },
 ];
 
 const steps = [
-  "Nous complétons la sécurité essentielle du pack Sérénité.",
-  "Nous ajoutons des capteurs de confort adaptés au logement.",
-  "Les équipements surveillent discrètement les situations du quotidien.",
-  "La famille reçoit les bonnes informations, sans intrusion.",
+  "Nous partons de la protection essentielle du pack Sérénité.",
+  "Nous ajoutons des équipements utiles dans les zones de passage et pièces de vie.",
+  "La maison réagit automatiquement pour faciliter le quotidien.",
+  "Les proches gardent une vision simple, utile et non intrusive.",
 ];
 
 const faq = [
   {
     q: "Le pack Confort inclut-il le pack Sérénité ?",
-    a: "Oui. Le pack Confort reprend les éléments du pack Sérénité et ajoute des équipements pour améliorer le confort du domicile.",
+    a: "Oui. Confort reprend tout le pack Sérénité et ajoute des fonctions pour mieux vivre au domicile.",
   },
   {
-    q: "Les veilleuses fonctionnent-elles automatiquement ?",
-    a: "Oui. Elles sont pensées pour s’activer simplement lors des déplacements, notamment la nuit.",
+    q: "Les veilleuses fonctionnent-elles toutes seules ?",
+    a: "Oui. Elles peuvent s’allumer automatiquement lors des déplacements, notamment la nuit.",
   },
   {
-    q: "La caméra est-elle obligatoire ?",
-    a: "Non. Les équipements peuvent être adaptés selon le niveau de confort souhaité et le respect de la vie privée.",
+    q: "Y a-t-il une caméra dans le pack Confort ?",
+    a: "Non. La nouvelle architecture Solerya privilégie des capteurs utiles, locaux et non intrusifs.",
   },
   {
     q: "Peut-on évoluer ensuite vers Autonomie ?",
-    a: "Oui. Le pack Confort peut évoluer vers le pack Autonomie ou Signature.",
+    a: "Oui. Le pack Confort peut évoluer vers Autonomie ou Signature.",
   },
 ];
+
 
 export default function ConfortPage() {
   return (
@@ -104,39 +101,40 @@ export default function ConfortPage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-xl leading-9 text-slate-600">
-              Le pack qui sécurise le domicile tout en améliorant le confort de vie : veilleuses, capteurs intelligents, détection de fuites et visibilité à distance.
+              Un logement qui facilite le quotidien et prévient les risques, jour et nuit, avec toute la protection Sérénité incluse.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#cta"
-                className="rounded-full bg-[#0967D2] px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                className="rounded-full px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                style={{ backgroundColor: "#0967D2" }}
               >
                 Être rappelé
               </Link>
 
               <Link
                 href="#equipements"
-                className="rounded-full border border-blue-200 px-8 py-4 text-center text-sm font-bold text-[#0967D2] transition hover:bg-blue-50"
+                className="rounded-full border px-8 py-4 text-center text-sm font-bold transition hover:bg-white"
+                style={{ borderColor: "#BFDBFE", color: "#0967D2" }}
               >
-                Voir les équipements
+                Voir ce qui est inclus
               </Link>
             </div>
 
-            <p className="mt-6 text-3xl font-extrabold text-[#0967D2]">
+            <p className="mt-6 text-3xl font-extrabold" style={{ color: "#0967D2" }}>
               Dès 59 €/mois
             </p>
           </div>
 
           <div className="rounded-[36px] bg-white p-6 shadow-[0_30px_90px_rgba(8,18,46,0.12)]">
-            <div className="rounded-[28px] bg-gradient-to-br from-blue-50 to-white p-8">
-              <Home className="h-20 w-20 text-[#0967D2]" />
+            <div className="rounded-[28px] p-8" style={{ background: "linear-gradient(135deg, #EAF4FF, #ffffff)" }}>
+              <LampDesk className="h-20 w-20" style={{ color: "#0967D2" }} />
               <h2 className="mt-8 text-3xl font-extrabold">
-                Une maison plus confortable, plus sûre et plus intelligente.
+                Une maison plus confortable, plus sûre et plus prévenante.
               </h2>
               <p className="mt-4 text-slate-600">
-                Solerya Confort protège discrètement avec des objets simples,
-                utiles et pensés pour les familles.
+                Solerya Confort sécurise les déplacements, éclaire automatiquement la nuit et aide à prévenir les incidents domestiques courants.
               </p>
             </div>
           </div>
@@ -157,7 +155,7 @@ export default function ConfortPage() {
                 key={item.title}
                 className="rounded-[28px] bg-white p-6 shadow-[0_18px_50px_rgba(8,18,46,0.08)] transition hover:-translate-y-1"
               >
-                <Icon className="h-10 w-10 text-[#0967D2]" />
+                <Icon className="h-10 w-10" style={{ color: "#0967D2" }} />
                 <h3 className="mt-6 text-xl font-bold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
                   {item.text}
@@ -170,11 +168,12 @@ export default function ConfortPage() {
 
       <section
         id="equipements"
-        className="bg-[#F7FBFF] px-6 py-20 lg:px-8"
+        className="px-6 py-20 lg:px-8"
+        style={{ backgroundColor: "#F7FBFF" }}
       >
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-extrabold tracking-tight">
-            Les équipements inclus
+            Ce qui est inclus
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -186,7 +185,7 @@ export default function ConfortPage() {
                   key={item.title}
                   className="rounded-[32px] bg-white p-8 shadow-[0_18px_50px_rgba(8,18,46,0.06)]"
                 >
-                  <Icon className="h-12 w-12 text-[#0967D2]" />
+                  <Icon className="h-12 w-12" style={{ color: "#0967D2" }} />
                   <h3 className="mt-6 text-2xl font-extrabold">
                     {item.title}
                   </h3>
@@ -205,8 +204,8 @@ export default function ConfortPage() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={step} className="rounded-[28px] bg-blue-50 p-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0967D2] text-lg font-extrabold text-white">
+            <div key={step} className="rounded-[28px] p-6" style={{ backgroundColor: "#EAF4FF" }}>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-extrabold text-white" style={{ backgroundColor: "#0967D2" }}>
                 {index + 1}
               </div>
               <p className="mt-6 font-semibold leading-7">{step}</p>
@@ -225,12 +224,7 @@ export default function ConfortPage() {
           </div>
 
           <div className="space-y-5 md:col-span-2">
-            {[
-              "Une solution pensée pour les seniors et leurs proches.",
-              "Des équipements utiles, simples et non intrusifs.",
-              "Un accompagnement humain pour choisir le bon pack.",
-              "Une offre évolutive selon le niveau d’autonomie.",
-            ].map((item) => (
+            {["Une solution pensée pour les seniors et leurs proches.","Des équipements utiles, simples et non intrusifs.","Un accompagnement humain pour choisir le bon niveau de protection.","Une offre évolutive selon les besoins du domicile et de la famille."].map((item) => (
               <div key={item} className="flex gap-4">
                 <Check className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
                 <p className="text-lg leading-8 text-white/85">{item}</p>
@@ -261,7 +255,7 @@ export default function ConfortPage() {
       </section>
 
       <section id="cta" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-[40px] bg-gradient-to-br from-[#0967D2] to-[#064A96] p-10 text-white shadow-[0_30px_90px_rgba(9,103,210,0.28)] md:p-14">
+        <div className="mx-auto max-w-6xl rounded-[40px] p-10 text-white shadow-[0_30px_90px_rgba(8,18,46,0.22)] md:p-14" style={{ background: "linear-gradient(135deg, #0967D2, #064A96)" }}>
           <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center">
             <div>
               <Lock className="h-12 w-12 text-white" />
@@ -269,16 +263,15 @@ export default function ConfortPage() {
                 Améliorez le confort sans compliquer le quotidien.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/85">
-                Solerya Confort apporte une première couche de sécurité simple,
-                rassurante et accessible.
+                Solerya Confort transforme le domicile en environnement plus rassurant, avec des équipements discrets et utiles dans les pièces de vie.
               </p>
             </div>
 
             <div className="rounded-[28px] bg-white p-6 text-[#08122E]">
               <p className="text-sm font-semibold text-slate-500">
-                Pack Confort
+                Solerya Confort
               </p>
-              <p className="mt-2 text-4xl font-extrabold text-[#0967D2]">
+              <p className="mt-2 text-4xl font-extrabold" style={{ color: "#0967D2" }}>
                 59 €/mois
               </p>
 
@@ -291,7 +284,7 @@ export default function ConfortPage() {
               </Link>
 
               <div className="mt-5 flex items-center gap-2 text-sm text-slate-600">
-                <PhoneCall className="h-4 w-4 text-[#0967D2]" />
+                <PhoneCall className="h-4 w-4" style={{ color: "#0967D2" }} />
                 Conseil personnalisé inclus
               </div>
             </div>

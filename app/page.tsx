@@ -31,15 +31,13 @@ const packs = [
     color: "#0B8A4A",
     bg: "bg-emerald-50",
     icon: Home,
-    text: "L’essentiel pour vivre chez soi l’esprit tranquille et rassurer ses proches.",
+    text: "Vivre chez soi l’esprit tranquille et rassurer ses proches.",
     price: "Dès 39 €/mois",
     features: [
-      "Un bouton SOS toujours à portée de main",
-      "Une maison qui veille en cas de fumée",
-      "Une porte d’entrée sous surveillance",
-      "Un signe rassurant d’activité au quotidien",
-      "Des proches informés quand cela compte vraiment",
-      "L’application famille pour garder le lien",
+      "Un bouton SOS à portée de main",
+      "Une maison attentive aux risques essentiels",
+      "La porte d’entrée et l’activité au domicile prises en compte",
+      "Les proches informés quand cela compte vraiment",
     ],
   },
   {
@@ -48,15 +46,13 @@ const packs = [
     color: "#0967D2",
     bg: "bg-blue-50",
     icon: LampDesk,
-    text: "Un logement qui facilite le quotidien et prévient les risques, jour et nuit.",
+    text: "Un logement qui facilite le quotidien et prévient les risques.",
     price: "Dès 59 €/mois",
     features: [
-      "Toute la sérénité, avec plus de confort",
-      "Un chemin lumineux qui s’allume la nuit",
+      "Tout le pack Sérénité",
       "Des déplacements nocturnes plus sûrs",
-      "Les fuites d’eau repérées dès leur apparition",
-      "Un logement protégé face aux fortes chaleurs et au froid",
-      "Les pièces de vie mieux protégées au quotidien",
+      "Les risques du logement repérés plus tôt",
+      "Un quotidien plus sûr et plus confortable",
     ],
   },
   {
@@ -65,14 +61,12 @@ const packs = [
     color: "#8E44CC",
     bg: "bg-purple-50",
     icon: CalendarClock,
-    text: "Une maison attentive au rythme de vie, pour préserver son indépendance plus longtemps.",
+    text: "Une maison attentive au rythme de vie, sans caméra.",
     price: "Dès 79 €/mois",
     features: [
-      "Tout le confort, avec un suivi plus attentif",
-      "Une présence détectée sans caméra",
-      "Le rythme de vie pris en compte avec discrétion",
+      "Tout le pack Confort",
+      "Les habitudes de vie prises en compte discrètement",
       "Les changements importants repérés automatiquement",
-      "Les périodes d’inactivité prolongée identifiées",
       "Une vision rassurante du quotidien pour les proches",
     ],
   },
@@ -82,13 +76,11 @@ const packs = [
     color: "#F25A1D",
     bg: "bg-orange-50",
     icon: UsersRound,
-    text: "La solution la plus complète pour rester chez soi, entouré et accompagné.",
+    text: "La solution complète pour rester chez soi, entouré et accompagné.",
     price: "Dès 99 €/mois",
     features: [
-      "Toute l’autonomie, avec un accompagnement humain",
-      "Une protection adaptée à l’ensemble du logement",
-      "La coordination des soins infirmiers à domicile",
-      "La coordination des auxiliaires de vie",
+      "Tout le pack Autonomie",
+      "La coordination des soins et des auxiliaires de vie",
       "Un interlocuteur pour simplifier le quotidien",
       "Un suivi personnalisé et une assistance prioritaire",
     ],
@@ -121,7 +113,7 @@ export default function SoleryaHomePage() {
               </button>
 
               <div className="absolute bottom-5 left-5 rounded-full bg-black/55 px-5 py-3 text-sm font-semibold text-white backdrop-blur">
-                Découvrir Solerya en 90 secondes
+                Découvrir Solerya
               </div>
             </div>
 
@@ -243,13 +235,13 @@ export default function SoleryaHomePage() {
               <Link
                 key={pack.name}
                 href={pack.href}
-                className="group flex min-h-[560px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
+                className="group flex min-h-[500px] flex-col rounded-[28px] bg-white/80 p-6 text-center transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-xl"
               >
                 <div
-                  className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full ${pack.bg}`}
+                  className={`mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full ${pack.bg}`}
                 >
                   <Icon
-                    className="h-12 w-12"
+                    className="h-10 w-10"
                     strokeWidth={2.1}
                     style={{ color: pack.color }}
                   />
@@ -262,11 +254,11 @@ export default function SoleryaHomePage() {
                   {pack.name}
                 </h3>
 
-                <p className="mt-5 min-h-[72px] text-sm leading-6 text-slate-600">
+                <p className="mt-4 min-h-[60px] text-sm leading-6 text-slate-600">
                   {pack.text}
                 </p>
 
-                <div className="mt-6 space-y-4 text-left">
+                <div className="mt-5 space-y-3 text-left">
                   {pack.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <Check
@@ -281,7 +273,7 @@ export default function SoleryaHomePage() {
                   ))}
                 </div>
 
-                <div className="mt-auto pt-10">
+                <div className="mt-auto pt-8">
                   <div
                     className="rounded-full px-5 py-3 text-sm font-bold"
                     style={{
@@ -294,7 +286,7 @@ export default function SoleryaHomePage() {
                 </div>
 
                 <span
-                  className="mt-6 text-sm font-bold transition group-hover:translate-x-1"
+                  className="mt-5 text-sm font-bold transition group-hover:translate-x-1"
                   style={{ color: pack.color }}
                 >
                   Découvrir →

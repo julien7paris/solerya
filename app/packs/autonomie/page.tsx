@@ -1,92 +1,90 @@
 import Link from "next/link";
 import {
   ShieldCheck,
-  Bell,
-  Pill,
-  Video,
-  CalendarClock,
-  Activity,
   Smartphone,
-  UsersRound,
   Check,
   ArrowRight,
-  Home,
   HeartHandshake,
   Lock,
   PhoneCall,
+  Activity,
+  Radar,
+  UsersRound,
+  CalendarClock,
 } from "lucide-react";
 
 const benefits = [
   {
-    icon: Pill,
-    title: "Rappels de médicaments",
-    text: "Un pilulier intelligent aide à sécuriser les prises importantes.",
-  },
-  {
-    icon: Video,
-    title: "Lien vidéo simplifié",
-    text: "Les appels vidéo facilitent les échanges avec les proches.",
+    icon: Radar,
+    title: "Présence détectée sans caméra",
+    text: "Le domicile peut comprendre une présence sans image, sans vidéo et sans intrusion.",
   },
   {
     icon: Activity,
-    title: "Suivi des habitudes",
-    text: "Les aidants repèrent plus facilement les changements du quotidien.",
+    title: "Rythme de vie pris en compte",
+    text: "Les routines sont observées de façon discrète pour mieux repérer les changements importants.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Inactivité prolongée identifiée",
+    text: "La famille peut être informée lorsqu’une absence d’activité paraît inhabituelle.",
   },
   {
     icon: UsersRound,
-    title: "Aidants mieux informés",
-    text: "La famille dispose d’une vision claire, utile et non intrusive.",
+    title: "Proches mieux rassurés",
+    text: "L’application donne une vision claire du quotidien, sans transformer le domicile en lieu de surveillance.",
   },
 ];
 
 const equipments = [
   {
     icon: ShieldCheck,
-    title: "Tout le pack Confort",
-    text: "Sécurité essentielle, veilleuses, capteurs de mouvement, détection de fuites et équipements connectés du domicile.",
+    title: "Tout le confort inclus",
+    text: "Autonomie reprend Sérénité et Confort : SOS, fumée, porte, éclairage nocturne, fuite et confort du logement.",
   },
   {
-    icon: Pill,
-    title: "Pilulier intelligent",
-    text: "Un dispositif simple pour accompagner la prise régulière des traitements.",
-  },
-  {
-    icon: Video,
-    title: "Appels vidéo simplifiés",
-    text: "Une solution accessible pour garder le lien avec les proches.",
+    icon: Radar,
+    title: "Présence détectée sans caméra",
+    text: "Des capteurs adaptés permettent de mieux comprendre l’occupation des pièces clés.",
   },
   {
     icon: Activity,
-    title: "Tableau de bord aidants",
-    text: "Un espace clair pour suivre les habitudes de vie et détecter les signaux faibles.",
+    title: "Lecture discrète des habitudes",
+    text: "Les informations du domicile sont transformées en repères simples et utiles pour la famille.",
+  },
+  {
+    icon: Smartphone,
+    title: "Application famille enrichie",
+    text: "Une vision plus rassurante du quotidien, avec des informations compréhensibles et actionnables.",
   },
 ];
 
 const steps = [
-  "Nous installons les équipements de sécurité et de confort.",
-  "Le pilulier et les rappels accompagnent les routines importantes.",
-  "Les habitudes de vie sont suivies de manière discrète.",
-  "Les aidants disposent d’informations utiles pour agir au bon moment.",
+  "Nous installons les protections Sérénité et Confort.",
+  "Nous ajoutons des capteurs non intrusifs dans les pièces clés.",
+  "La maison apprend les repères utiles du quotidien.",
+  "Les proches disposent d’une vision rassurante, sans caméra.",
 ];
 
 const faq = [
   {
-    q: "Le pack Autonomie remplace-t-il un aidant ?",
-    a: "Non. Il complète l’accompagnement humain en donnant aux proches des informations utiles au bon moment.",
+    q: "Le pack Autonomie utilise-t-il une caméra ?",
+    a: "Non. La présence et les habitudes sont détectées avec des capteurs non intrusifs.",
   },
   {
-    q: "Le pilulier est-il simple à utiliser ?",
-    a: "Oui. Il est pensé pour accompagner les routines sans ajouter de complexité.",
+    q: "Est-ce une surveillance permanente ?",
+    a: "Non. L’objectif est de repérer les changements importants, pas d’observer la personne en continu.",
   },
   {
-    q: "Les proches peuvent-ils suivre les habitudes à distance ?",
-    a: "Oui. Le tableau de bord aidants permet de consulter les informations importantes.",
+    q: "Le pack Autonomie inclut-il Confort ?",
+    a: "Oui. Autonomie inclut tout le pack Confort.",
   },
   {
-    q: "Peut-on aller vers le pack Signature ensuite ?",
-    a: "Oui. Le pack Autonomie peut évoluer vers l’offre Signature avec davantage d’accompagnement humain.",
+    q: "Peut-on ajouter un accompagnement humain ensuite ?",
+    a: "Oui. Le pack Signature ajoute un niveau d’accompagnement et de coordination.",
   },
 ];
+
 
 export default function AutonomiePage() {
   return (
@@ -104,39 +102,40 @@ export default function AutonomiePage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-xl leading-9 text-slate-600">
-              Le pack pensé pour préserver l’indépendance au quotidien grâce au pilulier intelligent, aux rappels, aux appels vidéo et au suivi des aidants.
+              Une maison attentive au rythme de vie, pour préserver l’indépendance plus longtemps, avec tout le confort Solerya inclus.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#cta"
-                className="rounded-full bg-[#8E44CC] px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                className="rounded-full px-8 py-4 text-center text-sm font-bold text-white shadow-xl transition hover:-translate-y-0.5"
+                style={{ backgroundColor: "#8E44CC" }}
               >
                 Être rappelé
               </Link>
 
               <Link
                 href="#equipements"
-                className="rounded-full border border-purple-200 px-8 py-4 text-center text-sm font-bold text-[#8E44CC] transition hover:bg-purple-50"
+                className="rounded-full border px-8 py-4 text-center text-sm font-bold transition hover:bg-white"
+                style={{ borderColor: "#E9D5FF", color: "#8E44CC" }}
               >
-                Voir les équipements
+                Voir ce qui est inclus
               </Link>
             </div>
 
-            <p className="mt-6 text-3xl font-extrabold text-[#8E44CC]">
+            <p className="mt-6 text-3xl font-extrabold" style={{ color: "#8E44CC" }}>
               Dès 79 €/mois
             </p>
           </div>
 
           <div className="rounded-[36px] bg-white p-6 shadow-[0_30px_90px_rgba(8,18,46,0.12)]">
-            <div className="rounded-[28px] bg-gradient-to-br from-purple-50 to-white p-8">
-              <CalendarClock className="h-20 w-20 text-[#8E44CC]" />
+            <div className="rounded-[28px] p-8" style={{ background: "linear-gradient(135deg, #F5ECFF, #ffffff)" }}>
+              <Radar className="h-20 w-20" style={{ color: "#8E44CC" }} />
               <h2 className="mt-8 text-3xl font-extrabold">
-                Préserver l’autonomie, sans isoler la personne.
+                Comprendre si la journée se déroule normalement, sans caméra.
               </h2>
               <p className="mt-4 text-slate-600">
-                Solerya Autonomie protège discrètement avec des objets simples,
-                utiles et pensés pour les familles.
+                Solerya Autonomie ne surveille pas la personne : la maison repère discrètement les changements importants du quotidien.
               </p>
             </div>
           </div>
@@ -157,7 +156,7 @@ export default function AutonomiePage() {
                 key={item.title}
                 className="rounded-[28px] bg-white p-6 shadow-[0_18px_50px_rgba(8,18,46,0.08)] transition hover:-translate-y-1"
               >
-                <Icon className="h-10 w-10 text-[#8E44CC]" />
+                <Icon className="h-10 w-10" style={{ color: "#8E44CC" }} />
                 <h3 className="mt-6 text-xl font-bold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
                   {item.text}
@@ -170,11 +169,12 @@ export default function AutonomiePage() {
 
       <section
         id="equipements"
-        className="bg-[#FCF8FF] px-6 py-20 lg:px-8"
+        className="px-6 py-20 lg:px-8"
+        style={{ backgroundColor: "#FCF8FF" }}
       >
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-extrabold tracking-tight">
-            Les équipements inclus
+            Ce qui est inclus
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -186,7 +186,7 @@ export default function AutonomiePage() {
                   key={item.title}
                   className="rounded-[32px] bg-white p-8 shadow-[0_18px_50px_rgba(8,18,46,0.06)]"
                 >
-                  <Icon className="h-12 w-12 text-[#8E44CC]" />
+                  <Icon className="h-12 w-12" style={{ color: "#8E44CC" }} />
                   <h3 className="mt-6 text-2xl font-extrabold">
                     {item.title}
                   </h3>
@@ -205,8 +205,8 @@ export default function AutonomiePage() {
 
         <div className="mt-10 grid gap-5 md:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={step} className="rounded-[28px] bg-purple-50 p-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#8E44CC] text-lg font-extrabold text-white">
+            <div key={step} className="rounded-[28px] p-6" style={{ backgroundColor: "#F5ECFF" }}>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-extrabold text-white" style={{ backgroundColor: "#8E44CC" }}>
                 {index + 1}
               </div>
               <p className="mt-6 font-semibold leading-7">{step}</p>
@@ -225,12 +225,7 @@ export default function AutonomiePage() {
           </div>
 
           <div className="space-y-5 md:col-span-2">
-            {[
-              "Une solution pensée pour les seniors et leurs proches.",
-              "Des équipements utiles, simples et non intrusifs.",
-              "Un accompagnement humain pour choisir le bon pack.",
-              "Une offre évolutive selon le niveau d’autonomie.",
-            ].map((item) => (
+            {["Une solution pensée pour les seniors et leurs proches.","Des équipements utiles, simples et non intrusifs.","Un accompagnement humain pour choisir le bon niveau de protection.","Une offre évolutive selon les besoins du domicile et de la famille."].map((item) => (
               <div key={item} className="flex gap-4">
                 <Check className="mt-1 h-5 w-5 shrink-0 text-[#F58220]" />
                 <p className="text-lg leading-8 text-white/85">{item}</p>
@@ -261,7 +256,7 @@ export default function AutonomiePage() {
       </section>
 
       <section id="cta" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-[40px] bg-gradient-to-br from-[#8E44CC] to-[#5E2B90] p-10 text-white shadow-[0_30px_90px_rgba(142,68,204,0.28)] md:p-14">
+        <div className="mx-auto max-w-6xl rounded-[40px] p-10 text-white shadow-[0_30px_90px_rgba(8,18,46,0.22)] md:p-14" style={{ background: "linear-gradient(135deg, #8E44CC, #5E2B90)" }}>
           <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center">
             <div>
               <Lock className="h-12 w-12 text-white" />
@@ -269,16 +264,15 @@ export default function AutonomiePage() {
                 Préservez l’indépendance avec plus de confiance.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-white/85">
-                Solerya Autonomie apporte une première couche de sécurité simple,
-                rassurante et accessible.
+                Solerya Autonomie aide les familles à rester rassurées, tout en respectant la vie privée et les habitudes de la personne.
               </p>
             </div>
 
             <div className="rounded-[28px] bg-white p-6 text-[#08122E]">
               <p className="text-sm font-semibold text-slate-500">
-                Pack Autonomie
+                Solerya Autonomie
               </p>
-              <p className="mt-2 text-4xl font-extrabold text-[#8E44CC]">
+              <p className="mt-2 text-4xl font-extrabold" style={{ color: "#8E44CC" }}>
                 79 €/mois
               </p>
 
@@ -291,7 +285,7 @@ export default function AutonomiePage() {
               </Link>
 
               <div className="mt-5 flex items-center gap-2 text-sm text-slate-600">
-                <PhoneCall className="h-4 w-4 text-[#8E44CC]" />
+                <PhoneCall className="h-4 w-4" style={{ color: "#8E44CC" }} />
                 Conseil personnalisé inclus
               </div>
             </div>

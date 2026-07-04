@@ -22,32 +22,32 @@ const rooms = [
   {
     id: "chambre",
     name: "Chambre",
-    subtitle: "Sommeil & levers nocturnes",
+    subtitle: "Présence & levers nocturnes",
     icon: BedDouble,
     color: "#8E44CC",
     soft: "#F5ECFF",
     area: "col-span-5 row-span-3",
     description:
-      "Un espace clé pour prévenir les chutes nocturnes, sécuriser les levers et rassurer les proches.",
+      "Un espace clé pour comprendre les levers nocturnes, sécuriser les déplacements et préserver l’intimité, sans caméra.",
     products: [
       {
-        title: "Montre détecteur de chute",
-        text: "Alerte automatique en cas de chute ou d’immobilité.",
-        image: "/objets/montre-detecteur-chute.png",
+        title: "Présence détectée sans caméra",
+        text: "Aide à comprendre si la personne est présente, même avec peu de mouvement.",
+        image: "/objets/capteur-mouvement.png",
       },
       {
-        title: "Veilleuse automatique",
-        text: "S’allume la nuit pour sécuriser les déplacements.",
+        title: "Chemin lumineux de nuit",
+        text: "S’allume automatiquement pour accompagner les levers nocturnes.",
         image: "/objets/veilleuse-automatique.png",
       },
       {
-        title: "Bouton SOS",
-        text: "Permet de déclencher une alerte rapidement.",
+        title: "Bouton SOS à portée de main",
+        text: "Permet de demander de l’aide simplement depuis la chambre.",
         image: "/objets/bouton-sos.png",
       },
     ],
     benefit:
-      "Votre proche reste indépendant, et vous êtes alerté uniquement en cas d’anomalie.",
+      "Votre proche garde son autonomie, pendant que la famille dispose de repères rassurants sans surveillance vidéo.",
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
@@ -55,134 +55,134 @@ const rooms = [
   {
     id: "salle-bain",
     name: "Salle de bain",
-    subtitle: "Chute & fuite d’eau",
+    subtitle: "Fuite & sécurité quotidienne",
     icon: Bath,
     color: "#0B8A4A",
     soft: "#E9FFF3",
     area: "col-span-4 row-span-3",
     description:
-      "Une pièce sensible où la détection rapide d’un incident peut faire toute la différence.",
+      "Une pièce sensible où Solerya aide à repérer rapidement les incidents du quotidien, sans changer les habitudes.",
     products: [
       {
-        title: "Montre détecteur de chute",
-        text: "Alerte automatiquement en cas de chute.",
-        image: "/objets/montre-detecteur-chute.png",
+        title: "Bouton SOS mural ou portable",
+        text: "Une demande d’aide simple dans une pièce à risque.",
+        image: "/objets/bouton-sos.png",
       },
       {
         title: "Détecteur de fuite",
-        text: "Préviens en cas de présence d’eau anormale.",
+        text: "Repère une présence d’eau anormale dès son apparition.",
         image: "/objets/detecteur-fuite.png",
       },
       {
-        title: "Capteur de présence",
-        text: "Aide à identifier les situations inhabituelles.",
+        title: "Présence non intrusive",
+        text: "Aide à identifier une situation inhabituelle sans caméra.",
         image: "/objets/capteur-mouvement.png",
       },
     ],
     benefit:
-      "La famille peut être prévenue rapidement dans l’une des pièces les plus à risque.",
-    pack: "Solerya Sérénité",
-    price: "39",
-    href: "/packs/serenite",
+      "La salle de bain devient plus rassurante, avec des équipements discrets et utiles.",
+    pack: "Solerya Confort",
+    price: "59",
+    href: "/packs/confort",
   },
   {
     id: "salon",
     name: "Salon",
-    subtitle: "Lien familial & habitudes",
+    subtitle: "Rythme de vie & lien familial",
     icon: Sofa,
     color: "#0967D2",
     soft: "#EAF4FF",
     area: "col-span-5 row-span-3",
     description:
-      "Le salon devient un espace rassurant pour garder le lien et suivre les habitudes de vie.",
+      "Le salon devient un espace de repères : activité quotidienne, présence discrète et nouvelles rassurantes pour les proches.",
     products: [
       {
-        title: "Appels vidéo simplifiés",
-        text: "Maintient le lien avec la famille sans complexité.",
-        image: "/objets/tablette-visio.png",
-      },
-      {
         title: "Capteur de mouvement",
-        text: "Repère les habitudes sans intrusion.",
+        text: "Donne un signe rassurant d’activité dans la pièce de vie.",
         image: "/objets/capteur-mouvement.png",
       },
       {
-        title: "Caméra optionnelle",
-        text: "Permet une levée de doute en cas d’alerte.",
-        image: "/objets/camera-interieure.png",
+        title: "Présence détectée sans caméra",
+        text: "Permet de mieux comprendre l’occupation du salon, sans image.",
+        image: "/objets/capteur-mouvement.png",
+      },
+      {
+        title: "Application famille",
+        text: "Affiche des informations simples et compréhensibles pour les proches.",
+        image: "/objets/application-famille.png",
       },
     ],
     benefit:
-      "La famille garde un lien simple et reçoit les bonnes informations au bon moment.",
-    pack: "Solerya Confort",
-    price: "59",
-    href: "/packs/confort",
-  },
-  {
-    id: "cuisine",
-    name: "Cuisine",
-    subtitle: "Fumée, fuite & médicaments",
-    icon: ChefHat,
-    color: "#F25A1D",
-    soft: "#FFF1E6",
-    area: "col-span-4 row-span-3",
-    description:
-      "La cuisine est sécurisée grâce aux alertes fumée, fuite et rappels de traitement.",
-    products: [
-      {
-        title: "Détecteur de fumée connecté",
-        text: "Alerte en cas de fumée détectée.",
-        image: "/objets/detecteur-fumee.png",
-      },
-      {
-        title: "Détecteur de fuite",
-        text: "Préviens avant qu’un dégât ne s’aggrave.",
-        image: "/objets/detecteur-fuite.png",
-      },
-      {
-        title: "Pilulier intelligent",
-        text: "Rappelle les prises de médicaments à l’heure.",
-        image: "/objets/pilulier-intelligent.png",
-      },
-    ],
-    benefit:
-      "Les incidents domestiques sont détectés plus tôt, sans perturber la vie quotidienne.",
+      "La famille garde une vision claire du quotidien, sans transformer le domicile en lieu de surveillance.",
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
   },
   {
+    id: "cuisine",
+    name: "Cuisine",
+    subtitle: "Fumée, fuite & chaleur",
+    icon: ChefHat,
+    color: "#F25A1D",
+    soft: "#FFF1E6",
+    area: "col-span-4 row-span-3",
+    description:
+      "La cuisine est protégée contre les incidents domestiques les plus fréquents : fumée, fuite et variations de température.",
+    products: [
+      {
+        title: "Détecteur de fumée connecté",
+        text: "La maison veille en cas de fumée dans une pièce sensible.",
+        image: "/objets/detecteur-fumee.png",
+      },
+      {
+        title: "Détecteur de fuite",
+        text: "Repère rapidement une présence d’eau anormale.",
+        image: "/objets/detecteur-fuite.png",
+      },
+      {
+        title: "Confort thermique",
+        text: "Aide à garder un repère en cas de forte chaleur ou de froid.",
+        image: "/objets/capteur-mouvement.png",
+      },
+    ],
+    benefit:
+      "Les incidents domestiques sont repérés plus tôt, sans perturber la vie quotidienne.",
+    pack: "Solerya Confort",
+    price: "59",
+    href: "/packs/confort",
+  },
+  {
     id: "entree",
     name: "Entrée",
-    subtitle: "Accès & visites",
+    subtitle: "Accès & sorties",
     icon: DoorOpen,
     color: "#D97706",
     soft: "#FFF7E6",
     area: "col-span-3 row-span-2",
     description:
-      "L’entrée sécurise les accès et permet de mieux comprendre les sorties inhabituelles.",
+      "L’entrée donne un repère simple sur les ouvertures importantes et les sorties inhabituelles.",
     products: [
       {
-        title: "Détecteur d’ouverture",
-        text: "Alerte en cas d’ouverture inhabituelle.",
+        title: "Surveillance de la porte d’entrée",
+        text: "Un repère discret sur les ouvertures importantes du logement.",
         image: "/objets/detecteur-ouverture.png",
       },
       {
-        title: "Sonnette vidéo",
-        text: "Permet de voir qui se présente au domicile.",
-        image: "/objets/sonnette-video.png",
+        title: "Application famille",
+        text: "Les proches reçoivent les informations utiles au bon moment.",
+        image: "/objets/application-famille.png",
       },
       {
-        title: "Application famille",
-        text: "Centralise les alertes importantes.",
-        image: "/objets/application-famille.png",
+        title: "Bouton SOS",
+        text: "Un moyen simple de demander de l’aide au domicile.",
+        image: "/objets/bouton-sos.png",
       },
     ],
     benefit:
-      "Vous êtes rassuré sur les entrées, les sorties et les visites au domicile.",
-    pack: "Solerya Confort",
-    price: "59",
-    href: "/packs/confort",
+      "Vous êtes rassuré sur les entrées, les sorties et les moments importants du domicile.",
+    pack: "Solerya Sérénité",
+    price: "39",
+    href: "/packs/serenite",
   },
   {
     id: "couloir",
@@ -196,18 +196,18 @@ const rooms = [
       "Les zones de passage deviennent plus sûres, surtout pendant les déplacements nocturnes.",
     products: [
       {
-        title: "Veilleuse automatique",
-        text: "S’allume au passage la nuit.",
+        title: "Chemin lumineux automatique",
+        text: "S’allume au passage pour guider les déplacements la nuit.",
         image: "/objets/veilleuse-automatique.png",
       },
       {
         title: "Capteur de mouvement",
-        text: "Repère les déplacements inhabituels.",
+        text: "Rend les scénarios du domicile plus utiles et plus rassurants.",
         image: "/objets/capteur-mouvement.png",
       },
       {
-        title: "Alerte famille",
-        text: "Informe uniquement en cas de situation anormale.",
+        title: "Maison plus prévenante",
+        text: "Le logement réagit automatiquement sans geste compliqué.",
         image: "/objets/application-famille.png",
       },
     ],
@@ -237,8 +237,7 @@ export default function FamillesPage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
-            Découvrez comment Solerya sécurise chaque pièce du domicile, sans
-            changer les habitudes de votre proche.
+            Découvrez comment Solerya rend chaque pièce plus rassurante, plus sûre et plus simple à vivre, sans caméra ni intrusion.
           </p>
 
           <div className="mx-auto mt-6 grid max-w-3xl gap-3 rounded-[28px] bg-white p-3 shadow-[0_14px_45px_rgba(8,18,46,0.07)] sm:grid-cols-3">
@@ -371,7 +370,7 @@ export default function FamillesPage() {
 
             <div className="mt-6 rounded-[26px] bg-[#FAFBFD] p-4">
               <p className="text-sm font-extrabold">
-                Équipements connectés recommandés
+                Solutions recommandées
               </p>
 
               <div className="mt-4 space-y-3">
@@ -442,7 +441,7 @@ export default function FamillesPage() {
                     {activeRoom.pack}
                   </p>
                   <p className="mt-1 text-xs leading-5 text-slate-500">
-                    Pour une protection adaptée à cette pièce.
+                    Pour une solution adaptée à cette pièce.
                   </p>
                 </div>
 
