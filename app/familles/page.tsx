@@ -237,7 +237,8 @@ export default function FamillesPage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
-            Découvrez comment Solerya rend chaque pièce plus rassurante, plus sûre et plus simple à vivre, sans caméra ni intrusion.
+            Découvrez comment Solerya rend chaque pièce plus rassurante, plus
+            sûre et plus simple à vivre, sans caméra ni intrusion.
           </p>
 
           <div className="mx-auto mt-6 grid max-w-3xl gap-3 rounded-[28px] bg-white p-3 shadow-[0_14px_45px_rgba(8,18,46,0.07)] sm:grid-cols-3">
@@ -277,17 +278,21 @@ export default function FamillesPage() {
             </div>
 
             <div className="relative mx-auto max-w-[760px] overflow-hidden rounded-[34px] bg-[#EEF3F8] p-4 md:p-5">
-              <div className="relative grid h-[500px] grid-cols-9 grid-rows-8 gap-3 md:h-[540px]">
+              <div className="relative grid h-[540px] grid-cols-9 grid-rows-[repeat(6,minmax(0,1fr))_1.25fr_1.25fr] gap-3 md:h-[580px]">
                 {rooms.map((room) => {
                   const Icon = room.icon;
                   const isActive = activeRoom.id === room.id;
+                  const isSmallRoom =
+                    room.id === "entree" || room.id === "couloir";
 
                   return (
                     <button
                       key={room.id}
                       type="button"
                       onClick={() => setActiveRoom(room)}
-                      className={`${room.area} group relative overflow-hidden rounded-[28px] border p-5 text-left transition duration-300 hover:-translate-y-1 ${
+                      className={`${room.area} group relative overflow-hidden rounded-[28px] border text-left transition duration-300 hover:-translate-y-1 ${
+                        isSmallRoom ? "p-4" : "p-5"
+                      } ${
                         isActive
                           ? "z-20 border-[#F58220] bg-white shadow-[0_24px_55px_rgba(8,18,46,0.17)]"
                           : "z-10 border-white/80 bg-white/90 shadow-[0_12px_28px_rgba(8,18,46,0.08)] hover:bg-white"
@@ -301,13 +306,17 @@ export default function FamillesPage() {
                       <div className="relative flex h-full flex-col justify-between">
                         <div className="flex items-start justify-between gap-3">
                           <div
-                            className="flex h-11 w-11 items-center justify-center rounded-2xl"
+                            className={`flex items-center justify-center rounded-2xl ${
+                              isSmallRoom ? "h-10 w-10" : "h-11 w-11"
+                            }`}
                             style={{
                               backgroundColor: room.soft,
                               color: room.color,
                             }}
                           >
-                            <Icon className="h-6 w-6" />
+                            <Icon
+                              className={isSmallRoom ? "h-5 w-5" : "h-6 w-6"}
+                            />
                           </div>
 
                           <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-500 shadow-sm">
@@ -315,11 +324,25 @@ export default function FamillesPage() {
                           </span>
                         </div>
 
-                        <div className="rounded-[22px] bg-white/60 p-3 backdrop-blur">
-                          <p className="truncate text-xl font-extrabold leading-tight md:text-2xl">
+                        <div
+                          className={`rounded-[22px] bg-white/60 backdrop-blur ${
+                            isSmallRoom ? "p-2.5" : "p-3"
+                          }`}
+                        >
+                          <p
+                            className={`truncate font-extrabold leading-tight ${
+                              isSmallRoom
+                                ? "text-lg md:text-xl"
+                                : "text-xl md:text-2xl"
+                            }`}
+                          >
                             {room.name}
                           </p>
-                          <p className="mt-1 line-clamp-1 text-xs font-semibold text-slate-500 md:text-sm">
+                          <p
+                            className={`mt-1 font-semibold leading-snug text-slate-500 ${
+                              isSmallRoom ? "text-xs" : "text-xs md:text-sm"
+                            }`}
+                          >
                             {room.subtitle}
                           </p>
                         </div>
@@ -390,7 +413,9 @@ export default function FamillesPage() {
                     </div>
 
                     <div>
-                      <p className="text-sm font-extrabold">{product.title}</p>
+                      <p className="text-sm font-extrabold">
+                        {product.title}
+                      </p>
                       <p className="mt-1 text-xs leading-5 text-slate-500">
                         {product.text}
                       </p>
