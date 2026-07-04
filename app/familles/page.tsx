@@ -247,7 +247,10 @@ export default function FamillesPage() {
               ["2", "Découvrez les solutions"],
               ["3", "Trouvez le bon pack"],
             ].map(([number, text]) => (
-              <div key={number} className="flex items-center gap-3 rounded-2xl bg-[#FAFBFD] p-3">
+              <div
+                key={number}
+                className="flex items-center gap-3 rounded-2xl bg-[#FAFBFD] p-3"
+              >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#FFF2E8] text-sm font-extrabold text-[#F58220]">
                   {number}
                 </div>
@@ -275,8 +278,6 @@ export default function FamillesPage() {
             </div>
 
             <div className="relative mx-auto max-w-[760px] overflow-hidden rounded-[34px] bg-[#EEF3F8] p-4 md:p-5">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,#FFF2E8_0%,transparent_28%),radial-gradient(circle_at_85%_70%,#EAF4FF_0%,transparent_30%)]" />
-
               <div className="relative grid h-[500px] grid-cols-9 grid-rows-8 gap-3 md:h-[540px]">
                 {rooms.map((room) => {
                   const Icon = room.icon;
@@ -287,15 +288,15 @@ export default function FamillesPage() {
                       key={room.id}
                       type="button"
                       onClick={() => setActiveRoom(room)}
-                      className={`${room.area} group relative overflow-hidden rounded-[28px] border p-4 text-left transition duration-300 hover:-translate-y-1 ${
+                      className={`${room.area} group relative overflow-hidden rounded-[28px] border p-5 text-left transition duration-300 hover:-translate-y-1 ${
                         isActive
                           ? "z-20 border-[#F58220] bg-white shadow-[0_24px_55px_rgba(8,18,46,0.17)]"
-                          : "z-10 border-white/80 bg-white/80 shadow-[0_12px_28px_rgba(8,18,46,0.08)] hover:bg-white"
+                          : "z-10 border-white/80 bg-white/90 shadow-[0_12px_28px_rgba(8,18,46,0.08)] hover:bg-white"
                       }`}
                       style={{
                         background: isActive
                           ? `linear-gradient(135deg, #ffffff, ${room.soft})`
-                          : `linear-gradient(135deg, rgba(255,255,255,0.96), ${room.soft})`,
+                          : `linear-gradient(135deg, rgba(255,255,255,0.98), ${room.soft})`,
                       }}
                     >
                       <div className="relative flex h-full flex-col justify-between">
@@ -310,18 +311,12 @@ export default function FamillesPage() {
                             <Icon className="h-6 w-6" />
                           </div>
 
-                          <span
-                            className="h-3 w-3 rounded-full shadow-[0_0_18px_currentColor]"
-                            style={{
-                              color: room.color,
-                              backgroundColor: room.color,
-                            }}
-                          />
+                          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-500 shadow-sm">
+                            Voir
+                          </span>
                         </div>
 
-                        <RoomAmbiance roomId={room.id} color={room.color} />
-
-                        <div>
+                        <div className="rounded-[22px] bg-white/60 p-3 backdrop-blur">
                           <p className="truncate text-xl font-extrabold leading-tight md:text-2xl">
                             {room.name}
                           </p>
@@ -489,84 +484,5 @@ export default function FamillesPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-function RoomAmbiance({
-  roomId,
-  color,
-}: {
-  roomId: string;
-  color: string;
-}) {
-  if (roomId === "chambre") {
-    return (
-      <div className="relative my-3 h-20">
-        <div className="absolute left-2 top-5 h-11 w-28 rounded-[22px] bg-white shadow-lg" />
-        <div className="absolute left-8 top-1 h-8 w-16 rounded-[16px] bg-slate-200" />
-        <div className="absolute right-6 top-4 h-14 w-9 rounded-[16px] bg-amber-100 shadow-md" />
-        <div className="absolute right-9 top-0 h-5 w-5 rounded-full bg-amber-300 shadow-[0_0_28px_rgba(245,158,11,0.75)]" />
-        <div
-          className="absolute bottom-1 left-1/2 h-2 w-20 -translate-x-1/2 rounded-full"
-          style={{ backgroundColor: `${color}33` }}
-        />
-      </div>
-    );
-  }
-
-  if (roomId === "salon") {
-    return (
-      <div className="relative my-3 h-20">
-        <div className="absolute left-3 top-8 h-9 w-28 rounded-[20px] bg-slate-300 shadow-lg" />
-        <div className="absolute right-9 top-4 h-14 w-14 rounded-full bg-amber-100 shadow-md" />
-        <div
-          className="absolute right-14 top-9 h-5 w-5 rounded-full"
-          style={{ backgroundColor: color }}
-        />
-        <div className="absolute bottom-0 left-12 h-3 w-28 rounded-full bg-slate-200" />
-      </div>
-    );
-  }
-
-  if (roomId === "cuisine") {
-    return (
-      <div className="relative my-3 h-20">
-        <div className="absolute left-2 top-6 h-12 w-32 rounded-[18px] bg-white shadow-lg" />
-        <div className="absolute left-8 top-10 h-5 w-5 rounded-full bg-slate-300" />
-        <div className="absolute left-18 top-10 h-5 w-5 rounded-full bg-slate-300" />
-        <div className="absolute right-6 top-1 h-16 w-9 rounded-[14px] bg-slate-300 shadow-md" />
-      </div>
-    );
-  }
-
-  if (roomId === "salle-bain") {
-    return (
-      <div className="relative my-3 h-20">
-        <div className="absolute left-4 top-9 h-10 w-20 rounded-full bg-white shadow-lg" />
-        <div className="absolute right-5 top-2 h-16 w-10 rounded-[18px] bg-slate-200 shadow-md" />
-        <div
-          className="absolute right-9 top-7 h-3 w-3 rounded-full"
-          style={{ backgroundColor: color }}
-        />
-      </div>
-    );
-  }
-
-  if (roomId === "entree") {
-    return (
-      <div className="relative my-2 h-12">
-        <div className="absolute left-4 top-0 h-12 w-8 rounded-[12px] bg-amber-200 shadow-md" />
-        <div className="absolute left-10 top-7 h-1.5 w-1.5 rounded-full bg-[#08122E]" />
-        <div className="absolute right-5 top-5 h-5 w-12 rounded-lg bg-slate-200" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="relative my-2 h-12">
-      <div className="absolute left-6 top-0 h-12 w-9 rounded-[12px] bg-slate-200 shadow-md" />
-      <div className="absolute right-8 top-5 h-5 w-5 rounded-full bg-amber-300 shadow-[0_0_26px_rgba(245,158,11,0.75)]" />
-      <div className="absolute right-14 top-2 h-9 w-2 rounded-full bg-slate-300" />
-    </div>
   );
 }
