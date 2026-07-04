@@ -227,7 +227,7 @@ export default function SoleryaHomePage() {
                 href="#contact"
                 className="rounded-full border border-slate-300 px-8 py-4 text-center text-sm font-semibold text-[#08122E] transition hover:bg-white hover:shadow-sm"
               >
-                Être rappelé par un conseiller
+                Être contacté par un conseiller
               </Link>
             </div>
           </div>
