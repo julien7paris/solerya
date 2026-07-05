@@ -19,11 +19,30 @@ import {
 } from "lucide-react";
 
 const packStyles = {
-  serenite: { color: "#0B8A4A", soft: "#EAF8F0" },
-  confort: { color: "#0967D2", soft: "#EAF4FF" },
-  autonomie: { color: "#8E44CC", soft: "#F5ECFF" },
-  signature: { color: "#F25A1D", soft: "#FFF1E6" },
+  serenite: {
+    color: "#0B8A4A",
+    soft: "#EAF8F0",
+    appImage: "/objets/application-serenite.jpg",
+  },
+  confort: {
+    color: "#0967D2",
+    soft: "#EAF4FF",
+    appImage: "/objets/application-confort.jpg",
+  },
+  autonomie: {
+    color: "#8E44CC",
+    soft: "#F5ECFF",
+    appImage: "/objets/application-autonomie.jpg",
+  },
+  signature: {
+    color: "#F25A1D",
+    soft: "#FFF1E6",
+    appImage: "/objets/application-signature.jpg",
+  },
 };
+
+const getApplicationImage = (packKey: keyof typeof packStyles) =>
+  packStyles[packKey].appImage;
 
 const rooms = [
   {
@@ -55,6 +74,7 @@ const rooms = [
     ],
     benefit:
       "Votre proche garde son autonomie, pendant que la famille dispose de repères rassurants sans surveillance vidéo.",
+    packKey: "autonomie",
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
@@ -90,6 +110,7 @@ const rooms = [
     ],
     benefit:
       "La salle de bain devient plus rassurante, avec des équipements discrets et utiles.",
+    packKey: "confort",
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
@@ -120,11 +141,12 @@ const rooms = [
       {
         title: "Application famille",
         text: "Affiche des informations simples et compréhensibles pour les proches.",
-        image: "/objets/application.jpg",
+        image: "application",
       },
     ],
     benefit:
       "La famille garde une vision claire du quotidien, sans transformer le domicile en lieu de surveillance.",
+    packKey: "autonomie",
     pack: "Solerya Autonomie",
     price: "79",
     href: "/packs/autonomie",
@@ -160,6 +182,7 @@ const rooms = [
     ],
     benefit:
       "Les incidents domestiques sont repérés plus tôt, sans perturber la vie quotidienne.",
+    packKey: "confort",
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
@@ -185,7 +208,7 @@ const rooms = [
       {
         title: "Application famille",
         text: "Les proches reçoivent les informations utiles au bon moment.",
-        image: "/objets/application.jpg",
+        image: "application",
       },
       {
         title: "Bouton SOS",
@@ -195,6 +218,7 @@ const rooms = [
     ],
     benefit:
       "Vous êtes rassuré sur les entrées, les sorties et les moments importants du domicile.",
+    packKey: "serenite",
     pack: "Solerya Sérénité",
     price: "39",
     href: "/packs/serenite",
@@ -225,11 +249,12 @@ const rooms = [
       {
         title: "Application famille",
         text: "Le logement devient plus lisible pour les proches.",
-        image: "/objets/application.jpg",
+        image: "application",
       },
     ],
     benefit:
       "Les déplacements sont plus sûrs, sans que votre proche ait besoin d’y penser.",
+    packKey: "confort",
     pack: "Solerya Confort",
     price: "59",
     href: "/packs/confort",
@@ -244,60 +269,42 @@ export default function FamillesPage() {
 
   return (
     <main className="min-h-screen bg-[#FAFBFD] text-[#08122E]">
-      <section className="mx-auto max-w-7xl px-6 pb-10 pt-6 lg:px-8">
-        <div className="mx-auto mb-8 max-w-5xl text-center">
+      <section className="mx-auto max-w-7xl px-6 pb-8 pt-5 lg:px-8">
+        <div className="mx-auto mb-6 max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-semibold text-[#C95F07]">
             <HeartHandshake className="h-4 w-4 text-[#F58220]" />
             Pour les familles
           </div>
 
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] md:text-6xl">
+          <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] md:text-5xl">
             Explorez la maison Solerya.
           </h1>
 
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-3 max-w-3xl text-base leading-7 text-slate-600">
             Découvrez comment Solerya rend chaque pièce plus rassurante, plus
             sûre et plus simple à vivre, sans caméra ni intrusion.
           </p>
-
-          <div className="mx-auto mt-6 grid max-w-3xl gap-3 rounded-[28px] bg-white p-3 shadow-[0_14px_45px_rgba(8,18,46,0.07)] sm:grid-cols-3">
-            {[
-              ["1", "Choisissez une pièce"],
-              ["2", "Découvrez les solutions"],
-              ["3", "Trouvez le bon pack"],
-            ].map(([number, text]) => (
-              <div
-                key={number}
-                className="flex items-center gap-3 rounded-2xl bg-[#FAFBFD] p-3"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#FFF2E8] text-sm font-extrabold text-[#F58220]">
-                  {number}
-                </div>
-                <p className="text-sm font-bold leading-5">{text}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="grid gap-7 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
-          <div className="rounded-[38px] bg-white p-5 shadow-[0_24px_70px_rgba(8,18,46,0.10)] md:p-6">
-            <div className="mb-4 flex items-center justify-between gap-4">
+        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+          <div className="rounded-[34px] bg-white p-4 shadow-[0_20px_60px_rgba(8,18,46,0.09)] md:p-5">
+            <div className="mb-3 flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-extrabold text-[#F58220]">
                   Maison virtuelle
                 </p>
-                <h2 className="mt-1 text-2xl font-extrabold">
+                <h2 className="mt-1 text-xl font-extrabold">
                   Cliquez sur une pièce
                 </h2>
               </div>
 
-              <div className="hidden rounded-full bg-[#FAFBFD] px-4 py-2 text-sm font-bold text-slate-600 sm:block">
+              <div className="hidden rounded-full bg-[#FAFBFD] px-4 py-2 text-xs font-bold text-slate-600 sm:block">
                 6 espaces interactifs
               </div>
             </div>
 
-            <div className="relative mx-auto max-w-[760px] overflow-hidden rounded-[34px] bg-[#EEF3F8] p-4 md:p-5">
-              <div className="relative grid h-[540px] grid-cols-9 grid-rows-[repeat(6,minmax(0,1fr))_1.25fr_1.25fr] gap-3 md:h-[580px]">
+            <div className="relative mx-auto max-w-[720px] overflow-hidden rounded-[30px] bg-[#EEF3F8] p-3 md:p-4">
+              <div className="relative grid h-[460px] grid-cols-9 grid-rows-[repeat(6,minmax(0,1fr))_1.2fr_1.2fr] gap-3 md:h-[500px]">
                 {rooms.map((room) => {
                   const Icon = room.icon;
                   const isActive = activeRoom.id === room.id;
@@ -309,12 +316,12 @@ export default function FamillesPage() {
                       key={room.id}
                       type="button"
                       onClick={() => setActiveRoom(room)}
-                      className={`${room.area} group relative overflow-hidden rounded-[28px] border text-left transition duration-300 hover:-translate-y-1 ${
-                        isSmallRoom ? "p-4" : "p-5"
+                      className={`${room.area} group relative overflow-hidden rounded-[24px] border text-left transition duration-300 hover:-translate-y-1 ${
+                        isSmallRoom ? "p-3" : "p-4"
                       } ${
                         isActive
-                          ? "z-20 border-[#F58220] bg-white shadow-[0_24px_55px_rgba(8,18,46,0.17)]"
-                          : "z-10 border-white/80 bg-white/90 shadow-[0_12px_28px_rgba(8,18,46,0.08)] hover:bg-white"
+                          ? "z-20 border-[#F58220] bg-white shadow-[0_20px_45px_rgba(8,18,46,0.15)]"
+                          : "z-10 border-white/80 bg-white/90 shadow-[0_10px_24px_rgba(8,18,46,0.07)] hover:bg-white"
                       }`}
                       style={{
                         background: isActive
@@ -326,7 +333,7 @@ export default function FamillesPage() {
                         <div className="flex items-start justify-between gap-3">
                           <div
                             className={`flex items-center justify-center rounded-2xl ${
-                              isSmallRoom ? "h-10 w-10" : "h-11 w-11"
+                              isSmallRoom ? "h-9 w-9" : "h-10 w-10"
                             }`}
                             style={{
                               backgroundColor: room.soft,
@@ -344,24 +351,20 @@ export default function FamillesPage() {
                         </div>
 
                         <div
-                          className={`rounded-[22px] bg-white/60 backdrop-blur ${
-                            isSmallRoom ? "p-2.5" : "p-3"
+                          className={`rounded-[20px] bg-white/60 backdrop-blur ${
+                            isSmallRoom ? "p-2" : "p-2.5"
                           }`}
                         >
                           <p
                             className={`truncate font-extrabold leading-tight ${
                               isSmallRoom
-                                ? "text-lg md:text-xl"
+                                ? "text-lg"
                                 : "text-xl md:text-2xl"
                             }`}
                           >
                             {room.name}
                           </p>
-                          <p
-                            className={`mt-1 font-semibold leading-snug text-slate-500 ${
-                              isSmallRoom ? "text-xs" : "text-xs md:text-sm"
-                            }`}
-                          >
+                          <p className="mt-1 text-xs font-semibold leading-snug text-slate-500">
                             {room.subtitle}
                           </p>
                         </div>
@@ -373,20 +376,20 @@ export default function FamillesPage() {
             </div>
           </div>
 
-          <aside className="rounded-[38px] border border-orange-100 bg-white p-6 shadow-[0_24px_70px_rgba(8,18,46,0.10)] lg:sticky lg:top-20 lg:h-fit">
-            <div className="grid grid-cols-[1fr_82px] gap-5">
+          <aside className="rounded-[34px] border border-orange-100 bg-white p-5 shadow-[0_20px_60px_rgba(8,18,46,0.09)] lg:sticky lg:top-20 lg:h-fit">
+            <div className="grid grid-cols-[1fr_72px] gap-4">
               <div>
                 <div
-                  className="flex h-14 w-14 items-center justify-center rounded-full"
+                  className="flex h-12 w-12 items-center justify-center rounded-full"
                   style={{
                     backgroundColor: activeRoom.soft,
                     color: activeRoom.color,
                   }}
                 >
-                  <ActiveIcon className="h-7 w-7" />
+                  <ActiveIcon className="h-6 w-6" />
                 </div>
 
-                <p className="mt-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <p className="mt-3 text-xs font-bold uppercase tracking-widest text-slate-400">
                   Pièce sélectionnée
                 </p>
 
@@ -396,60 +399,72 @@ export default function FamillesPage() {
               </div>
 
               <div
-                className="flex h-20 w-20 items-center justify-center rounded-[24px]"
+                className="flex h-18 w-18 items-center justify-center rounded-[22px]"
                 style={{
                   backgroundColor: activeRoom.soft,
                   color: activeRoom.color,
                 }}
               >
-                <ActiveIcon className="h-10 w-10" />
+                <ActiveIcon className="h-9 w-9" />
               </div>
             </div>
 
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-3 text-sm leading-6 text-slate-600">
               {activeRoom.description}
             </p>
 
-            <div className="mt-6 rounded-[26px] bg-[#FAFBFD] p-4">
+            <div className="mt-5 rounded-[24px] bg-[#FAFBFD] p-4">
               <p className="text-sm font-extrabold">
                 Solutions recommandées
               </p>
 
-              <div className="mt-4 space-y-3">
-                {activeRoom.products.map((product) => (
-                  <div
-                    key={product.title}
-                    className="grid grid-cols-[74px_1fr_22px] items-center gap-4 rounded-[20px] bg-white p-3 shadow-[0_8px_24px_rgba(8,18,46,0.08)]"
-                  >
-                    <div className="relative h-16 w-16 overflow-hidden rounded-2xl bg-[#F8FAFC] shadow-inner">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        className="object-contain p-1.5"
-                        sizes="64px"
+              <div className="mt-3 space-y-3">
+                {activeRoom.products.map((product) => {
+                  const imageSrc =
+                    product.image === "application"
+                      ? getApplicationImage(
+                          activeRoom.packKey as keyof typeof packStyles
+                        )
+                      : product.image;
+
+                  return (
+                    <div
+                      key={product.title}
+                      className="grid grid-cols-[66px_1fr_22px] items-center gap-4 rounded-[18px] bg-white p-2.5 shadow-[0_8px_22px_rgba(8,18,46,0.07)]"
+                    >
+                      <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-[#F8FAFC] shadow-inner">
+                        <Image
+                          src={imageSrc}
+                          alt={product.title}
+                          fill
+                          className="object-contain p-1"
+                          sizes="56px"
+                        />
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-extrabold">
+                          {product.title}
+                        </p>
+                        <p className="mt-1 text-xs leading-5 text-slate-500">
+                          {product.text}
+                        </p>
+                      </div>
+
+                      <CheckCircle2
+                        className="h-5 w-5"
+                        style={{ color: activeRoom.packColor }}
                       />
                     </div>
-
-                    <div>
-                      <p className="text-sm font-extrabold">
-                        {product.title}
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
-                        {product.text}
-                      </p>
-                    </div>
-
-                    <CheckCircle2 className="h-5 w-5 text-[#F58220]" />
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
-            <div className="mt-5 rounded-[22px] bg-emerald-50 p-5">
+            <div className="mt-4 rounded-[20px] bg-emerald-50 p-4">
               <div className="flex gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#0B8A4A]">
-                  <ShieldCheck className="h-6 w-6" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#0B8A4A]">
+                  <ShieldCheck className="h-5 w-5" />
                 </div>
 
                 <div>
@@ -463,23 +478,23 @@ export default function FamillesPage() {
               </div>
             </div>
 
-            <div className="mt-6 rounded-[24px] border border-slate-100 bg-white p-5 shadow-sm">
+            <div className="mt-4 rounded-[22px] border border-slate-100 bg-white p-4 shadow-sm">
               <p className="text-sm font-extrabold">Pack recommandé</p>
 
-              <div className="mt-4 flex items-center justify-between gap-4">
+              <div className="mt-3 flex items-center justify-between gap-4">
                 <div
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
                   style={{
                     backgroundColor: activeRoom.packSoft,
                     color: activeRoom.packColor,
                   }}
                 >
-                  <CalendarClock className="h-7 w-7" />
+                  <CalendarClock className="h-6 w-6" />
                 </div>
 
                 <div className="min-w-0 flex-1">
                   <p
-                    className="text-xl font-extrabold"
+                    className="text-lg font-extrabold"
                     style={{ color: activeRoom.packColor }}
                   >
                     {activeRoom.pack}
@@ -499,7 +514,7 @@ export default function FamillesPage() {
 
               <Link
                 href={activeRoom.href}
-                className="mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
+                className="mt-4 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
                 style={{ backgroundColor: activeRoom.packColor }}
               >
                 Découvrir ce pack
@@ -509,10 +524,10 @@ export default function FamillesPage() {
           </aside>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/contact"
-            className="flex items-center gap-3 rounded-full bg-[#F58220] px-9 py-4 text-sm font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
+            className="flex items-center gap-3 rounded-full bg-[#F58220] px-8 py-3.5 text-sm font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
           >
             Être rappelé par un conseiller
             <Phone className="h-5 w-5" />
@@ -520,7 +535,7 @@ export default function FamillesPage() {
 
           <Link
             href="/"
-            className="rounded-full border border-slate-300 bg-white px-9 py-4 text-sm font-extrabold text-[#08122E] transition hover:shadow-sm"
+            className="rounded-full border border-slate-300 bg-white px-8 py-3.5 text-sm font-extrabold text-[#08122E] transition hover:shadow-sm"
           >
             Retour à l’accueil
           </Link>
