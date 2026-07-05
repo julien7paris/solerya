@@ -6,185 +6,246 @@ import { useState } from "react";
 import {
   ArrowRight,
   CheckCircle2,
-  HeartHandshake,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
 
-const packs = {
+type PackKey = "serenite" | "confort" | "autonomie" | "signature";
+
+type Pack = {
+  level: number;
+  shortName: string;
+  name: string;
+  price: string;
+  color: string;
+  soft: string;
+  glow: string;
+  href: string;
+  text: string;
+};
+
+type ConnectedObject = {
+  id: string;
+  name: string;
+  pack: PackKey;
+  image: string;
+  x: string;
+  y: string;
+};
+
+const packs: Record<PackKey, Pack> = {
   serenite: {
+    level: 1,
+    shortName: "Sérénité",
     name: "Solerya Sérénité",
     price: "39",
     color: "#0B8A4A",
     soft: "#EAF8F0",
+    glow: "rgba(11, 138, 74, 0.28)",
     href: "/packs/serenite",
-    text: "Les essentiels pour rassurer les proches.",
+    text: "Les essentiels pour rassurer les proches et sécuriser le quotidien.",
   },
+
   confort: {
+    level: 2,
+    shortName: "Confort",
     name: "Solerya Confort",
     price: "59",
     color: "#0967D2",
     soft: "#EAF4FF",
+    glow: "rgba(9, 103, 210, 0.28)",
     href: "/packs/confort",
-    text: "Un domicile plus sûr et plus confortable.",
+    text: "Tout le pack Sérénité, avec une protection renforcée du logement.",
   },
+
   autonomie: {
+    level: 3,
+    shortName: "Autonomie",
     name: "Solerya Autonomie",
     price: "79",
     color: "#8E44CC",
     soft: "#F5ECFF",
+    glow: "rgba(142, 68, 204, 0.28)",
     href: "/packs/autonomie",
-    text: "Une maison attentive au rythme de vie.",
+    text: "Tout le pack Confort, avec des repères sur le rythme de vie et les déplacements.",
   },
+
   signature: {
+    level: 4,
+    shortName: "Signature",
     name: "Solerya Signature",
     price: "99",
     color: "#F25A1D",
     soft: "#FFF1E6",
+    glow: "rgba(242, 90, 29, 0.30)",
     href: "/packs/signature",
-    text: "La solution complète avec objets renforcés.",
+    text: "La solution complète : tous les équipements Solerya réunis dans un même pack.",
   },
 };
 
-const objects = [
+const objects: ConnectedObject[] = [
+  // PACK SÉRÉNITÉ
   {
     id: "bouton-sos",
     name: "Bouton SOS",
     pack: "serenite",
     image: "/objets/bouton-sos.jpg",
-    x: "8%",
+    x: "9%",
     y: "18%",
   },
   {
     id: "application",
     name: "Application famille",
     pack: "serenite",
-    image: "/objets/application-famille.png",
-    x: "6%",
-    y: "55%",
+    image: "/objets/application.jpg",
+    x: "8%",
+    y: "53%",
   },
   {
     id: "ouverture",
-    name: "Détecteur ouverture",
+    name: "Détecteur d’ouverture",
     pack: "serenite",
     image: "/objets/detecteur-ouverture-porte.jpg",
-    x: "22%",
-    y: "78%",
+    x: "24%",
+    y: "81%",
+  },
+
+  // PACK CONFORT
+  {
+    id: "temperature",
+    name: "Température & humidité",
+    pack: "confort",
+    image: "/objets/capteur-de-temperature-et-d-humidite(3).jpg",
+    x: "86%",
+    y: "18%",
+  },
+  {
+    id: "fumee",
+    name: "Détecteur de fumée",
+    pack: "confort",
+    image: "/objets/detecteur-fumee.jpg",
+    x: "91%",
+    y: "51%",
   },
   {
     id: "fuite",
     name: "Détecteur de fuite",
     pack: "confort",
-    image: "/objets/fuites.jpg",
-    x: "70%",
-    y: "78%",
+    image: "/objets/fuites(3).jpg",
+    x: "76%",
+    y: "81%",
   },
-  {
-    id: "fumee",
-    name: "Détecteur fumée",
-    pack: "confort",
-    image: "/objets/detecteur-fumee.jpg",
-    x: "86%",
-    y: "55%",
-  },
-  {
-    id: "temperature",
-    name: "Température & humidité",
-    pack: "confort",
-    image: "/objets/capteur-temperature-humidite.jpg",
-    x: "84%",
-    y: "20%",
-  },
+
+  // PACK AUTONOMIE
   {
     id: "presence",
     name: "Capteur de présence",
     pack: "autonomie",
     image: "/objets/capteur-presence.jpg",
-    x: "32%",
-    y: "8%",
+    x: "29%",
+    y: "10%",
   },
   {
     id: "mouvement",
-    name: "Capteur mouvement",
+    name: "Capteur de mouvement",
     pack: "autonomie",
     image: "/objets/capteur-mouvement-veilleuse.jpg",
-    x: "58%",
+    x: "55%",
     y: "8%",
   },
   {
-    id: "chemin",
+    id: "chemin-lumineux",
     name: "Chemin lumineux",
     pack: "autonomie",
     image: "/objets/chemin-lumineux.jpg",
-    x: "42%",
-    y: "84%",
+    x: "48%",
+    y: "87%",
   },
+
+  // PACK SIGNATURE
   {
-    id: "vanne",
+    id: "arret-vanne",
     name: "Arrêt de vanne",
     pack: "signature",
-    image: "/objets/arret-vanne.jpg",
-    x: "16%",
+    image: "/objets/arret-vanne(1).jpg",
+    x: "17%",
     y: "36%",
   },
   {
-    id: "frigo",
-    name: "Capteur frigo",
+    id: "home-assistant",
+    name: "Hub Home Assistant",
     pack: "signature",
-    image: "/objets/frigo.jpg",
-    x: "74%",
-    y: "38%",
+    image: "/objets/home-assistant.jpg",
+    x: "50%",
+    y: "22%",
+  },
+  {
+    id: "refrigerateur",
+    name: "Capteur réfrigérateur",
+    pack: "signature",
+    image: "/objets/refregirateur.jpg",
+    x: "79%",
+    y: "36%",
   },
   {
     id: "sirene",
     name: "Sirène connectée",
     pack: "signature",
-    image: "/objets/sirene.jpg",
-    x: "50%",
-    y: "2%",
+    image: "/objets/sirene(2).jpg",
+    x: "65%",
+    y: "66%",
   },
 ];
 
 export default function SchemaPage() {
   const [activePackKey, setActivePackKey] =
-    useState<keyof typeof packs>("autonomie");
+    useState<PackKey>("serenite");
+
+  const [selectedObjectId, setSelectedObjectId] =
+    useState<string | null>("bouton-sos");
 
   const activePack = packs[activePackKey];
-  const activeObjects = objects.filter((object) => object.pack === activePackKey);
+
+  const includedObjects = objects.filter((object) => {
+    return packs[object.pack].level <= activePack.level;
+  });
+
+  function selectPack(packKey: PackKey) {
+    setActivePackKey(packKey);
+    setSelectedObjectId(null);
+  }
+
+  function selectObject(object: ConnectedObject) {
+    setActivePackKey(object.pack);
+    setSelectedObjectId(object.id);
+  }
 
   return (
     <main className="min-h-screen bg-[#FAFBFD] text-[#08122E]">
-      <section className="mx-auto max-w-7xl px-6 pb-14 pt-8 lg:px-8">
-        <div className="mx-auto mb-8 max-w-5xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-semibold text-[#C95F07]">
-            <HeartHandshake className="h-4 w-4 text-[#F58220]" />
-            Schéma Solerya
-          </div>
+      <section className="mx-auto max-w-[1500px] px-5 py-8 lg:px-8">
+        <div className="grid gap-7 xl:grid-cols-[minmax(0,1.45fr)_minmax(380px,0.55fr)] xl:items-start">
+          {/* =========================
+              ÉCOSYSTÈME PRINCIPAL
+          ========================== */}
 
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] md:text-6xl">
-            Les objets connectés autour du senior.
-          </h1>
-
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
-            Cliquez sur un objet : tous les équipements du même pack se mettent
-            en surbrillance avec la couleur associée.
-          </p>
-        </div>
-
-        <div className="grid gap-7 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="rounded-[42px] bg-white p-5 shadow-[0_24px_80px_rgba(8,18,46,0.10)] md:p-7">
-            <div className="mb-5 flex items-center justify-between gap-4">
+          <div className="min-w-0 rounded-[42px] bg-white p-5 shadow-[0_24px_80px_rgba(8,18,46,0.10)] md:p-7">
+            <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-extrabold text-[#F58220]">
                   Écosystème connecté
                 </p>
-                <h2 className="mt-1 text-2xl font-extrabold">
-                  Cliquez sur un objet
-                </h2>
+
+                <h1 className="mt-1 text-2xl font-extrabold tracking-[-0.02em] md:text-3xl">
+                  Solerya autour du senior
+                </h1>
+
+                <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                  Cliquez sur un équipement ou directement sur un pack.
+                </p>
               </div>
 
               <div
-                className="rounded-full px-4 py-2 text-sm font-extrabold"
+                className="shrink-0 rounded-full px-5 py-2.5 text-sm font-extrabold"
                 style={{
                   backgroundColor: activePack.soft,
                   color: activePack.color,
@@ -194,144 +255,208 @@ export default function SchemaPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[720px] overflow-hidden rounded-[38px] bg-gradient-to-br from-[#F8FBFF] via-white to-[#EEF3F8]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(245,130,32,0.14),transparent_34%)]" />
+            {/* ZONE DES OBJETS */}
+            <div
+              className="relative min-h-[900px] overflow-hidden rounded-[38px] border border-slate-100 bg-gradient-to-br from-[#F8FBFF] via-white to-[#EEF3F8]"
+              style={{
+                boxShadow: `inset 0 0 100px ${activePack.glow}`,
+              }}
+            >
+              {/* FOND LUMINEUX */}
+              <div
+                className="pointer-events-none absolute inset-0 transition-all duration-500"
+                style={{
+                  background: `radial-gradient(
+                    circle at 50% 44%,
+                    ${activePack.glow} 0%,
+                    transparent 48%
+                  )`,
+                }}
+              />
+
+              {/* CERCLES */}
+              <div
+                className="pointer-events-none absolute left-1/2 top-[44%] z-0 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed transition-colors duration-500"
+                style={{
+                  borderColor: `${activePack.color}55`,
+                }}
+              />
 
               <div
-                className="absolute left-1/2 top-[44%] z-20 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[14px] border-white shadow-[0_30px_90px_rgba(8,18,46,0.18)]"
+                className="pointer-events-none absolute left-1/2 top-[44%] z-0 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed transition-colors duration-500"
                 style={{
-                  boxShadow: `0 30px 90px ${activePack.color}35`,
+                  borderColor: `${activePack.color}35`,
+                }}
+              />
+
+              {/* PHOTO SENIOR */}
+              <div
+                className="absolute left-1/2 top-[44%] z-10 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[14px] border-white transition-shadow duration-500"
+                style={{
+                  boxShadow: `0 35px 100px ${activePack.glow}`,
                 }}
               >
                 <Image
                   src="/images/senior.jpg"
-                  alt="Senior Solerya"
+                  alt="Seniors accompagnés par Solerya"
                   fill
                   priority
-                  className="rounded-full object-cover"
-                  sizes="360px"
+                  className="object-cover"
+                  sizes="390px"
                 />
               </div>
 
-              <div
-                className="absolute left-1/2 top-[44%] z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}55` }}
-              />
-
-              <div
-                className="absolute left-1/2 top-[44%] z-10 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}35` }}
-              />
-
+              {/* OBJETS CONNECTÉS */}
               {objects.map((object) => {
-                const pack = packs[object.pack as keyof typeof packs];
-                const isActive = object.pack === activePackKey;
+                const objectPack = packs[object.pack];
+
+                const isIncluded =
+                  objectPack.level <= activePack.level;
+
+                const isSelected =
+                  selectedObjectId === object.id;
 
                 return (
                   <button
                     key={object.id}
                     type="button"
-                    onClick={() =>
-                      setActivePackKey(object.pack as keyof typeof packs)
-                    }
-                    onMouseEnter={() =>
-                      setActivePackKey(object.pack as keyof typeof packs)
-                    }
-                    className={`absolute z-30 w-[150px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border bg-white p-3 text-center transition duration-300 ${
-                      isActive
-                        ? "scale-110 border-white opacity-100 shadow-[0_24px_60px_rgba(8,18,46,0.22)]"
-                        : "scale-95 border-slate-100 opacity-45 grayscale hover:opacity-100 hover:grayscale-0"
+                    onClick={() => selectObject(object)}
+                    className={`absolute z-20 w-[142px] -translate-x-1/2 -translate-y-1/2 rounded-[26px] border bg-white p-3 text-center transition-all duration-500 ${
+                      isIncluded
+                        ? "scale-100 opacity-100"
+                        : "scale-[0.88] border-slate-200 opacity-25 grayscale"
+                    } ${
+                      isSelected
+                        ? "z-30 scale-110"
+                        : ""
                     }`}
                     style={{
                       left: object.x,
                       top: object.y,
-                      boxShadow: isActive
-                        ? `0 24px 60px ${pack.color}35`
-                        : undefined,
+
+                      borderColor: isIncluded
+                        ? activePack.color
+                        : "#E2E8F0",
+
+                      boxShadow: isIncluded
+                        ? isSelected
+                          ? `0 28px 70px ${activePack.glow}`
+                          : `0 16px 40px ${activePack.glow}`
+                        : "none",
                     }}
                   >
-                    <div
-                      className="relative mx-auto h-24 w-24 overflow-hidden rounded-2xl bg-white"
-                      style={{
-                        outline: isActive
-                          ? `3px solid ${pack.color}`
-                          : "1px solid #E5E7EB",
-                      }}
-                    >
+                    <div className="relative mx-auto h-[92px] w-[92px] overflow-hidden rounded-[18px] bg-white">
                       <Image
                         src={object.image}
                         alt={object.name}
                         fill
                         className="object-contain p-1"
-                        sizes="96px"
+                        sizes="92px"
                       />
                     </div>
 
                     <p
-                      className="mt-3 text-xs font-extrabold leading-4"
-                      style={{ color: isActive ? pack.color : "#08122E" }}
+                      className="mt-3 text-xs font-extrabold leading-[1.3]"
+                      style={{
+                        color: isIncluded
+                          ? activePack.color
+                          : "#64748B",
+                      }}
                     >
                       {object.name}
                     </p>
                   </button>
                 );
               })}
+            </div>
 
-              <div className="absolute bottom-6 left-6 right-6 z-40 rounded-[30px] bg-white/90 p-4 shadow-[0_22px_60px_rgba(8,18,46,0.14)] backdrop-blur">
-                <div className="grid gap-3 md:grid-cols-4">
-                  {Object.entries(packs).map(([key, pack]) => {
+            {/* SÉLECTEUR PACKS
+                Placé HORS de la zone absolue :
+                il ne peut plus rogner les objets.
+            */}
+
+            <div className="relative z-40 -mt-2 rounded-[32px] border border-white bg-white p-4 shadow-[0_24px_60px_rgba(8,18,46,0.14)]">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                {(Object.entries(packs) as [PackKey, Pack][]).map(
+                  ([key, pack]) => {
                     const selected = key === activePackKey;
 
                     return (
                       <button
                         key={key}
                         type="button"
-                        onClick={() =>
-                          setActivePackKey(key as keyof typeof packs)
-                        }
-                        className={`rounded-2xl px-4 py-3 text-left transition ${
-                          selected ? "scale-[1.03] shadow-sm" : "bg-slate-50"
-                        }`}
+                        onClick={() => selectPack(key)}
+                        className="rounded-[22px] px-5 py-4 text-left transition-all duration-300 hover:-translate-y-1"
                         style={{
-                          backgroundColor: selected ? pack.soft : undefined,
+                          backgroundColor: selected
+                            ? pack.soft
+                            : "#F8FAFC",
+
+                          boxShadow: selected
+                            ? `0 12px 30px ${pack.glow}`
+                            : "none",
                         }}
                       >
                         <p
-                          className="text-sm font-extrabold"
-                          style={{ color: pack.color }}
+                          className="text-base font-extrabold"
+                          style={{
+                            color: pack.color,
+                          }}
                         >
-                          {pack.name}
+                          Solerya
                         </p>
-                        <p className="mt-1 text-xs font-semibold text-slate-500">
+
+                        <p
+                          className="text-lg font-extrabold"
+                          style={{
+                            color: pack.color,
+                          }}
+                        >
+                          {pack.shortName}
+                        </p>
+
+                        <p className="mt-2 text-sm font-semibold text-slate-500">
                           Dès {pack.price} €/mois
                         </p>
                       </button>
                     );
-                  })}
-                </div>
+                  }
+                )}
               </div>
             </div>
           </div>
 
-          <aside className="rounded-[42px] border border-orange-100 bg-white p-6 shadow-[0_24px_80px_rgba(8,18,46,0.10)] lg:sticky lg:top-24">
+          {/* =========================
+              PANNEAU DROIT
+          ========================== */}
+
+          <aside className="rounded-[42px] border border-orange-100 bg-white p-6 shadow-[0_24px_80px_rgba(8,18,46,0.10)] xl:sticky xl:top-28">
+            {/* PACK ACTIF */}
+
             <div
-              className="rounded-[30px] p-5"
-              style={{ backgroundColor: activePack.soft }}
+              className="rounded-[30px] p-6 transition-colors duration-500"
+              style={{
+                backgroundColor: activePack.soft,
+              }}
             >
               <div
-                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white"
-                style={{ color: activePack.color }}
+                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm"
+                style={{
+                  color: activePack.color,
+                }}
               >
                 <Sparkles className="h-7 w-7" />
               </div>
 
-              <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-500">
+              <p className="mt-5 text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
                 Pack sélectionné
               </p>
 
               <h2
-                className="mt-2 text-3xl font-extrabold"
-                style={{ color: activePack.color }}
+                className="mt-2 text-3xl font-extrabold tracking-[-0.03em]"
+                style={{
+                  color: activePack.color,
+                }}
               >
                 {activePack.name}
               </h2>
@@ -341,54 +466,95 @@ export default function SchemaPage() {
               </p>
             </div>
 
-            <div className="mt-6 rounded-[28px] bg-[#FAFBFD] p-5">
-              <p className="text-sm font-extrabold">
-                Objets mis en surbrillance
-              </p>
+            {/* OBJETS INCLUS */}
 
-              <div className="mt-4 space-y-3">
-                {activeObjects.map((object) => (
-                  <div
-                    key={object.id}
-                    className="grid grid-cols-[64px_1fr_22px] items-center gap-4 rounded-[22px] bg-white p-3 shadow-[0_10px_26px_rgba(8,18,46,0.08)]"
-                  >
-                    <div
-                      className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white"
+            <div className="mt-6 rounded-[28px] bg-[#F8FAFC] p-5">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-base font-extrabold">
+                  Objets inclus
+                </p>
+
+                <div
+                  className="rounded-full px-3 py-1 text-xs font-extrabold"
+                  style={{
+                    backgroundColor: activePack.soft,
+                    color: activePack.color,
+                  }}
+                >
+                  {includedObjects.length} équipements
+                </div>
+              </div>
+
+              <div className="mt-4 max-h-[540px] space-y-3 overflow-y-auto pr-2">
+                {includedObjects.map((object) => {
+                  const isSelected =
+                    selectedObjectId === object.id;
+
+                  return (
+                    <button
+                      key={object.id}
+                      type="button"
+                      onClick={() => selectObject(object)}
+                      className="grid w-full grid-cols-[64px_1fr_24px] items-center gap-4 rounded-[22px] border bg-white p-3 text-left transition-all duration-300 hover:-translate-y-0.5"
                       style={{
-                        outline: `2px solid ${activePack.color}`,
+                        borderColor: isSelected
+                          ? activePack.color
+                          : "transparent",
+
+                        boxShadow: isSelected
+                          ? `0 12px 32px ${activePack.glow}`
+                          : "0 8px 24px rgba(8,18,46,0.06)",
                       }}
                     >
-                      <Image
-                        src={object.image}
-                        alt={object.name}
-                        fill
-                        className="object-contain p-1"
-                        sizes="56px"
+                      <div
+                        className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white"
+                        style={{
+                          outline: `2px solid ${activePack.color}`,
+                        }}
+                      >
+                        <Image
+                          src={object.image}
+                          alt={object.name}
+                          fill
+                          className="object-contain p-1"
+                          sizes="56px"
+                        />
+                      </div>
+
+                      <p className="text-sm font-extrabold">
+                        {object.name}
+                      </p>
+
+                      <CheckCircle2
+                        className="h-5 w-5"
+                        style={{
+                          color: activePack.color,
+                        }}
                       />
-                    </div>
-
-                    <p className="text-sm font-extrabold">{object.name}</p>
-
-                    <CheckCircle2
-                      className="h-5 w-5"
-                      style={{ color: activePack.color }}
-                    />
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
+            {/* PRIX */}
+
             <div className="mt-6 rounded-[28px] border border-slate-100 bg-white p-5 shadow-sm">
-              <p className="text-sm font-extrabold">Prix du pack</p>
+              <p className="text-sm font-extrabold">
+                Prix du pack
+              </p>
 
               <div className="mt-4 flex items-end justify-between gap-4">
                 <div>
                   <p
                     className="text-4xl font-extrabold"
-                    style={{ color: activePack.color }}
+                    style={{
+                      color: activePack.color,
+                    }}
                   >
                     {activePack.price} €
                   </p>
+
                   <p className="mt-1 text-sm font-semibold text-slate-500">
                     par mois
                   </p>
@@ -397,19 +563,23 @@ export default function SchemaPage() {
                 <div className="text-right text-xs leading-5 text-slate-500">
                   Installation possible
                   <br />
-                  objets connectés inclus
+                  équipements connectés inclus
                 </div>
               </div>
 
               <Link
                 href={activePack.href}
-                className="mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
-                style={{ backgroundColor: activePack.color }}
+                className="mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-4 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
+                style={{
+                  backgroundColor: activePack.color,
+                }}
               >
                 Découvrir ce pack
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
+            {/* BÉNÉFICE */}
 
             <div className="mt-5 rounded-[24px] bg-emerald-50 p-5">
               <div className="flex gap-4">
@@ -419,11 +589,12 @@ export default function SchemaPage() {
 
                 <div>
                   <p className="text-base font-extrabold text-[#0B8A4A]">
-                    Le bénéfice famille
+                    Le bénéfice pour la famille
                   </p>
+
                   <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Voir les bons signaux au bon moment, sans transformer le
-                    domicile en lieu de surveillance.
+                    Des informations simples et utiles pour rassurer les proches,
+                    sans transformer le domicile en lieu de surveillance.
                   </p>
                 </div>
               </div>
