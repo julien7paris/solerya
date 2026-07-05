@@ -19,22 +19,10 @@ import {
 } from "lucide-react";
 
 const packStyles = {
-  serenite: {
-    color: "#0B8A4A",
-    soft: "#EAF8F0",
-  },
-  confort: {
-    color: "#0967D2",
-    soft: "#EAF4FF",
-  },
-  autonomie: {
-    color: "#8E44CC",
-    soft: "#F5ECFF",
-  },
-  signature: {
-    color: "#F25A1D",
-    soft: "#FFF1E6",
-  },
+  serenite: { color: "#0B8A4A", soft: "#EAF8F0" },
+  confort: { color: "#0967D2", soft: "#EAF4FF" },
+  autonomie: { color: "#8E44CC", soft: "#F5ECFF" },
+  signature: { color: "#F25A1D", soft: "#FFF1E6" },
 };
 
 const rooms = [
@@ -52,17 +40,17 @@ const rooms = [
       {
         title: "Présence détectée sans caméra",
         text: "Aide à comprendre si la personne est présente, même avec peu de mouvement.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-presence.jpg",
       },
       {
         title: "Chemin lumineux de nuit",
         text: "S’allume automatiquement pour accompagner les levers nocturnes.",
-        image: "/objets/veilleuse-automatique.png",
+        image: "/objets/chemin-lumineux.jpg",
       },
       {
         title: "Bouton SOS à portée de main",
         text: "Permet de demander de l’aide simplement depuis la chambre.",
-        image: "/objets/bouton-sos.png",
+        image: "/objets/bouton-sos.jpg",
       },
     ],
     benefit:
@@ -87,17 +75,17 @@ const rooms = [
       {
         title: "Bouton SOS mural ou portable",
         text: "Une demande d’aide simple dans une pièce à risque.",
-        image: "/objets/bouton-sos.png",
+        image: "/objets/bouton-sos.jpg",
       },
       {
         title: "Détecteur de fuite",
         text: "Repère une présence d’eau anormale dès son apparition.",
-        image: "/objets/detecteur-fuite.png",
+        image: "/objets/fuites.jpg",
       },
       {
         title: "Présence non intrusive",
         text: "Aide à identifier une situation inhabituelle sans caméra.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-presence.jpg",
       },
     ],
     benefit:
@@ -122,17 +110,17 @@ const rooms = [
       {
         title: "Capteur de mouvement",
         text: "Donne un signe rassurant d’activité dans la pièce de vie.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-mouvement-veilleuse.jpg",
       },
       {
         title: "Présence détectée sans caméra",
         text: "Permet de mieux comprendre l’occupation du salon, sans image.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-presence.jpg",
       },
       {
         title: "Application famille",
         text: "Affiche des informations simples et compréhensibles pour les proches.",
-        image: "/objets/application-famille.png",
+        image: "/objets/application.jpg",
       },
     ],
     benefit:
@@ -157,17 +145,17 @@ const rooms = [
       {
         title: "Détecteur de fumée connecté",
         text: "La maison veille en cas de fumée dans une pièce sensible.",
-        image: "/objets/detecteur-fumee.png",
+        image: "/objets/detecteur-fumee.jpg",
       },
       {
         title: "Détecteur de fuite",
         text: "Repère rapidement une présence d’eau anormale.",
-        image: "/objets/detecteur-fuite.png",
+        image: "/objets/fuites.jpg",
       },
       {
-        title: "Confort thermique",
+        title: "Température & humidité",
         text: "Aide à garder un repère en cas de forte chaleur ou de froid.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-de-temperature-et-d-humidite.jpg",
       },
     ],
     benefit:
@@ -192,17 +180,17 @@ const rooms = [
       {
         title: "Surveillance de la porte d’entrée",
         text: "Un repère discret sur les ouvertures importantes du logement.",
-        image: "/objets/detecteur-ouverture.png",
+        image: "/objets/detecteur-ouverture-porte.jpg",
       },
       {
         title: "Application famille",
         text: "Les proches reçoivent les informations utiles au bon moment.",
-        image: "/objets/application-famille.png",
+        image: "/objets/application.jpg",
       },
       {
         title: "Bouton SOS",
         text: "Un moyen simple de demander de l’aide au domicile.",
-        image: "/objets/bouton-sos.png",
+        image: "/objets/bouton-sos.jpg",
       },
     ],
     benefit:
@@ -227,17 +215,17 @@ const rooms = [
       {
         title: "Chemin lumineux automatique",
         text: "S’allume au passage pour guider les déplacements la nuit.",
-        image: "/objets/veilleuse-automatique.png",
+        image: "/objets/chemin-lumineux.jpg",
       },
       {
         title: "Capteur de mouvement",
         text: "Rend les scénarios du domicile plus utiles et plus rassurants.",
-        image: "/objets/capteur-mouvement.png",
+        image: "/objets/capteur-mouvement-veilleuse.jpg",
       },
       {
-        title: "Maison plus prévenante",
-        text: "Le logement réagit automatiquement sans geste compliqué.",
-        image: "/objets/application-famille.png",
+        title: "Application famille",
+        text: "Le logement devient plus lisible pour les proches.",
+        image: "/objets/application.jpg",
       },
     ],
     benefit:

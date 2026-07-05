@@ -46,7 +46,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/#solutions" className="transition hover:text-[#F58220]">
+                <Link href="/schema" className="transition hover:text-[#F58220]">
                   Objets connectés
                 </Link>
               </li>
@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/#engagements" className="transition hover:text-[#F58220]">
+                <Link href="/engagements" className="transition hover:text-[#F58220]">
                   Nos engagements
                 </Link>
               </li>
@@ -78,7 +78,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/#conseils" className="transition hover:text-[#F58220]">
+                <Link href="/conseils" className="transition hover:text-[#F58220]">
                   Conseils
                 </Link>
               </li>
