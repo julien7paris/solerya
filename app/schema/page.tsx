@@ -5,33 +5,20 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
-  Bath,
-  BedDouble,
-  BellRing,
-  Camera,
   CheckCircle2,
-  ChefHat,
-  DoorOpen,
-  Droplets,
-  Flame,
   HeartHandshake,
-  Home,
-  LampDesk,
-  Phone,
   ShieldCheck,
-  Smartphone,
-  Sofa,
-  UserRound,
-  Waves,
+  Sparkles,
 } from "lucide-react";
 
-const packStyles = {
+const packs = {
   serenite: {
     name: "Solerya Sérénité",
     price: "39",
     color: "#0B8A4A",
     soft: "#EAF8F0",
     href: "/packs/serenite",
+    text: "Les essentiels pour rassurer les proches.",
   },
   confort: {
     name: "Solerya Confort",
@@ -39,6 +26,7 @@ const packStyles = {
     color: "#0967D2",
     soft: "#EAF4FF",
     href: "/packs/confort",
+    text: "Un domicile plus sûr et plus confortable.",
   },
   autonomie: {
     name: "Solerya Autonomie",
@@ -46,6 +34,7 @@ const packStyles = {
     color: "#8E44CC",
     soft: "#F5ECFF",
     href: "/packs/autonomie",
+    text: "Une maison attentive au rythme de vie.",
   },
   signature: {
     name: "Solerya Signature",
@@ -53,145 +42,149 @@ const packStyles = {
     color: "#F25A1D",
     soft: "#FFF1E6",
     href: "/packs/signature",
+    text: "La solution complète avec objets renforcés.",
   },
 };
 
-const rooms = [
+const objects = [
   {
-    id: "entree",
-    name: "Entrée",
-    icon: DoorOpen,
-    x: "8%",
-    y: "58%",
+    id: "bouton-sos",
+    name: "Bouton SOS",
     pack: "serenite",
-    need: "Accès, sorties et sécurité essentielle",
-    description:
-      "L’entrée permet de garder un repère simple sur les ouvertures importantes et les sorties inhabituelles.",
-    objects: [
-      { name: "Détecteur d’ouverture", icon: DoorOpen },
-      { name: "Bouton SOS", icon: BellRing },
-      { name: "Application famille", icon: Smartphone },
-    ],
-  },
-  {
-    id: "salon",
-    name: "Salon",
-    icon: Sofa,
-    x: "36%",
-    y: "46%",
-    pack: "autonomie",
-    need: "Rythme de vie et présence rassurante",
-    description:
-      "Le salon devient un espace de repères pour comprendre l’activité quotidienne, sans caméra ni intrusion.",
-    objects: [
-      { name: "Capteur de mouvement", icon: Waves },
-      { name: "Présence sans caméra", icon: ShieldCheck },
-      { name: "Application famille", icon: Smartphone },
-    ],
-  },
-  {
-    id: "chambre",
-    name: "Chambre",
-    icon: BedDouble,
-    x: "28%",
+    image: "/objets/bouton-sos.jpg",
+    x: "8%",
     y: "18%",
+  },
+  {
+    id: "application",
+    name: "Application famille",
+    pack: "serenite",
+    image: "/objets/application-famille.png",
+    x: "6%",
+    y: "55%",
+  },
+  {
+    id: "ouverture",
+    name: "Détecteur ouverture",
+    pack: "serenite",
+    image: "/objets/detecteur-ouverture-porte.jpg",
+    x: "22%",
+    y: "78%",
+  },
+  {
+    id: "fuite",
+    name: "Détecteur de fuite",
+    pack: "confort",
+    image: "/objets/fuites.jpg",
+    x: "70%",
+    y: "78%",
+  },
+  {
+    id: "fumee",
+    name: "Détecteur fumée",
+    pack: "confort",
+    image: "/objets/detecteur-fumee.jpg",
+    x: "86%",
+    y: "55%",
+  },
+  {
+    id: "temperature",
+    name: "Température & humidité",
+    pack: "confort",
+    image: "/objets/capteur-temperature-humidite.jpg",
+    x: "84%",
+    y: "20%",
+  },
+  {
+    id: "presence",
+    name: "Capteur de présence",
     pack: "autonomie",
-    need: "Levers nocturnes et autonomie",
-    description:
-      "La chambre aide à repérer les levers nocturnes et à sécuriser les déplacements, tout en préservant l’intimité.",
-    objects: [
-      { name: "Capteur de présence", icon: Waves },
-      { name: "Veilleuse automatique", icon: LampDesk },
-      { name: "Bouton SOS", icon: BellRing },
-    ],
+    image: "/objets/capteur-presence.jpg",
+    x: "32%",
+    y: "8%",
   },
   {
-    id: "cuisine",
-    name: "Cuisine",
-    icon: ChefHat,
-    x: "68%",
-    y: "28%",
-    pack: "confort",
-    need: "Fumée, fuite et confort du logement",
-    description:
-      "La cuisine est protégée contre les incidents domestiques fréquents : fumée, fuite ou situation anormale.",
-    objects: [
-      { name: "Détecteur de fumée", icon: Flame },
-      { name: "Détecteur de fuite", icon: Droplets },
-      { name: "Capteur de mouvement", icon: Waves },
-    ],
+    id: "mouvement",
+    name: "Capteur mouvement",
+    pack: "autonomie",
+    image: "/objets/capteur-mouvement-veilleuse.jpg",
+    x: "58%",
+    y: "8%",
   },
   {
-    id: "salle-bain",
-    name: "Salle de bain",
-    icon: Bath,
-    x: "76%",
-    y: "62%",
-    pack: "confort",
-    need: "Fuite et sécurité quotidienne",
-    description:
-      "La salle de bain devient plus rassurante grâce à des équipements discrets dans une pièce à risque.",
-    objects: [
-      { name: "Détecteur de fuite", icon: Droplets },
-      { name: "Bouton SOS", icon: BellRing },
-      { name: "Présence non intrusive", icon: ShieldCheck },
-    ],
+    id: "chemin",
+    name: "Chemin lumineux",
+    pack: "autonomie",
+    image: "/objets/chemin-lumineux.jpg",
+    x: "42%",
+    y: "84%",
   },
   {
-    id: "couloir",
-    name: "Couloir",
-    icon: LampDesk,
-    x: "52%",
-    y: "72%",
+    id: "vanne",
+    name: "Arrêt de vanne",
     pack: "signature",
-    need: "Déplacements nocturnes et accompagnement complet",
-    description:
-      "Le couloir accompagne les déplacements de nuit et s’intègre dans une solution complète pour le domicile.",
-    objects: [
-      { name: "Veilleuses x3", icon: LampDesk },
-      { name: "Capteurs de mouvement x2", icon: Waves },
-      { name: "Caméra IA selon besoin", icon: Camera },
-    ],
+    image: "/objets/arret-vanne.jpg",
+    x: "16%",
+    y: "36%",
+  },
+  {
+    id: "frigo",
+    name: "Capteur frigo",
+    pack: "signature",
+    image: "/objets/frigo.jpg",
+    x: "74%",
+    y: "38%",
+  },
+  {
+    id: "sirene",
+    name: "Sirène connectée",
+    pack: "signature",
+    image: "/objets/sirene.jpg",
+    x: "50%",
+    y: "2%",
   },
 ];
 
-export default function FamillesPage() {
-  const [activeRoom, setActiveRoom] = useState(rooms[1]);
-  const activePack = packStyles[activeRoom.pack as keyof typeof packStyles];
+export default function SchemaPage() {
+  const [activePackKey, setActivePackKey] =
+    useState<keyof typeof packs>("autonomie");
+
+  const activePack = packs[activePackKey];
+  const activeObjects = objects.filter((object) => object.pack === activePackKey);
 
   return (
     <main className="min-h-screen bg-[#FAFBFD] text-[#08122E]">
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-6 pb-14 pt-8 lg:px-8">
         <div className="mx-auto mb-8 max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-semibold text-[#C95F07]">
             <HeartHandshake className="h-4 w-4 text-[#F58220]" />
-            Pour les familles
+            Schéma Solerya
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] md:text-6xl">
-            Une maison plus rassurante, pièce par pièce.
+            Les objets connectés autour du senior.
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
-            Survolez les pièces du domicile : les objets connectés associés au
-            bon pack se mettent en surbrillance automatiquement.
+            Cliquez sur un objet : tous les équipements du même pack se mettent
+            en surbrillance avec la couleur associée.
           </p>
         </div>
 
-        <div className="grid gap-7 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-          <div className="rounded-[40px] bg-white p-5 shadow-[0_24px_70px_rgba(8,18,46,0.10)] md:p-7">
+        <div className="grid gap-7 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div className="rounded-[42px] bg-white p-5 shadow-[0_24px_80px_rgba(8,18,46,0.10)] md:p-7">
             <div className="mb-5 flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-extrabold text-[#F58220]">
-                  Maison Solerya
+                  Écosystème connecté
                 </p>
                 <h2 className="mt-1 text-2xl font-extrabold">
-                  Survolez une pièce
+                  Cliquez sur un objet
                 </h2>
               </div>
 
               <div
-                className="hidden rounded-full px-4 py-2 text-sm font-extrabold sm:block"
+                className="rounded-full px-4 py-2 text-sm font-extrabold"
                 style={{
                   backgroundColor: activePack.soft,
                   color: activePack.color,
@@ -201,213 +194,210 @@ export default function FamillesPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[620px] overflow-hidden rounded-[36px] bg-[#EEF3F8] p-5">
-              <div className="absolute inset-5 rounded-[32px] border-[14px] border-white/80 bg-gradient-to-br from-white via-[#F8FBFF] to-[#EEF3F8]" />
+            <div className="relative min-h-[720px] overflow-hidden rounded-[38px] bg-gradient-to-br from-[#F8FBFF] via-white to-[#EEF3F8]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(245,130,32,0.14),transparent_34%)]" />
 
-              <div className="absolute left-[12%] top-[10%] h-[28%] w-[34%] rounded-[30px] border border-white bg-[#F5ECFF]/70" />
-              <div className="absolute right-[10%] top-[12%] h-[30%] w-[30%] rounded-[30px] border border-white bg-[#FFF1E6]/80" />
-              <div className="absolute left-[11%] top-[48%] h-[25%] w-[28%] rounded-[30px] border border-white bg-[#FFF7E6]/80" />
-              <div className="absolute right-[8%] top-[51%] h-[25%] w-[28%] rounded-[30px] border border-white bg-[#EAF4FF]/80" />
-              <div className="absolute left-[39%] top-[62%] h-[20%] w-[31%] rounded-[30px] border border-white bg-[#F1F5F9]/90" />
-
-              <div className="absolute left-1/2 top-[45%] z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
-                <div className="flex h-32 w-32 items-center justify-center rounded-full border-[10px] border-white bg-[#FFF2E8] shadow-[0_24px_60px_rgba(8,18,46,0.18)]">
-                  <UserRound className="h-16 w-16 text-[#F58220]" />
-                </div>
-
-                <div className="mt-4 rounded-2xl bg-white/90 px-5 py-3 text-center shadow-[0_12px_30px_rgba(8,18,46,0.10)] backdrop-blur">
-                  <p className="text-sm font-extrabold">
-                    Personne âgée au domicile
-                  </p>
-                  <p className="mt-1 text-xs font-semibold text-slate-500">
-                    Autonomie, sécurité et lien familial
-                  </p>
-                </div>
+              <div
+                className="absolute left-1/2 top-[44%] z-20 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border-[14px] border-white shadow-[0_30px_90px_rgba(8,18,46,0.18)]"
+                style={{
+                  boxShadow: `0 30px 90px ${activePack.color}35`,
+                }}
+              >
+                <Image
+                  src="/images/senior.jpg"
+                  alt="Senior Solerya"
+                  fill
+                  priority
+                  className="rounded-full object-cover"
+                  sizes="360px"
+                />
               </div>
 
-              {rooms.map((room) => {
-                const Icon = room.icon;
-                const pack = packStyles[room.pack as keyof typeof packStyles];
-                const isActive = activeRoom.id === room.id;
-                const samePack = activeRoom.pack === room.pack;
+              <div
+                className="absolute left-1/2 top-[44%] z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
+                style={{ borderColor: `${activePack.color}55` }}
+              />
+
+              <div
+                className="absolute left-1/2 top-[44%] z-10 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
+                style={{ borderColor: `${activePack.color}35` }}
+              />
+
+              {objects.map((object) => {
+                const pack = packs[object.pack as keyof typeof packs];
+                const isActive = object.pack === activePackKey;
 
                 return (
                   <button
-                    key={room.id}
+                    key={object.id}
                     type="button"
-                    onMouseEnter={() => setActiveRoom(room)}
-                    onFocus={() => setActiveRoom(room)}
-                    className={`absolute z-30 w-[180px] rounded-[26px] border p-4 text-left transition duration-300 ${
+                    onClick={() =>
+                      setActivePackKey(object.pack as keyof typeof packs)
+                    }
+                    onMouseEnter={() =>
+                      setActivePackKey(object.pack as keyof typeof packs)
+                    }
+                    className={`absolute z-30 w-[150px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border bg-white p-3 text-center transition duration-300 ${
                       isActive
-                        ? "scale-105 border-white bg-white shadow-[0_26px_60px_rgba(8,18,46,0.22)]"
-                        : samePack
-                        ? "border-white bg-white/95 shadow-[0_18px_40px_rgba(8,18,46,0.14)]"
-                        : "border-white/80 bg-white/70 opacity-75 shadow-[0_10px_28px_rgba(8,18,46,0.08)]"
+                        ? "scale-110 border-white opacity-100 shadow-[0_24px_60px_rgba(8,18,46,0.22)]"
+                        : "scale-95 border-slate-100 opacity-45 grayscale hover:opacity-100 hover:grayscale-0"
                     }`}
                     style={{
-                      left: room.x,
-                      top: room.y,
+                      left: object.x,
+                      top: object.y,
                       boxShadow: isActive
-                        ? `0 24px 60px ${pack.color}33`
+                        ? `0 24px 60px ${pack.color}35`
                         : undefined,
                     }}
                   >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl"
-                        style={{
-                          backgroundColor: pack.soft,
-                          color: pack.color,
-                        }}
-                      >
-                        <Icon className="h-6 w-6" />
-                      </div>
-
-                      <div>
-                        <p
-                          className="text-lg font-extrabold leading-tight"
-                          style={{ color: samePack ? pack.color : "#08122E" }}
-                        >
-                          {room.name}
-                        </p>
-                        <p className="mt-1 text-xs font-semibold text-slate-500">
-                          {room.need}
-                        </p>
-                      </div>
+                    <div
+                      className="relative mx-auto h-24 w-24 overflow-hidden rounded-2xl bg-white"
+                      style={{
+                        outline: isActive
+                          ? `3px solid ${pack.color}`
+                          : "1px solid #E5E7EB",
+                      }}
+                    >
+                      <Image
+                        src={object.image}
+                        alt={object.name}
+                        fill
+                        className="object-contain p-1"
+                        sizes="96px"
+                      />
                     </div>
+
+                    <p
+                      className="mt-3 text-xs font-extrabold leading-4"
+                      style={{ color: isActive ? pack.color : "#08122E" }}
+                    >
+                      {object.name}
+                    </p>
                   </button>
                 );
               })}
 
-              <div className="absolute bottom-5 left-5 right-5 z-40 grid gap-3 rounded-[28px] bg-white/92 p-4 shadow-[0_20px_50px_rgba(8,18,46,0.12)] backdrop-blur md:grid-cols-3">
-                {activeRoom.objects.map((object) => {
-                  const Icon = object.icon;
+              <div className="absolute bottom-6 left-6 right-6 z-40 rounded-[30px] bg-white/90 p-4 shadow-[0_22px_60px_rgba(8,18,46,0.14)] backdrop-blur">
+                <div className="grid gap-3 md:grid-cols-4">
+                  {Object.entries(packs).map(([key, pack]) => {
+                    const selected = key === activePackKey;
 
-                  return (
-                    <div
-                      key={object.name}
-                      className="flex items-center gap-3 rounded-2xl p-3 transition"
-                      style={{
-                        backgroundColor: activePack.soft,
-                        color: activePack.color,
-                      }}
-                    >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/80">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <p className="text-sm font-extrabold">{object.name}</p>
-                    </div>
-                  );
-                })}
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() =>
+                          setActivePackKey(key as keyof typeof packs)
+                        }
+                        className={`rounded-2xl px-4 py-3 text-left transition ${
+                          selected ? "scale-[1.03] shadow-sm" : "bg-slate-50"
+                        }`}
+                        style={{
+                          backgroundColor: selected ? pack.soft : undefined,
+                        }}
+                      >
+                        <p
+                          className="text-sm font-extrabold"
+                          style={{ color: pack.color }}
+                        >
+                          {pack.name}
+                        </p>
+                        <p className="mt-1 text-xs font-semibold text-slate-500">
+                          Dès {pack.price} €/mois
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
 
-          <aside className="rounded-[40px] border border-orange-100 bg-white p-6 shadow-[0_24px_70px_rgba(8,18,46,0.10)] lg:sticky lg:top-20">
-            <div className="flex items-start gap-4">
-              <div
-                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[24px]"
-                style={{
-                  backgroundColor: activePack.soft,
-                  color: activePack.color,
-                }}
-              >
-                <Home className="h-8 w-8" />
-              </div>
-
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                  Pièce survolée
-                </p>
-                <h2 className="mt-1 text-3xl font-extrabold">
-                  {activeRoom.name}
-                </h2>
-                <p
-                  className="mt-2 text-sm font-extrabold"
-                  style={{ color: activePack.color }}
-                >
-                  {activeRoom.need}
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-5 text-sm leading-7 text-slate-600">
-              {activeRoom.description}
-            </p>
-
+          <aside className="rounded-[42px] border border-orange-100 bg-white p-6 shadow-[0_24px_80px_rgba(8,18,46,0.10)] lg:sticky lg:top-24">
             <div
-              className="mt-6 rounded-[28px] p-5"
+              className="rounded-[30px] p-5"
               style={{ backgroundColor: activePack.soft }}
             >
-              <p
-                className="text-sm font-extrabold"
+              <div
+                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white"
                 style={{ color: activePack.color }}
               >
-                Objets mis en avant
+                <Sparkles className="h-7 w-7" />
+              </div>
+
+              <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                Pack sélectionné
+              </p>
+
+              <h2
+                className="mt-2 text-3xl font-extrabold"
+                style={{ color: activePack.color }}
+              >
+                {activePack.name}
+              </h2>
+
+              <p className="mt-3 text-sm leading-7 text-slate-700">
+                {activePack.text}
+              </p>
+            </div>
+
+            <div className="mt-6 rounded-[28px] bg-[#FAFBFD] p-5">
+              <p className="text-sm font-extrabold">
+                Objets mis en surbrillance
               </p>
 
               <div className="mt-4 space-y-3">
-                {activeRoom.objects.map((object) => {
-                  const Icon = object.icon;
-
-                  return (
+                {activeObjects.map((object) => (
+                  <div
+                    key={object.id}
+                    className="grid grid-cols-[64px_1fr_22px] items-center gap-4 rounded-[22px] bg-white p-3 shadow-[0_10px_26px_rgba(8,18,46,0.08)]"
+                  >
                     <div
-                      key={object.name}
-                      className="flex items-center gap-3 rounded-2xl bg-white p-3 shadow-sm"
+                      className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white"
+                      style={{
+                        outline: `2px solid ${activePack.color}`,
+                      }}
                     >
-                      <div
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
-                        style={{
-                          backgroundColor: activePack.soft,
-                          color: activePack.color,
-                        }}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </div>
-
-                      <p className="text-sm font-bold">{object.name}</p>
-
-                      <CheckCircle2
-                        className="ml-auto h-5 w-5"
-                        style={{ color: activePack.color }}
+                      <Image
+                        src={object.image}
+                        alt={object.name}
+                        fill
+                        className="object-contain p-1"
+                        sizes="56px"
                       />
                     </div>
-                  );
-                })}
+
+                    <p className="text-sm font-extrabold">{object.name}</p>
+
+                    <CheckCircle2
+                      className="h-5 w-5"
+                      style={{ color: activePack.color }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="mt-6 rounded-[28px] border border-slate-100 bg-white p-5 shadow-sm">
-              <p className="text-sm font-extrabold">Pack recommandé</p>
+              <p className="text-sm font-extrabold">Prix du pack</p>
 
-              <div className="mt-4 flex items-center gap-4">
-                <div
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
-                  style={{
-                    backgroundColor: activePack.soft,
-                    color: activePack.color,
-                  }}
-                >
-                  <ShieldCheck className="h-7 w-7" />
-                </div>
-
-                <div className="min-w-0 flex-1">
+              <div className="mt-4 flex items-end justify-between gap-4">
+                <div>
                   <p
-                    className="text-2xl font-extrabold"
+                    className="text-4xl font-extrabold"
                     style={{ color: activePack.color }}
                   >
-                    {activePack.name}
+                    {activePack.price} €
                   </p>
-                  <p className="mt-1 text-xs leading-5 text-slate-500">
-                    Les objets utiles selon la pièce et le besoin.
+                  <p className="mt-1 text-sm font-semibold text-slate-500">
+                    par mois
                   </p>
                 </div>
 
-                <div className="text-right">
-                  <p className="text-xs text-slate-500">Dès</p>
-                  <p className="text-2xl font-extrabold">
-                    {activePack.price} €
-                  </p>
+                <div className="text-right text-xs leading-5 text-slate-500">
+                  Installation possible
+                  <br />
+                  objets connectés inclus
                 </div>
               </div>
 
@@ -429,33 +419,16 @@ export default function FamillesPage() {
 
                 <div>
                   <p className="text-base font-extrabold text-[#0B8A4A]">
-                    Le bénéfice pour la famille
+                    Le bénéfice famille
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Comprendre ce qui se passe au domicile, sans surveillance
-                    intrusive et avec des repères simples.
+                    Voir les bons signaux au bon moment, sans transformer le
+                    domicile en lieu de surveillance.
                   </p>
                 </div>
               </div>
             </div>
           </aside>
-        </div>
-
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="flex items-center gap-3 rounded-full bg-[#F58220] px-9 py-4 text-sm font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
-          >
-            Être rappelé par un conseiller
-            <Phone className="h-5 w-5" />
-          </Link>
-
-          <Link
-            href="/packs"
-            className="rounded-full border border-slate-300 bg-white px-9 py-4 text-sm font-extrabold text-[#08122E] transition hover:shadow-sm"
-          >
-            Voir tous les packs
-          </Link>
         </div>
       </section>
     </main>
