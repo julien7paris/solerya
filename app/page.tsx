@@ -166,7 +166,7 @@ export default function SoleryaHomePage() {
 
               <div className="mt-5 flex items-center justify-end border-t border-orange-100 pt-4">
                 <span className="text-sm font-bold text-[#F58220] transition group-hover:translate-x-1">
-                  Découvrir l’espace familles →
+                  Découvrir le domicile connecté →
                 </span>
               </div>
             </Link>

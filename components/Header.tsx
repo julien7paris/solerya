@@ -19,31 +19,19 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-10 text-[15px] font-medium text-[#12223B] lg:flex">
-          <Link
-            href="/#solutions"
-            className="transition hover:text-[#F58220]"
-          >
+          <Link href="/#solutions" className="transition hover:text-[#F58220]">
             Nos solutions
           </Link>
 
-          <Link
-            href="/familles"
-            className="transition hover:text-[#F58220]"
-          >
+          <Link href="/schema" className="transition hover:text-[#F58220]">
             Pour les familles
           </Link>
 
-          <Link
-            href="/#engagements"
-            className="transition hover:text-[#F58220]"
-          >
+          <Link href="/#engagements" className="transition hover:text-[#F58220]">
             Nos engagements
           </Link>
 
-          <Link
-            href="/#conseils"
-            className="transition hover:text-[#F58220]"
-          >
+          <Link href="/#conseils" className="transition hover:text-[#F58220]">
             Conseils
           </Link>
         </nav>
