@@ -44,9 +44,10 @@ const packs: Record<PackKey, Pack> = {
     soft: "#EAF8F0",
     glow: "rgba(11, 138, 74, 0.26)",
     href: "/packs/serenite",
-    text: "Les essentiels pour rassurer les proches et sécuriser le quotidien.",
+    text: "Les essentiels pour rassurer les proches, détecter l’activité et sécuriser le quotidien.",
     appImage: "/objets/application-serenite.jpg",
   },
+
   confort: {
     level: 2,
     shortName: "Confort",
@@ -59,6 +60,7 @@ const packs: Record<PackKey, Pack> = {
     text: "Tout le pack Sérénité, avec une protection renforcée du logement.",
     appImage: "/objets/application-confort.jpg",
   },
+
   autonomie: {
     level: 3,
     shortName: "Autonomie",
@@ -68,9 +70,10 @@ const packs: Record<PackKey, Pack> = {
     soft: "#F5ECFF",
     glow: "rgba(142, 68, 204, 0.24)",
     href: "/packs/autonomie",
-    text: "Tout le pack Confort, avec des repères sur le rythme de vie.",
+    text: "Tout le pack Confort, avec des repères plus précis sur le rythme de vie.",
     appImage: "/objets/application-autonomie.jpg",
   },
+
   signature: {
     level: 4,
     shortName: "Signature",
@@ -94,6 +97,7 @@ const objects: ConnectedObject[] = [
     x: "10%",
     y: "16%",
   },
+
   {
     id: "application",
     name: "Application famille",
@@ -102,6 +106,7 @@ const objects: ConnectedObject[] = [
     x: "10%",
     y: "50%",
   },
+
   {
     id: "ouverture",
     name: "Détecteur d’ouverture",
@@ -110,6 +115,25 @@ const objects: ConnectedObject[] = [
     x: "25%",
     y: "78%",
   },
+
+  {
+    id: "mouvement",
+    name: "Capteur de mouvement",
+    pack: "serenite",
+    image: "/objets/capteur-mouvement-veilleuse.jpg",
+    x: "49%",
+    y: "8%",
+  },
+
+  {
+    id: "fumee",
+    name: "Détecteur de fumée",
+    pack: "serenite",
+    image: "/objets/detecteur-fumee.jpg",
+    x: "89%",
+    y: "50%",
+  },
+
   {
     id: "temperature",
     name: "Température & humidité",
@@ -118,14 +142,7 @@ const objects: ConnectedObject[] = [
     x: "88%",
     y: "16%",
   },
-  {
-    id: "fumee",
-    name: "Détecteur de fumée",
-    pack: "confort",
-    image: "/objets/detecteur-fumee.jpg",
-    x: "89%",
-    y: "50%",
-  },
+
   {
     id: "fuite",
     name: "Détecteur de fuite",
@@ -134,6 +151,7 @@ const objects: ConnectedObject[] = [
     x: "76%",
     y: "78%",
   },
+
   {
     id: "presence",
     name: "Capteur de présence",
@@ -142,14 +160,7 @@ const objects: ConnectedObject[] = [
     x: "31%",
     y: "9%",
   },
-  {
-    id: "mouvement",
-    name: "Capteur de mouvement",
-    pack: "autonomie",
-    image: "/objets/capteur-mouvement-veilleuse.jpg",
-    x: "49%",
-    y: "8%",
-  },
+
   {
     id: "chemin-lumineux",
     name: "Chemin lumineux",
@@ -158,6 +169,7 @@ const objects: ConnectedObject[] = [
     x: "50%",
     y: "84%",
   },
+
   {
     id: "arret-vanne",
     name: "Arrêt de vanne",
@@ -166,6 +178,7 @@ const objects: ConnectedObject[] = [
     x: "20%",
     y: "34%",
   },
+
   {
     id: "home-assistant",
     name: "Hub Home Assistant",
@@ -174,6 +187,7 @@ const objects: ConnectedObject[] = [
     x: "67%",
     y: "15%",
   },
+
   {
     id: "refrigerateur",
     name: "Capteur réfrigérateur",
@@ -182,6 +196,7 @@ const objects: ConnectedObject[] = [
     x: "80%",
     y: "34%",
   },
+
   {
     id: "sirene",
     name: "Sirène connectée",
@@ -193,7 +208,9 @@ const objects: ConnectedObject[] = [
 ];
 
 export default function SchemaPage() {
-  const [activePackKey, setActivePackKey] = useState<PackKey>("serenite");
+  const [activePackKey, setActivePackKey] =
+    useState<PackKey>("serenite");
+
   const [selectedObjectId, setSelectedObjectId] =
     useState<string | null>("bouton-sos");
 
@@ -225,7 +242,9 @@ export default function SchemaPage() {
     <main className="min-h-screen bg-[#FAFBFD] text-[#08122E]">
       <section className="mx-auto max-w-[1400px] px-5 py-5 lg:px-7">
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1.22fr)_minmax(360px,0.78fr)] xl:items-start">
+
           <div className="min-w-0 rounded-[32px] bg-white p-4 shadow-[0_20px_60px_rgba(8,18,46,0.09)] md:p-5">
+
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-extrabold text-[#F58220]">
@@ -263,12 +282,16 @@ export default function SchemaPage() {
 
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}55` }}
+                style={{
+                  borderColor: `${activePack.color}55`,
+                }}
               />
 
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[590px] w-[590px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}35` }}
+                style={{
+                  borderColor: `${activePack.color}35`,
+                }}
               />
 
               <div
@@ -289,8 +312,12 @@ export default function SchemaPage() {
 
               {objects.map((object) => {
                 const objectPack = packs[object.pack];
-                const isIncluded = objectPack.level <= activePack.level;
-                const isSelected = selectedObjectId === object.id;
+
+                const isIncluded =
+                  objectPack.level <= activePack.level;
+
+                const isSelected =
+                  selectedObjectId === object.id;
 
                 return (
                   <button
@@ -301,11 +328,17 @@ export default function SchemaPage() {
                       isIncluded
                         ? "scale-100 opacity-100"
                         : "scale-[0.88] border-slate-200 opacity-25 grayscale"
-                    } ${isSelected ? "z-30 scale-105" : ""}`}
+                    } ${
+                      isSelected
+                        ? "z-30 scale-105"
+                        : ""
+                    }`}
                     style={{
                       left: object.x,
                       top: object.y,
-                      borderColor: isIncluded ? activePack.color : "#E2E8F0",
+                      borderColor: isIncluded
+                        ? activePack.color
+                        : "#E2E8F0",
                       boxShadow: isIncluded
                         ? isSelected
                           ? `0 20px 50px ${activePack.glow}`
@@ -326,7 +359,9 @@ export default function SchemaPage() {
                     <p
                       className="mt-2 min-h-[28px] text-[10.5px] font-extrabold leading-[1.3]"
                       style={{
-                        color: isIncluded ? activePack.color : "#64748B",
+                        color: isIncluded
+                          ? activePack.color
+                          : "#64748B",
                       }}
                     >
                       {object.name}
@@ -349,7 +384,9 @@ export default function SchemaPage() {
                         onClick={() => selectPack(key)}
                         className="rounded-[18px] px-4 py-3 text-left transition-all duration-300 hover:-translate-y-1"
                         style={{
-                          backgroundColor: selected ? pack.soft : "#F8FAFC",
+                          backgroundColor: selected
+                            ? pack.soft
+                            : "#F8FAFC",
                           boxShadow: selected
                             ? `0 10px 24px ${pack.glow}`
                             : "none",
@@ -381,13 +418,18 @@ export default function SchemaPage() {
           </div>
 
           <aside className="rounded-[32px] border border-orange-100 bg-white p-5 shadow-[0_20px_60px_rgba(8,18,46,0.09)] xl:sticky xl:top-24">
+
             <div
               className="rounded-[24px] p-5"
-              style={{ backgroundColor: activePack.soft }}
+              style={{
+                backgroundColor: activePack.soft,
+              }}
             >
               <div
                 className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm"
-                style={{ color: activePack.color }}
+                style={{
+                  color: activePack.color,
+                }}
               >
                 <Sparkles className="h-6 w-6" />
               </div>
@@ -398,7 +440,9 @@ export default function SchemaPage() {
 
               <h2
                 className="mt-2 text-2xl font-extrabold tracking-[-0.03em]"
-                style={{ color: activePack.color }}
+                style={{
+                  color: activePack.color,
+                }}
               >
                 {activePack.name}
               </h2>
@@ -409,8 +453,11 @@ export default function SchemaPage() {
             </div>
 
             <div className="mt-4 rounded-[24px] bg-[#F8FAFC] p-4">
+
               <div className="flex items-center justify-between gap-4">
-                <p className="text-base font-extrabold">Objets inclus</p>
+                <p className="text-base font-extrabold">
+                  Objets inclus
+                </p>
 
                 <div
                   className="rounded-full px-3 py-1 text-xs font-extrabold"
@@ -425,7 +472,8 @@ export default function SchemaPage() {
 
               <div className="mt-3 max-h-[340px] space-y-2.5 overflow-y-auto pr-2">
                 {includedObjects.map((object) => {
-                  const isSelected = selectedObjectId === object.id;
+                  const isSelected =
+                    selectedObjectId === object.id;
 
                   return (
                     <button
@@ -444,7 +492,9 @@ export default function SchemaPage() {
                     >
                       <div
                         className="relative h-12 w-12 overflow-hidden rounded-2xl bg-white"
-                        style={{ outline: `2px solid ${activePack.color}` }}
+                        style={{
+                          outline: `2px solid ${activePack.color}`,
+                        }}
                       >
                         <Image
                           src={getImage(object)}
@@ -455,11 +505,15 @@ export default function SchemaPage() {
                         />
                       </div>
 
-                      <p className="text-sm font-extrabold">{object.name}</p>
+                      <p className="text-sm font-extrabold">
+                        {object.name}
+                      </p>
 
                       <CheckCircle2
                         className="h-5 w-5"
-                        style={{ color: activePack.color }}
+                        style={{
+                          color: activePack.color,
+                        }}
                       />
                     </button>
                   );
@@ -468,13 +522,17 @@ export default function SchemaPage() {
             </div>
 
             <div className="mt-4 rounded-[24px] border border-slate-100 bg-white p-4 shadow-sm">
-              <p className="text-sm font-extrabold">Prix du pack</p>
+              <p className="text-sm font-extrabold">
+                Prix du pack
+              </p>
 
               <div className="mt-3 flex items-end justify-between gap-4">
                 <div>
                   <p
                     className="text-4xl font-extrabold"
-                    style={{ color: activePack.color }}
+                    style={{
+                      color: activePack.color,
+                    }}
                   >
                     {activePack.price} €
                   </p>
@@ -494,7 +552,9 @@ export default function SchemaPage() {
               <Link
                 href={activePack.href}
                 className="mt-4 flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
-                style={{ backgroundColor: activePack.color }}
+                style={{
+                  backgroundColor: activePack.color,
+                }}
               >
                 Découvrir ce pack
                 <ArrowRight className="h-4 w-4" />
@@ -503,6 +563,7 @@ export default function SchemaPage() {
 
             <div className="mt-4 rounded-[22px] bg-emerald-50 p-4">
               <div className="flex gap-4">
+
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#0B8A4A]">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
@@ -513,12 +574,15 @@ export default function SchemaPage() {
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Des informations simples et utiles pour rassurer les proches,
+                    Des informations simples et utiles pour rassurer
+                    les proches, avec un signe discret d’activité,
                     sans transformer le domicile en lieu de surveillance.
                   </p>
                 </div>
+
               </div>
             </div>
+
           </aside>
         </div>
       </section>
