@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 type PackKey = "serenite" | "confort" | "autonomie" | "signature";
 
@@ -17,7 +17,6 @@ type Pack = {
   glow: string;
   href: string;
   text: string;
-  benefit: string;
   appImage: string;
 };
 
@@ -42,10 +41,9 @@ const packs: Record<PackKey, Pack> = {
     glow: "rgba(11,138,74,0.22)",
     href: "/packs/serenite",
     text: "Le socle essentiel pour rassurer les proches et sécuriser le quotidien.",
-    benefit:
-      "La famille reçoit les premiers signaux utiles : SOS, activité, porte et fumée.",
     appImage: "/objets/application-serenite.jpg",
   },
+
   confort: {
     level: 2,
     shortName: "Confort",
@@ -56,10 +54,9 @@ const packs: Record<PackKey, Pack> = {
     glow: "rgba(9,103,210,0.22)",
     href: "/packs/confort",
     text: "Sérénité + une protection renforcée du logement.",
-    benefit:
-      "Les proches sont rassurés sur les risques du domicile : fuite, chaleur, fumée et déplacements.",
     appImage: "/objets/application-confort.jpg",
   },
+
   autonomie: {
     level: 3,
     shortName: "Autonomie",
@@ -70,10 +67,9 @@ const packs: Record<PackKey, Pack> = {
     glow: "rgba(142,68,204,0.22)",
     href: "/packs/autonomie",
     text: "Confort + des repères discrets sur le rythme de vie.",
-    benefit:
-      "La famille comprend mieux le quotidien, sans caméra et sans surveillance intrusive.",
     appImage: "/objets/application-autonomie.jpg",
   },
+
   signature: {
     level: 4,
     shortName: "Signature",
@@ -84,8 +80,6 @@ const packs: Record<PackKey, Pack> = {
     glow: "rgba(242,90,29,0.24)",
     href: "/packs/signature",
     text: "La solution complète avec tous les équipements Solerya.",
-    benefit:
-      "La famille bénéficie d’une vision complète du domicile, avec actions automatiques et alertes renforcées.",
     appImage: "/objets/application-signature.jpg",
   },
 };
@@ -98,8 +92,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/home-assistant.jpg",
     x: "67%",
     y: "16%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "coordinateur",
     name: "Coordinateur Zigbee",
@@ -107,8 +107,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/home-assistant.jpg",
     x: "58%",
     y: "83%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "bouton-sos",
     name: "Bouton SOS",
@@ -116,8 +122,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/bouton-sos.jpg",
     x: "10%",
     y: "17%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 2 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 2,
+    },
   },
+
   {
     id: "application",
     name: "Application famille",
@@ -125,8 +137,14 @@ const objects: ConnectedObject[] = [
     image: "application",
     x: "10%",
     y: "49%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "ouverture",
     name: "Détecteur porte",
@@ -134,8 +152,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/detecteur-ouverture-porte.jpg",
     x: "25%",
     y: "76%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "mouvement-principal",
     name: "Mouvement principal",
@@ -143,8 +167,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-mouvement-veilleuse.jpg",
     x: "49%",
     y: "10%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "fumee",
     name: "Détecteur fumée",
@@ -152,8 +182,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/detecteur-fumee.jpg",
     x: "89%",
     y: "49%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "chemin-lumineux",
     name: "Chemins lumineux",
@@ -161,8 +197,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/chemin-lumineux.jpg",
     x: "50%",
     y: "83%",
-    quantities: { serenite: 0, confort: 3, autonomie: 3, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 3,
+      autonomie: 3,
+      signature: 3,
+    },
   },
+
   {
     id: "mouvements-complementaires",
     name: "Mouvements complémentaires",
@@ -170,8 +212,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-mouvement-veilleuse.jpg",
     x: "31%",
     y: "10%",
-    quantities: { serenite: 0, confort: 2, autonomie: 2, signature: 2 },
+    quantities: {
+      serenite: 0,
+      confort: 2,
+      autonomie: 2,
+      signature: 2,
+    },
   },
+
   {
     id: "fuite",
     name: "Détecteur fuite",
@@ -179,8 +227,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/fuites.jpg",
     x: "76%",
     y: "76%",
-    quantities: { serenite: 0, confort: 1, autonomie: 1, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 1,
+      autonomie: 1,
+      signature: 3,
+    },
   },
+
   {
     id: "temperature",
     name: "Temp. & humidité",
@@ -188,8 +242,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-de-temperature-et-d-humidite.jpg",
     x: "88%",
     y: "17%",
-    quantities: { serenite: 0, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "presence",
     name: "Capteurs présence",
@@ -197,8 +257,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-presence.jpg",
     x: "40%",
     y: "18%",
-    quantities: { serenite: 0, confort: 0, autonomie: 2, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 2,
+      signature: 3,
+    },
   },
+
   {
     id: "frigo",
     name: "Ouverture frigo",
@@ -206,8 +272,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/refregirateur.jpg",
     x: "80%",
     y: "34%",
-    quantities: { serenite: 0, confort: 0, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "prise",
     name: "Prise suivi usage",
@@ -215,8 +287,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/prise-connectee.jpg",
     x: "68%",
     y: "64%",
-    quantities: { serenite: 0, confort: 0, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "arret-vanne",
     name: "Arrêt de vanne",
@@ -224,8 +302,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/arret-vanne.jpg",
     x: "20%",
     y: "34%",
-    quantities: { serenite: 0, confort: 0, autonomie: 0, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 0,
+      signature: 1,
+    },
   },
+
   {
     id: "sirene",
     name: "Sirène",
@@ -233,12 +317,19 @@ const objects: ConnectedObject[] = [
     image: "/objets/sirene.jpg",
     x: "68%",
     y: "64%",
-    quantities: { serenite: 0, confort: 0, autonomie: 0, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 0,
+      signature: 1,
+    },
   },
 ];
 
 export default function SchemaPage() {
-  const [activePackKey, setActivePackKey] = useState<PackKey>("serenite");
+  const [activePackKey, setActivePackKey] =
+    useState<PackKey>("serenite");
+
   const [selectedObjectId, setSelectedObjectId] =
     useState<string | null>("bouton-sos");
 
@@ -249,12 +340,15 @@ export default function SchemaPage() {
   );
 
   const equipmentCount = includedObjects.reduce(
-    (total, object) => total + object.quantities[activePackKey],
+    (total, object) =>
+      total + object.quantities[activePackKey],
     0
   );
 
   function getImage(object: ConnectedObject) {
-    return object.image === "application" ? activePack.appImage : object.image;
+    return object.image === "application"
+      ? activePack.appImage
+      : object.image;
   }
 
   function selectPack(packKey: PackKey) {
@@ -271,7 +365,15 @@ export default function SchemaPage() {
     <main className="h-[calc(100vh-96px)] overflow-hidden bg-[#FAFBFD] text-[#08122E]">
       <section className="mx-auto h-full max-w-[1540px] px-4 py-3 lg:px-5">
         <div className="grid h-full gap-4 xl:grid-cols-[minmax(0,1.22fr)_minmax(430px,0.78fr)]">
+
+          {/* ========================= */}
+          {/* MAISON SOLERYA */}
+          {/* ========================= */}
+
           <div className="flex min-h-0 min-w-0 flex-col rounded-[28px] bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+
+            {/* Titre */}
+
             <div className="mb-2 flex items-center justify-between gap-3">
               <p className="text-lg font-extrabold tracking-[-0.03em]">
                 Maison Solerya
@@ -288,10 +390,16 @@ export default function SchemaPage() {
               </div>
             </div>
 
+            {/* Schéma */}
+
             <div
               className="relative min-h-0 flex-1 overflow-hidden rounded-[24px] border border-slate-100 bg-gradient-to-br from-[#F8FBFF] via-white to-[#EEF3F8]"
-              style={{ boxShadow: `inset 0 0 65px ${activePack.glow}` }}
+              style={{
+                boxShadow: `inset 0 0 65px ${activePack.glow}`,
+              }}
             >
+              {/* Halo */}
+
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
@@ -299,19 +407,31 @@ export default function SchemaPage() {
                 }}
               />
 
+              {/* Cercle intérieur */}
+
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}55` }}
+                style={{
+                  borderColor: `${activePack.color}55`,
+                }}
               />
+
+              {/* Cercle extérieur */}
 
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[470px] w-[470px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}35` }}
+                style={{
+                  borderColor: `${activePack.color}35`,
+                }}
               />
+
+              {/* Photo centrale */}
 
               <div
                 className="absolute left-1/2 top-[45%] z-10 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[8px] border-white"
-                style={{ boxShadow: `0 20px 55px ${activePack.glow}` }}
+                style={{
+                  boxShadow: `0 20px 55px ${activePack.glow}`,
+                }}
               >
                 <Image
                   src="/images/senior.jpg"
@@ -323,9 +443,14 @@ export default function SchemaPage() {
                 />
               </div>
 
+              {/* Objets autour de la maison */}
+
               {objects.map((object) => {
-                const isIncluded = object.quantities[activePackKey] > 0;
-                const isSelected = selectedObjectId === object.id;
+                const isIncluded =
+                  object.quantities[activePackKey] > 0;
+
+                const isSelected =
+                  selectedObjectId === object.id;
 
                 return (
                   <button
@@ -336,11 +461,17 @@ export default function SchemaPage() {
                       isIncluded
                         ? "scale-100 opacity-100"
                         : "scale-[0.86] border-slate-200 opacity-20 grayscale"
-                    } ${isSelected ? "z-30 scale-105" : ""}`}
+                    } ${
+                      isSelected
+                        ? "z-30 scale-105"
+                        : ""
+                    }`}
                     style={{
                       left: object.x,
                       top: object.y,
-                      borderColor: isIncluded ? activePack.color : "#E2E8F0",
+                      borderColor: isIncluded
+                        ? activePack.color
+                        : "#E2E8F0",
                       boxShadow: isIncluded
                         ? isSelected
                           ? `0 16px 36px ${activePack.glow}`
@@ -361,7 +492,9 @@ export default function SchemaPage() {
                     <p
                       className="mt-1 min-h-[22px] text-[9px] font-extrabold leading-[1.2]"
                       style={{
-                        color: isIncluded ? activePack.color : "#64748B",
+                        color: isIncluded
+                          ? activePack.color
+                          : "#64748B",
                       }}
                     >
                       {object.name}
@@ -371,83 +504,152 @@ export default function SchemaPage() {
               })}
             </div>
 
+            {/* Sélecteur de packs */}
+
             <div className="mt-2 rounded-[22px] border border-white bg-white p-2 shadow-[0_12px_30px_rgba(8,18,46,0.08)]">
               <div className="grid gap-2 sm:grid-cols-4">
-                {(Object.entries(packs) as [PackKey, Pack][]).map(
-                  ([key, pack]) => {
-                    const selected = key === activePackKey;
+                {(
+                  Object.entries(packs) as [
+                    PackKey,
+                    Pack
+                  ][]
+                ).map(([key, pack]) => {
+                  const selected =
+                    key === activePackKey;
 
-                    return (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => selectPack(key)}
-                        className="rounded-[15px] px-3 py-2 text-left transition hover:-translate-y-0.5"
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => selectPack(key)}
+                      className="rounded-[15px] px-3 py-2 text-left transition hover:-translate-y-0.5"
+                      style={{
+                        backgroundColor: selected
+                          ? pack.soft
+                          : "#F8FAFC",
+                        boxShadow: selected
+                          ? `0 8px 18px ${pack.glow}`
+                          : "",
+                      }}
+                    >
+                      <p
+                        className="text-xs font-extrabold"
                         style={{
-                          backgroundColor: selected ? pack.soft : "#F8FAFC",
-                          boxShadow: selected ? `0 8px 18px ${pack.glow}` : "",
+                          color: pack.color,
                         }}
                       >
-                        <p
-                          className="text-xs font-extrabold"
-                          style={{ color: pack.color }}
-                        >
-                          Solerya
-                        </p>
+                        Solerya
+                      </p>
 
-                        <p
-                          className="text-sm font-extrabold leading-tight"
-                          style={{ color: pack.color }}
-                        >
-                          {pack.shortName}
-                        </p>
+                      <p
+                        className="text-sm font-extrabold leading-tight"
+                        style={{
+                          color: pack.color,
+                        }}
+                      >
+                        {pack.shortName}
+                      </p>
 
-                        <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
-                          Dès {pack.price} €/mois
-                        </p>
-                      </button>
-                    );
-                  }
-                )}
+                      <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
+                        Dès {pack.price} €/mois
+                      </p>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
 
-          <aside className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)_auto_auto] rounded-[28px] border border-orange-100 bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+          {/* ========================= */}
+          {/* PANNEAU DROIT */}
+          {/* ========================= */}
+
+          <aside className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] rounded-[28px] border border-orange-100 bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+
+            {/* Pack sélectionné + prix */}
+
             <div
-              className="rounded-[20px] p-3"
-              style={{ backgroundColor: activePack.soft }}
+              className="rounded-[22px] px-4 py-3"
+              style={{
+                backgroundColor: activePack.soft,
+              }}
             >
-              <div className="flex items-start gap-3">
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm"
-                  style={{ color: activePack.color }}
-                >
-                  <Sparkles className="h-5 w-5" />
+              <div className="flex items-center justify-between gap-4">
+
+                {/* Partie gauche */}
+
+                <div className="flex min-w-0 items-center gap-3">
+                  <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm"
+                    style={{
+                      color: activePack.color,
+                    }}
+                  >
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                      Pack sélectionné
+                    </p>
+
+                    <h2
+                      className="mt-0.5 text-[25px] font-extrabold leading-none tracking-[-0.03em]"
+                      style={{
+                        color: activePack.color,
+                      }}
+                    >
+                      {activePack.name}
+                    </h2>
+
+                    <p className="mt-1 text-xs leading-4 text-slate-700">
+                      {activePack.text}
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                    Pack sélectionné
+                {/* Partie droite : prix */}
+
+                <div className="shrink-0 text-right">
+                  <div className="flex items-end justify-end gap-1">
+                    <p
+                      className="text-[32px] font-extrabold leading-none tracking-[-0.04em]"
+                      style={{
+                        color: activePack.color,
+                      }}
+                    >
+                      {activePack.price} €
+                    </p>
+                  </div>
+
+                  <p className="mt-0.5 text-[10px] font-semibold text-slate-500">
+                    par mois
                   </p>
 
-                  <h2
-                    className="mt-0.5 text-[25px] font-extrabold leading-none tracking-[-0.03em]"
-                    style={{ color: activePack.color }}
+                  <Link
+                    href={activePack.href}
+                    className="mt-1.5 inline-flex items-center justify-center gap-1 rounded-full px-3 py-1.5 text-[10px] font-extrabold text-white transition hover:-translate-y-0.5"
+                    style={{
+                      backgroundColor: activePack.color,
+                    }}
                   >
-                    {activePack.name}
-                  </h2>
-
-                  <p className="mt-1 text-xs leading-4 text-slate-700">
-                    {activePack.text}
-                  </p>
+                    Découvrir
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </div>
             </div>
 
-            <div className="mt-2 min-h-0 rounded-[20px] bg-[#F8FAFC] p-3">
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-base font-extrabold">Objets inclus</p>
+            {/* Objets inclus */}
+
+            <div className="mt-2 flex min-h-0 flex-col rounded-[22px] bg-[#F8FAFC] p-3">
+
+              {/* En-tête */}
+
+              <div className="flex shrink-0 items-center justify-between gap-3">
+                <p className="text-base font-extrabold">
+                  Objets inclus
+                </p>
 
                 <div
                   className="rounded-full px-3 py-1 text-xs font-extrabold"
@@ -460,29 +662,40 @@ export default function SchemaPage() {
                 </div>
               </div>
 
-              <div className="mt-2 grid grid-cols-2 gap-1.5">
+              {/* Liste */}
+
+              <div className="mt-2 grid min-h-0 flex-1 auto-rows-fr grid-cols-2 gap-1.5">
                 {includedObjects.map((object) => {
-                  const isSelected = selectedObjectId === object.id;
-                  const quantity = object.quantities[activePackKey];
+                  const isSelected =
+                    selectedObjectId === object.id;
+
+                  const quantity =
+                    object.quantities[activePackKey];
 
                   return (
                     <button
                       key={object.id}
                       type="button"
-                      onClick={() => selectObject(object)}
-                      className="grid min-h-[36px] grid-cols-[28px_1fr_auto] items-center gap-1.5 rounded-[12px] border bg-white px-1.5 py-1 text-left transition hover:-translate-y-0.5"
+                      onClick={() =>
+                        selectObject(object)
+                      }
+                      className="grid min-h-0 grid-cols-[28px_minmax(0,1fr)_auto] items-center gap-1.5 rounded-[12px] border bg-white px-1.5 py-1 text-left transition hover:-translate-y-0.5"
                       style={{
                         borderColor: isSelected
                           ? activePack.color
                           : "transparent",
                         boxShadow: isSelected
-                          ? `0 8px 18px ${activePack.glow}`
-                          : "0 5px 14px rgba(8,18,46,0.04)",
+                          ? `0 6px 14px ${activePack.glow}`
+                          : "0 4px 10px rgba(8,18,46,0.04)",
                       }}
                     >
+                      {/* Image */}
+
                       <div
-                        className="relative h-7 w-7 overflow-hidden rounded-lg bg-white"
-                        style={{ outline: `1.5px solid ${activePack.color}` }}
+                        className="relative h-7 w-7 shrink-0 overflow-hidden rounded-lg bg-white"
+                        style={{
+                          outline: `1.5px solid ${activePack.color}`,
+                        }}
                       >
                         <Image
                           src={getImage(object)}
@@ -493,16 +706,22 @@ export default function SchemaPage() {
                         />
                       </div>
 
-                      <p className="text-[9.5px] font-extrabold leading-tight">
+                      {/* Nom */}
+
+                      <p className="min-w-0 text-[9.5px] font-extrabold leading-[1.1]">
                         {object.name}
                       </p>
 
+                      {/* Quantité */}
+
                       {quantity > 1 && (
                         <span
-                          className="rounded-full px-1.5 py-0.5 text-[9px] font-extrabold"
+                          className="shrink-0 rounded-full px-1.5 py-0.5 text-[9px] font-extrabold"
                           style={{
-                            backgroundColor: activePack.soft,
-                            color: activePack.color,
+                            backgroundColor:
+                              activePack.soft,
+                            color:
+                              activePack.color,
                           }}
                         >
                           x{quantity}
@@ -511,67 +730,6 @@ export default function SchemaPage() {
                     </button>
                   );
                 })}
-              </div>
-            </div>
-
-            <div className="mt-2 rounded-[20px] border border-slate-100 bg-white p-3 shadow-sm">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm font-extrabold">Prix du pack</p>
-
-                  <p
-                    className="mt-0.5 text-3xl font-extrabold leading-none"
-                    style={{ color: activePack.color }}
-                  >
-                    {activePack.price} €
-                  </p>
-
-                  <p className="mt-0.5 text-xs font-semibold text-slate-500">
-                    par mois
-                  </p>
-                </div>
-
-                <div className="text-right text-xs leading-5 text-slate-500">
-                  Installation possible
-                  <br />
-                  équipements inclus
-                </div>
-              </div>
-
-              <Link
-                href={activePack.href}
-                className="mt-2 flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-extrabold text-white transition hover:-translate-y-0.5"
-                style={{ backgroundColor: activePack.color }}
-              >
-                Découvrir ce pack
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div
-              className="mt-2 rounded-[18px] p-3"
-              style={{ backgroundColor: activePack.soft }}
-            >
-              <div className="flex gap-3">
-                <div
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white"
-                  style={{ color: activePack.color }}
-                >
-                  <ShieldCheck className="h-4 w-4" />
-                </div>
-
-                <div>
-                  <p
-                    className="text-sm font-extrabold"
-                    style={{ color: activePack.color }}
-                  >
-                    Bénéfice famille
-                  </p>
-
-                  <p className="mt-0.5 text-xs leading-4 text-slate-700">
-                    {activePack.benefit}
-                  </p>
-                </div>
               </div>
             </div>
           </aside>
