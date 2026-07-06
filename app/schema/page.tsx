@@ -162,7 +162,7 @@ const objects: ConnectedObject[] = [
 
   {
     id: "mouvement-principal",
-    name: "Mouvement principal",
+    name: "Détecteur de Mouvement",
     pack: "serenite",
     image: "/objets/capteur-mouvement-veilleuse.jpg",
     x: "49%",
@@ -284,7 +284,7 @@ const objects: ConnectedObject[] = [
     id: "prise",
     name: "Prise suivi usage",
     pack: "autonomie",
-    image: "/objets/prise-connectee.jpg",
+    image: "/objets/prise-connecte-mesure-de-consommation.jpg",
     x: "68%",
     y: "64%",
     quantities: {
