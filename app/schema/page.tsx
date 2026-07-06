@@ -203,7 +203,7 @@ const objects: ConnectedObject[] = [
     id: "prise",
     name: "Prise suivi usage",
     pack: "autonomie",
-    image: "/objets/prise-connectee.jpg",
+    image: "/objets/prise-connecte-mesure-de-consommation.jpg",
     x: "67%",
     y: "62%",
     quantities: { serenite: 0, confort: 0, autonomie: 1, signature: 1 },
