@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 
 type PackKey = "serenite" | "confort" | "autonomie" | "signature";
 
@@ -372,7 +372,7 @@ export default function SchemaPage() {
             </div>
           </div>
 
-          <aside className="flex min-h-0 flex-col rounded-[28px] border border-orange-100 bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+          <aside className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)_auto_auto] rounded-[28px] border border-orange-100 bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
             <div
               className="rounded-[22px] p-3.5"
               style={{ backgroundColor: activePack.soft }}
@@ -404,7 +404,7 @@ export default function SchemaPage() {
               </div>
             </div>
 
-            <div className="mt-2 rounded-[22px] bg-[#F8FAFC] p-3">
+            <div className="mt-2 min-h-0 overflow-hidden rounded-[22px] bg-[#F8FAFC] p-3">
               <div className="flex items-center justify-between gap-3">
                 <p className="text-base font-extrabold">Objets inclus</p>
 
@@ -419,7 +419,7 @@ export default function SchemaPage() {
                 </div>
               </div>
 
-              <div className="mt-2 grid grid-cols-2 gap-2">
+              <div className="mt-2 grid max-h-[270px] grid-cols-2 gap-2 overflow-y-auto pr-1">
                 {includedObjects.map((object) => {
                   const isSelected = selectedObjectId === object.id;
 
@@ -496,14 +496,23 @@ export default function SchemaPage() {
               </Link>
             </div>
 
-            <div className="mt-2 rounded-[20px] bg-emerald-50 p-3">
+            <div
+              className="mt-2 rounded-[20px] p-3"
+              style={{ backgroundColor: activePack.soft }}
+            >
               <div className="flex gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#0B8A4A]">
+                <div
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white"
+                  style={{ color: activePack.color }}
+                >
                   <ShieldCheck className="h-4 w-4" />
                 </div>
 
                 <div>
-                  <p className="text-sm font-extrabold text-[#0B8A4A]">
+                  <p
+                    className="text-sm font-extrabold"
+                    style={{ color: activePack.color }}
+                  >
                     Bénéfice famille
                   </p>
 
