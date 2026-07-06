@@ -43,6 +43,7 @@ const packs: Record<PackKey, Pack> = {
     text: "Le socle essentiel pour rassurer les proches et sécuriser le quotidien.",
     appImage: "/objets/application-serenite.jpg",
   },
+
   confort: {
     level: 2,
     shortName: "Confort",
@@ -55,6 +56,7 @@ const packs: Record<PackKey, Pack> = {
     text: "Sérénité + une protection renforcée du logement.",
     appImage: "/objets/application-confort.jpg",
   },
+
   autonomie: {
     level: 3,
     shortName: "Autonomie",
@@ -67,6 +69,7 @@ const packs: Record<PackKey, Pack> = {
     text: "Confort + des repères discrets sur le rythme de vie.",
     appImage: "/objets/application-autonomie.jpg",
   },
+
   signature: {
     level: 4,
     shortName: "Signature",
@@ -89,8 +92,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/home-assistant.jpg",
     x: "67%",
     y: "16%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "coordinateur",
     name: "Coordinateur Zigbee",
@@ -98,8 +107,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/home-assistant.jpg",
     x: "60%",
     y: "84%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "bouton-sos",
     name: "Bouton SOS",
@@ -107,8 +122,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/bouton-sos.jpg",
     x: "10%",
     y: "20%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 2 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 2,
+    },
   },
+
   {
     id: "application",
     name: "Application famille",
@@ -116,8 +137,14 @@ const objects: ConnectedObject[] = [
     image: "application",
     x: "10%",
     y: "50%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "ouverture",
     name: "Détecteur porte",
@@ -125,8 +152,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/detecteur-ouverture-porte.jpg",
     x: "25%",
     y: "78%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "mouvement-principal",
     name: "Détecteur de Mouvement",
@@ -134,8 +167,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-mouvement-veilleuse.jpg",
     x: "50%",
     y: "16%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "fumee",
     name: "Détecteur fumée",
@@ -143,8 +182,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/detecteur-fumee.jpg",
     x: "90%",
     y: "50%",
-    quantities: { serenite: 1, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 1,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "chemin-lumineux",
     name: "Chemins lumineux",
@@ -152,8 +197,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/chemin-lumineux.jpg",
     x: "52%",
     y: "84%",
-    quantities: { serenite: 0, confort: 3, autonomie: 3, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 3,
+      autonomie: 3,
+      signature: 3,
+    },
   },
+
   {
     id: "mouvements-complementaires",
     name: "Mouvements complémentaires",
@@ -161,8 +212,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-mouvement-veilleuse.jpg",
     x: "33%",
     y: "16%",
-    quantities: { serenite: 0, confort: 2, autonomie: 2, signature: 2 },
+    quantities: {
+      serenite: 0,
+      confort: 2,
+      autonomie: 2,
+      signature: 2,
+    },
   },
+
   {
     id: "fuite",
     name: "Détecteur fuite",
@@ -170,8 +227,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/fuites.jpg",
     x: "78%",
     y: "78%",
-    quantities: { serenite: 0, confort: 1, autonomie: 1, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 1,
+      autonomie: 1,
+      signature: 3,
+    },
   },
+
   {
     id: "temperature",
     name: "Temp. & humidité",
@@ -179,8 +242,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-de-temperature-et-d-humidite.jpg",
     x: "88%",
     y: "20%",
-    quantities: { serenite: 0, confort: 1, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 1,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "presence",
     name: "Capteurs présence",
@@ -188,8 +257,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/capteur-presence.jpg",
     x: "42%",
     y: "24%",
-    quantities: { serenite: 0, confort: 0, autonomie: 2, signature: 3 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 2,
+      signature: 3,
+    },
   },
+
   {
     id: "frigo",
     name: "Ouverture frigo",
@@ -197,8 +272,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/refregirateur.jpg",
     x: "79%",
     y: "36%",
-    quantities: { serenite: 0, confort: 0, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "prise",
     name: "Prise suivi usage",
@@ -206,8 +287,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/prise-connecte-mesure-de-consommation.jpg",
     x: "59%",
     y: "62%",
-    quantities: { serenite: 0, confort: 0, autonomie: 1, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 1,
+      signature: 1,
+    },
   },
+
   {
     id: "arret-vanne",
     name: "Arrêt de vanne",
@@ -215,8 +302,14 @@ const objects: ConnectedObject[] = [
     image: "/objets/arret-vanne.jpg",
     x: "20%",
     y: "36%",
-    quantities: { serenite: 0, confort: 0, autonomie: 0, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 0,
+      signature: 1,
+    },
   },
+
   {
     id: "sirene",
     name: "Sirène",
@@ -224,28 +317,40 @@ const objects: ConnectedObject[] = [
     image: "/objets/sirene.jpg",
     x: "70%",
     y: "70%",
-    quantities: { serenite: 0, confort: 0, autonomie: 0, signature: 1 },
+    quantities: {
+      serenite: 0,
+      confort: 0,
+      autonomie: 0,
+      signature: 1,
+    },
   },
 ];
 
 export default function SchemaPage() {
-  const [activePackKey, setActivePackKey] = useState<PackKey>("serenite");
+  const [activePackKey, setActivePackKey] =
+    useState<PackKey>("serenite");
+
   const [selectedObjectId, setSelectedObjectId] =
     useState<string | null>("bouton-sos");
 
   const activePack = packs[activePackKey];
+
+  const isSerenite = activePackKey === "serenite";
 
   const includedObjects = objects.filter(
     (object) => object.quantities[activePackKey] > 0
   );
 
   const equipmentCount = includedObjects.reduce(
-    (total, object) => total + object.quantities[activePackKey],
+    (total, object) =>
+      total + object.quantities[activePackKey],
     0
   );
 
   function getImage(object: ConnectedObject) {
-    return object.image === "application" ? activePack.appImage : object.image;
+    return object.image === "application"
+      ? activePack.appImage
+      : object.image;
   }
 
   function selectPack(packKey: PackKey) {
@@ -254,7 +359,8 @@ export default function SchemaPage() {
   }
 
   function selectObject(object: ConnectedObject) {
-    const isAlreadyIncluded = object.quantities[activePackKey] > 0;
+    const isAlreadyIncluded =
+      object.quantities[activePackKey] > 0;
 
     if (!isAlreadyIncluded) {
       setActivePackKey(object.pack);
@@ -267,7 +373,13 @@ export default function SchemaPage() {
     <main className="h-[calc(100vh-96px)] overflow-hidden bg-[#FAFBFD] text-[#08122E]">
       <section className="mx-auto h-full max-w-[1540px] px-4 py-3 lg:px-5">
         <div className="grid h-full gap-4 xl:grid-cols-[minmax(0,1.22fr)_minmax(430px,0.78fr)]">
+
+          {/* ========================= */}
+          {/* MAISON SOLERYA - GAUCHE */}
+          {/* ========================= */}
+
           <div className="flex min-h-0 min-w-0 flex-col rounded-[28px] bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+
             <div className="mb-2 flex items-center justify-between gap-3">
               <p className="text-lg font-extrabold tracking-[-0.03em]">
                 Maison Solerya
@@ -299,17 +411,23 @@ export default function SchemaPage() {
 
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}55` }}
+                style={{
+                  borderColor: `${activePack.color}55`,
+                }}
               />
 
               <div
                 className="pointer-events-none absolute left-1/2 top-[45%] z-0 h-[470px] w-[470px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed"
-                style={{ borderColor: `${activePack.color}35` }}
+                style={{
+                  borderColor: `${activePack.color}35`,
+                }}
               />
 
               <div
                 className="absolute left-1/2 top-[45%] z-10 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[8px] border-white"
-                style={{ boxShadow: `0 20px 55px ${activePack.glow}` }}
+                style={{
+                  boxShadow: `0 20px 55px ${activePack.glow}`,
+                }}
               >
                 <Image
                   src="/images/senior.jpg"
@@ -321,9 +439,14 @@ export default function SchemaPage() {
                 />
               </div>
 
+              {/* Partie gauche strictement inchangée */}
+
               {objects.map((object) => {
-                const isIncluded = object.quantities[activePackKey] > 0;
-                const isSelected = selectedObjectId === object.id;
+                const isIncluded =
+                  object.quantities[activePackKey] > 0;
+
+                const isSelected =
+                  selectedObjectId === object.id;
 
                 return (
                   <button
@@ -334,11 +457,17 @@ export default function SchemaPage() {
                       isIncluded
                         ? "scale-100 opacity-100"
                         : "scale-[0.86] border-slate-200 opacity-20 grayscale"
-                    } ${isSelected ? "z-30 scale-105" : ""}`}
+                    } ${
+                      isSelected
+                        ? "z-30 scale-105"
+                        : ""
+                    }`}
                     style={{
                       left: object.x,
                       top: object.y,
-                      borderColor: isIncluded ? activePack.color : "#E2E8F0",
+                      borderColor: isIncluded
+                        ? activePack.color
+                        : "#E2E8F0",
                       boxShadow: isIncluded
                         ? isSelected
                           ? `0 16px 36px ${activePack.glow}`
@@ -359,7 +488,9 @@ export default function SchemaPage() {
                     <p
                       className="mt-1 min-h-[22px] text-[9px] font-extrabold leading-[1.2]"
                       style={{
-                        color: isIncluded ? activePack.color : "#64748B",
+                        color: isIncluded
+                          ? activePack.color
+                          : "#64748B",
                       }}
                     >
                       {object.name}
@@ -369,58 +500,84 @@ export default function SchemaPage() {
               })}
             </div>
 
+            {/* SÉLECTEUR DE PACKS */}
+
             <div className="mt-2 rounded-[22px] border border-white bg-white p-2 shadow-[0_12px_30px_rgba(8,18,46,0.08)]">
               <div className="grid gap-2 sm:grid-cols-4">
-                {(Object.entries(packs) as [PackKey, Pack][]).map(
-                  ([key, pack]) => {
-                    const selected = key === activePackKey;
+                {(
+                  Object.entries(packs) as [
+                    PackKey,
+                    Pack
+                  ][]
+                ).map(([key, pack]) => {
+                  const selected =
+                    key === activePackKey;
 
-                    return (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => selectPack(key)}
-                        className="rounded-[15px] px-3 py-2 text-left transition hover:-translate-y-0.5"
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => selectPack(key)}
+                      className="rounded-[15px] px-3 py-2 text-left transition hover:-translate-y-0.5"
+                      style={{
+                        backgroundColor: selected
+                          ? pack.soft
+                          : "#F8FAFC",
+                        boxShadow: selected
+                          ? `0 8px 18px ${pack.glow}`
+                          : "",
+                      }}
+                    >
+                      <p
+                        className="text-xs font-extrabold"
                         style={{
-                          backgroundColor: selected ? pack.soft : "#F8FAFC",
-                          boxShadow: selected ? `0 8px 18px ${pack.glow}` : "",
+                          color: pack.color,
                         }}
                       >
-                        <p
-                          className="text-xs font-extrabold"
-                          style={{ color: pack.color }}
-                        >
-                          Solerya
-                        </p>
+                        Solerya
+                      </p>
 
-                        <p
-                          className="text-sm font-extrabold leading-tight"
-                          style={{ color: pack.color }}
-                        >
-                          {pack.shortName}
-                        </p>
+                      <p
+                        className="text-sm font-extrabold leading-tight"
+                        style={{
+                          color: pack.color,
+                        }}
+                      >
+                        {pack.shortName}
+                      </p>
 
-                        <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
-                          Dès {pack.price} €/mois
-                        </p>
-                      </button>
-                    );
-                  }
-                )}
+                      <p className="mt-0.5 text-[11px] font-semibold text-slate-500">
+                        Dès {pack.price} €/mois
+                      </p>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
 
+          {/* ========================= */}
+          {/* PANNEAU DROIT */}
+          {/* ========================= */}
+
           <aside className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] rounded-[28px] border border-orange-100 bg-white p-3 shadow-[0_16px_45px_rgba(8,18,46,0.08)]">
+
+            {/* PACK SÉLECTIONNÉ */}
+
             <div
               className="rounded-[22px] px-4 py-3"
-              style={{ backgroundColor: activePack.soft }}
+              style={{
+                backgroundColor: activePack.soft,
+              }}
             >
               <div className="flex items-center justify-between gap-4">
+
                 <div className="flex min-w-0 items-center gap-3">
                   <div
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm"
-                    style={{ color: activePack.color }}
+                    style={{
+                      color: activePack.color,
+                    }}
                   >
                     <Sparkles className="h-5 w-5" />
                   </div>
@@ -432,7 +589,9 @@ export default function SchemaPage() {
 
                     <h2
                       className="mt-0.5 text-[25px] font-extrabold leading-none tracking-[-0.03em]"
-                      style={{ color: activePack.color }}
+                      style={{
+                        color: activePack.color,
+                      }}
                     >
                       {activePack.name}
                     </h2>
@@ -446,7 +605,9 @@ export default function SchemaPage() {
                 <div className="shrink-0 text-right">
                   <p
                     className="text-[32px] font-extrabold leading-none tracking-[-0.04em]"
-                    style={{ color: activePack.color }}
+                    style={{
+                      color: activePack.color,
+                    }}
                   >
                     {activePack.price} €
                   </p>
@@ -458,7 +619,9 @@ export default function SchemaPage() {
                   <Link
                     href={activePack.href}
                     className="mt-1.5 inline-flex items-center justify-center gap-1 rounded-full px-3 py-1.5 text-[10px] font-extrabold text-white transition hover:-translate-y-0.5"
-                    style={{ backgroundColor: activePack.color }}
+                    style={{
+                      backgroundColor: activePack.color,
+                    }}
                   >
                     Découvrir
                     <ArrowRight className="h-3 w-3" />
@@ -467,12 +630,30 @@ export default function SchemaPage() {
               </div>
             </div>
 
+            {/* ========================= */}
+            {/* OBJETS INCLUS */}
+            {/* AGRANDIS UNIQUEMENT EN SÉRÉNITÉ */}
+            {/* ========================= */}
+
             <div className="mt-2 flex min-h-0 flex-col rounded-[22px] bg-[#F8FAFC] p-3">
+
               <div className="flex shrink-0 items-center justify-between gap-3">
-                <p className="text-base font-extrabold">Objets inclus</p>
+                <p
+                  className={
+                    isSerenite
+                      ? "text-lg font-extrabold"
+                      : "text-base font-extrabold"
+                  }
+                >
+                  Objets inclus
+                </p>
 
                 <div
-                  className="rounded-full px-3 py-1 text-xs font-extrabold"
+                  className={`rounded-full font-extrabold ${
+                    isSerenite
+                      ? "px-4 py-1.5 text-sm"
+                      : "px-3 py-1 text-xs"
+                  }`}
                   style={{
                     backgroundColor: activePack.soft,
                     color: activePack.color,
@@ -482,17 +663,32 @@ export default function SchemaPage() {
                 </div>
               </div>
 
-              <div className="mt-2 grid min-h-0 flex-1 auto-rows-fr grid-cols-2 gap-1.5">
+              <div
+                className={`grid min-h-0 flex-1 grid-cols-2 ${
+                  isSerenite
+                    ? "mt-3 auto-rows-fr gap-3"
+                    : "mt-2 auto-rows-fr gap-1.5"
+                }`}
+              >
                 {includedObjects.map((object) => {
-                  const isSelected = selectedObjectId === object.id;
-                  const quantity = object.quantities[activePackKey];
+                  const isSelected =
+                    selectedObjectId === object.id;
+
+                  const quantity =
+                    object.quantities[activePackKey];
 
                   return (
                     <button
                       key={object.id}
                       type="button"
-                      onClick={() => selectObject(object)}
-                      className="grid min-h-0 grid-cols-[28px_minmax(0,1fr)_auto] items-center gap-1.5 rounded-[12px] border bg-white px-1.5 py-1 text-left transition hover:-translate-y-0.5"
+                      onClick={() =>
+                        selectObject(object)
+                      }
+                      className={`grid min-h-0 items-center border bg-white text-left transition hover:-translate-y-0.5 ${
+                        isSerenite
+                          ? "grid-cols-[48px_minmax(0,1fr)_auto] gap-3 rounded-[16px] px-3 py-2.5"
+                          : "grid-cols-[28px_minmax(0,1fr)_auto] gap-1.5 rounded-[12px] px-1.5 py-1"
+                      }`}
                       style={{
                         borderColor: isSelected
                           ? activePack.color
@@ -502,29 +698,64 @@ export default function SchemaPage() {
                           : "0 4px 10px rgba(8,18,46,0.04)",
                       }}
                     >
+
+                      {/* IMAGE */}
+
                       <div
-                        className="relative h-7 w-7 shrink-0 overflow-hidden rounded-lg bg-white"
-                        style={{ outline: `1.5px solid ${activePack.color}` }}
+                        className={`relative shrink-0 overflow-hidden bg-white ${
+                          isSerenite
+                            ? "h-12 w-12 rounded-[12px]"
+                            : "h-7 w-7 rounded-lg"
+                        }`}
+                        style={{
+                          outline: isSerenite
+                            ? `2px solid ${activePack.color}`
+                            : `1.5px solid ${activePack.color}`,
+                        }}
                       >
                         <Image
                           src={getImage(object)}
                           alt={object.name}
                           fill
-                          className="object-contain p-0.5"
-                          sizes="28px"
+                          className={
+                            isSerenite
+                              ? "object-contain p-1"
+                              : "object-contain p-0.5"
+                          }
+                          sizes={
+                            isSerenite
+                              ? "48px"
+                              : "28px"
+                          }
                         />
                       </div>
 
-                      <p className="min-w-0 text-[9.5px] font-extrabold leading-[1.1]">
+                      {/* NOM */}
+
+                      <p
+                        className={`min-w-0 font-extrabold ${
+                          isSerenite
+                            ? "text-[13px] leading-[1.2]"
+                            : "text-[9.5px] leading-[1.1]"
+                        }`}
+                      >
                         {object.name}
                       </p>
 
+                      {/* QUANTITÉ */}
+
                       {quantity > 1 && (
                         <span
-                          className="shrink-0 rounded-full px-1.5 py-0.5 text-[9px] font-extrabold"
+                          className={`shrink-0 rounded-full font-extrabold ${
+                            isSerenite
+                              ? "px-2 py-1 text-[11px]"
+                              : "px-1.5 py-0.5 text-[9px]"
+                          }`}
                           style={{
-                            backgroundColor: activePack.soft,
-                            color: activePack.color,
+                            backgroundColor:
+                              activePack.soft,
+                            color:
+                              activePack.color,
                           }}
                         >
                           x{quantity}

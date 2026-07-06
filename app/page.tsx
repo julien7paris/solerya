@@ -32,7 +32,7 @@ const packs = [
     bg: "bg-emerald-50",
     icon: Home,
     text: "Vivre chez soi l’esprit tranquille et rassurer ses proches.",
-    price: "Dès 39 €/mois",
+    price: "Dès 49 €/mois",
     features: [
       "Un bouton SOS à portée de main",
       "Une maison attentive aux risques essentiels",
@@ -47,7 +47,7 @@ const packs = [
     bg: "bg-blue-50",
     icon: LampDesk,
     text: "Un logement qui facilite le quotidien et prévient les risques.",
-    price: "Dès 59 €/mois",
+    price: "Dès 69 €/mois",
     features: [
       "Tout le pack Sérénité",
       "Des déplacements nocturnes plus sûrs",
