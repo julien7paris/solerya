@@ -123,7 +123,7 @@ export default function ConfortPage() {
             </div>
 
             <p className="mt-6 text-3xl font-extrabold" style={{ color: "#0967D2" }}>
-              Dès 59 €/mois
+              Dès 69 €/mois
             </p>
           </div>
 
@@ -272,7 +272,7 @@ export default function ConfortPage() {
                 Solerya Confort
               </p>
               <p className="mt-2 text-4xl font-extrabold" style={{ color: "#0967D2" }}>
-                59 €/mois
+                69 €/mois
               </p>
 
               <Link

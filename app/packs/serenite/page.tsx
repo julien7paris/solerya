@@ -148,7 +148,7 @@ export default function SerenitePage() {
               className="mt-6 text-3xl font-extrabold"
               style={{ color: "#0B8A4A" }}
             >
-              Dès 39 €/mois
+              Dès 49 €/mois
             </p>
           </div>
 
@@ -382,7 +382,7 @@ export default function SerenitePage() {
                 className="mt-2 text-4xl font-extrabold"
                 style={{ color: "#0B8A4A" }}
               >
-                39 €/mois
+                49 €/mois
               </p>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">

@@ -48,7 +48,7 @@ const packs: Record<PackKey, Pack> = {
     level: 2,
     shortName: "Confort",
     name: "Solerya Confort",
-    price: "59",
+    price: "69",
     color: "#0967D2",
     soft: "#EAF4FF",
     glow: "rgba(9,103,210,0.22)",
