@@ -11,10 +11,10 @@ export default function Header() {
           <Image
             src="/logo-solerya-transparent.png"
             alt="Solerya"
-            width={190}
-            height={60}
+            width={260}
+            height={82}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-[72px] w-auto object-contain"
           />
         </Link>
 
