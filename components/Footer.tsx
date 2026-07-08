@@ -13,9 +13,9 @@ export default function Footer() {
               <Image
                 src="/logo-solerya-transparent.png"
                 alt="Solerya"
-                width={300}
-                height={95}
-                className="h-[82px] w-auto object-contain"
+                width={240}
+                height={85}
+                className="h-[52px] w-auto object-contain"
               />
             </Link>
 
