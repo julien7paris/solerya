@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -44,35 +44,35 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FAFBFD] px-6 py-16 text-[#08122E] lg:px-8">
+    <main className="bg-[#FAFBFD] px-5 py-8 text-[#08122E] sm:px-6 lg:px-8 lg:py-10">
       <section className="mx-auto max-w-7xl">
-        <div className="overflow-hidden rounded-[36px] bg-[#08122E] px-6 py-12 shadow-[0_24px_80px_rgba(8,18,46,0.18)] sm:px-10 lg:px-16 lg:py-16">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-            <div>
+        <div className="overflow-hidden rounded-[34px] bg-[#08122E] px-6 py-8 shadow-[0_24px_80px_rgba(8,18,46,0.18)] sm:px-10 lg:px-14 lg:py-10">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.12fr_0.88fr]">
+            <div className="lg:pr-6">
               <p className="text-base font-semibold text-[#8FD8B1]">
                 Intervention en Île-de-France
               </p>
 
-              <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-[-0.04em] text-white sm:text-5xl">
+              <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl">
                 Parlons de votre projet de maison connectée pour un proche.
               </h1>
 
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">
                 Solerya vous accompagne pour sécuriser le domicile d’un senior,
                 installer les bons objets connectés et rassurer la famille avec
                 une solution simple, utile et non intrusive.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-semibold text-white">
                   Réponse sous 24 à 48h
                 </span>
 
-                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white">
+                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-semibold text-white">
                   Installation accompagnée
                 </span>
 
-                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white">
+                <span className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-semibold text-white">
                   Île-de-France
                 </span>
               </div>
@@ -80,15 +80,15 @@ export default function ContactPage() {
 
             <form
               onSubmit={handleSubmit}
-              className="mx-auto w-full max-w-[520px] rounded-[30px] bg-white/5 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
+              className="mx-auto w-full max-w-[480px] rounded-[28px] bg-white/[0.06] p-3"
             >
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 <input
                   required
                   type="text"
                   name="name"
                   placeholder="Votre nom"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="h-[52px] w-full rounded-full border border-white/10 bg-white/10 px-6 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <input
@@ -96,48 +96,54 @@ export default function ContactPage() {
                   type="email"
                   name="email"
                   placeholder="Votre e-mail"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="h-[52px] w-full rounded-full border border-white/10 bg-white/10 px-6 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Votre téléphone"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="h-[52px] w-full rounded-full border border-white/10 bg-white/10 px-6 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <select
                   required
                   name="need"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-slate-300 outline-none transition focus:border-[#8FD8B1] focus:bg-white/15"
                   defaultValue=""
+                  className="h-[52px] w-full rounded-full border border-white/10 bg-[#303B58] px-6 text-base text-slate-200 outline-none transition focus:border-[#8FD8B1]"
                 >
                   <option value="" disabled>
                     Votre besoin principal
                   </option>
+
                   <option value="Sécuriser le domicile d’un proche">
                     Sécuriser le domicile d’un proche
                   </option>
+
                   <option value="Installer un bouton SOS / détecteurs">
                     Installer un bouton SOS / détecteurs
                   </option>
+
                   <option value="Choisir un pack Solerya">
                     Choisir un pack Solerya
                   </option>
-                  <option value="Autre demande">Autre demande</option>
+
+                  <option value="Autre demande">
+                    Autre demande
+                  </option>
                 </select>
 
                 <textarea
                   name="message"
                   placeholder="Votre message"
-                  rows={3}
-                  className="w-full resize-none rounded-[24px] border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  rows={2}
+                  className="h-[92px] w-full resize-none rounded-[24px] border border-white/10 bg-white/10 px-6 py-4 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full rounded-full bg-[#F58220] px-7 py-3.5 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="h-[52px] w-full rounded-full bg-[#F58220] px-7 text-base font-extrabold text-white shadow-[0_16px_35px_rgba(245,130,32,0.25)] transition hover:-translate-y-0.5 hover:bg-[#E36E08] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === "loading"
                     ? "Envoi en cours..."
@@ -159,10 +165,10 @@ export default function ContactPage() {
                 )}
               </div>
 
-              <p className="mt-4 px-2 pb-1 text-sm leading-6 text-slate-400">
+              <p className="mt-3 px-2 text-xs leading-5 text-slate-400">
                 En envoyant ce formulaire, vous acceptez d’être recontacté dans
-                le cadre de votre demande. Intervention actuellement proposée en
-                Île-de-France.
+                le cadre de votre demande. Intervention actuellement proposée
+                en Île-de-France.
               </p>
             </form>
           </div>
