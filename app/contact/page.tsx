@@ -9,9 +9,11 @@ export default function ContactPage() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const form = event.currentTarget;
     setStatus("loading");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
 
     const payload = {
       name: formData.get("name"),
@@ -34,8 +36,8 @@ export default function ContactPage() {
         throw new Error("Erreur lors de l’envoi");
       }
 
+      form.reset();
       setStatus("success");
-      event.currentTarget.reset();
     } catch {
       setStatus("error");
     }
@@ -44,8 +46,8 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FAFBFD] px-6 py-16 text-[#08122E] lg:px-8">
       <section className="mx-auto max-w-7xl">
-        <div className="overflow-hidden rounded-[36px] bg-[#08122E] px-6 py-10 shadow-[0_24px_80px_rgba(8,18,46,0.18)] sm:px-10 lg:px-14 lg:py-14">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="overflow-hidden rounded-[36px] bg-[#08122E] px-6 py-12 shadow-[0_24px_80px_rgba(8,18,46,0.18)] sm:px-10 lg:px-16 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <p className="text-base font-semibold text-[#8FD8B1]">
                 Intervention en Île-de-France
@@ -76,14 +78,17 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="rounded-[30px] bg-white/5 p-2">
-              <div className="space-y-4">
+            <form
+              onSubmit={handleSubmit}
+              className="mx-auto w-full max-w-[520px] rounded-[30px] bg-white/5 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
+            >
+              <div className="space-y-3">
                 <input
                   required
                   type="text"
                   name="name"
                   placeholder="Votre nom"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-7 py-4 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <input
@@ -91,20 +96,20 @@ export default function ContactPage() {
                   type="email"
                   name="email"
                   placeholder="Votre e-mail"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-7 py-4 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Votre téléphone"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-7 py-4 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <select
                   required
                   name="need"
-                  className="w-full rounded-full border border-white/10 bg-white/10 px-7 py-4 text-base text-slate-300 outline-none transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  className="w-full rounded-full border border-white/10 bg-white/10 px-6 py-3.5 text-base text-slate-300 outline-none transition focus:border-[#8FD8B1] focus:bg-white/15"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -125,32 +130,36 @@ export default function ContactPage() {
                 <textarea
                   name="message"
                   placeholder="Votre message"
-                  rows={4}
-                  className="w-full resize-none rounded-[28px] border border-white/10 bg-white/10 px-7 py-4 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
+                  rows={3}
+                  className="w-full resize-none rounded-[24px] border border-white/10 bg-white/10 px-6 py-3.5 text-base text-white outline-none placeholder:text-slate-400 transition focus:border-[#8FD8B1] focus:bg-white/15"
                 />
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full rounded-full bg-[#F58220] px-7 py-4 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full rounded-full bg-[#F58220] px-7 py-3.5 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08] disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {status === "loading" ? "Envoi en cours..." : "Être recontacté →"}
+                  {status === "loading"
+                    ? "Envoi en cours..."
+                    : "Être recontacté →"}
                 </button>
 
                 {status === "success" && (
-                  <p className="rounded-2xl bg-[#EAF8F0] px-5 py-4 text-sm font-semibold text-[#0B8A4A]">
-                    Votre demande a bien été envoyée. Nous vous recontacterons rapidement.
+                  <p className="rounded-2xl bg-[#EAF8F0] px-5 py-3 text-sm font-semibold text-[#0B8A4A]">
+                    Votre demande a bien été envoyée. Nous vous recontacterons
+                    rapidement.
                   </p>
                 )}
 
                 {status === "error" && (
-                  <p className="rounded-2xl bg-red-50 px-5 py-4 text-sm font-semibold text-red-600">
-                    Une erreur est survenue. Merci de réessayer dans quelques instants.
+                  <p className="rounded-2xl bg-red-50 px-5 py-3 text-sm font-semibold text-red-600">
+                    Une erreur est survenue. Merci de réessayer dans quelques
+                    instants.
                   </p>
                 )}
               </div>
 
-              <p className="mt-5 px-2 text-sm leading-6 text-slate-400">
+              <p className="mt-4 px-2 pb-1 text-sm leading-6 text-slate-400">
                 En envoyant ce formulaire, vous acceptez d’être recontacté dans
                 le cadre de votre demande. Intervention actuellement proposée en
                 Île-de-France.
