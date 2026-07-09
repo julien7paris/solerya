@@ -303,12 +303,12 @@ export default function SoleryaHomePage() {
         </p>
 
         <div className="mt-9 grid grid-cols-2 items-center gap-8 text-2xl font-extrabold tracking-tight text-[#08122E] opacity-90 md:grid-cols-6">
-          <span>france·2</span>
-          <span>Le Parisien</span>
-          <span>Les Echos</span>
-          <span>BFM</span>
-          <span>franceinfo:</span>
-          <span>LE FIGARO</span>
+          <span>france·brésil</span>
+          <span>Le Parichien</span>
+          <span>Les Echos des savanes</span>
+          <span>BFR</span>
+          <span>franceinfaux:</span>
+          <span>LE GORAFI</span>
         </div>
       </section>
     </main>
