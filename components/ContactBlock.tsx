@@ -23,7 +23,7 @@ export default function ContactBlock() {
                 Échange confidentiel
               </span>
               <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-xs text-slate-200">
-                France & international
+                Intervention en Île de France
               </span>
             </div>
           </div>
