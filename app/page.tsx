@@ -70,7 +70,8 @@ const highlights: Array<[LucideIcon, string, string]> = [
   [ShoppingCart, "100 % à la carte", "Vous ajoutez uniquement ce dont vous avez besoin."],
   [Wrench, "Installation possible", "Pose, mise en service et scénarios par Solerya."],
   [HeartHandshake, "Accompagnement humain", "Conseil et formation quand vous en avez besoin."],
-  [Target, "Pour aujourd’hui et pour demain", "Pensé pour bien vivre chez soi, conçu pour rassurer ceux qui comptent."],
+  [HandHeart, "Pour les familles", "Restez informés et rassurés, même lorsque vous êtes à distance."],
+  [Target, "Pour les seniors", "Gagnez en confort et en autonomie, avec une solution simple au quotidien."],
 ];
 
 const products: Product[] = [
@@ -367,29 +368,28 @@ export default function SoleryaLandingPage() {
           </div>
 
           {/* Deux blocs strictement alignés */}
-          <div className="mt-5 grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+          <div className="mt-6 grid gap-8 pb-2 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
             <div className="flex h-full flex-col rounded-[26px] bg-white/90 p-5 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Solerya, pour aujourd'hui et pour demain</p>
-                  <p className="mt-1 text-sm font-extrabold">Bien vivre chez soi. Rassurer ceux qui comptent.</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Pourquoi choisir Solerya ?</p>
+                  <p className="mt-1 text-sm font-extrabold">Une solution simple, libre et accompagnée quand vous le souhaitez.</p>
                 </div>
                 <Target className="h-5 w-5 shrink-0 text-[#F58220]" />
               </div>
-              <div className="mt-4 grid flex-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {categoryOrder.map((category) => {
-                  const meta = categoryMeta[category];
-                  const Icon = meta.icon;
-                  return (
-                    <button key={category} type="button" onClick={() => scrollTo(`cat-${slugify(category)}`)} className={`group flex min-h-[86px] items-start gap-2.5 rounded-2xl border p-3 text-left transition hover:-translate-y-0.5 hover:shadow-sm ${meta.bg} ${meta.border}`}>
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/80"><Icon className="h-4 w-4" style={{ color: meta.accent }} /></div>
-                      <div className="min-w-0">
-                        <p className="text-[10px] font-bold uppercase leading-4 tracking-[0.08em]" style={{ color: meta.accent }}>{meta.eyebrow}</p>
-                        <p className="mt-0.5 text-xs font-extrabold leading-4">{category}</p>
-                      </div>
-                    </button>
-                  );
-                })}
+
+              <div className="mt-4 grid flex-1 gap-x-5 gap-y-3 sm:grid-cols-2">
+                {highlights.map(([Icon, title, description]) => (
+                  <div key={title} className="flex min-w-0 items-start gap-3 rounded-2xl bg-[#FFFDFB] p-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-extrabold leading-5 text-[#08122E]">{title}</p>
+                      <p className="mt-1 text-xs leading-5 text-slate-600">{description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
