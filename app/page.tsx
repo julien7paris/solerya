@@ -30,6 +30,7 @@ import {
   ShoppingCart,
   Siren,
   Sparkles,
+  Target,
   ThermometerSun,
   Video,
   Watch,
@@ -67,6 +68,7 @@ const highlights: Array<[LucideIcon, string, string]> = [
   [ShoppingCart, "100 % à la carte", "Vous ajoutez uniquement ce dont vous avez besoin."],
   [Wrench, "Installation possible", "Pose, mise en service et scénarios par Solerya."],
   [HeartHandshake, "Accompagnement humain", "Conseil et formation quand vous en avez besoin."],
+  [Target, "Pour aujourd’hui et pour demain", "Pensé pour bien vivre chez soi, conçu pour rassurer ceux qui comptent."],
 ];
 
 const products: Product[] = [
@@ -298,12 +300,7 @@ function slugify(value: string) {
 }
 
 export default function SoleryaLandingPage() {
-  const [cart, setCart] = useState<Record<string, number>>({
-    "ha-green": 1,
-    "zigbee-dongle": 1,
-    "backup-power": 1,
-    "entry-door": 2,
-  });
+  const [cart, setCart] = useState<Record<string, number>>({});
 
   const purchasableProducts = products.filter((product) => product.price !== null);
   const allPurchasableItems = [...purchasableProducts, ...services];
@@ -313,7 +310,9 @@ export default function SoleryaLandingPage() {
     [cart, allPurchasableItems],
   );
 
-  const itemCount = useMemo(() => Object.values(cart).reduce((sum, qty) => sum + qty, 0), [cart]);
+  const itemCount = useMemo(() => Object.values(cart).reduce<number>((sum, qty) => sum + qty, 0), [cart]);
+  const productCount = useMemo(() => purchasableProducts.reduce((sum, item) => sum + (cart[item.id] ?? 0), 0), [cart, purchasableProducts]);
+  const serviceCount = useMemo(() => services.reduce((sum, item) => sum + (cart[item.id] ?? 0), 0), [cart]);
   const selectedItems = useMemo(() => allPurchasableItems.filter((item) => (cart[item.id] ?? 0) > 0), [cart, allPurchasableItems]);
 
   function updateItem(id: string, delta: number) {
@@ -344,7 +343,7 @@ export default function SoleryaLandingPage() {
 
       {/* HERO compact : toute l'action principale doit rester visible sans scroller */}
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto grid max-w-7xl items-stretch gap-8 px-6 pb-6 pt-3 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-7 lg:pt-4">
+        <div className="mx-auto grid max-w-7xl items-stretch gap-8 px-6 pb-6 pt-3 lg:min-h-[748px] lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-7 lg:pt-4">
           <div className="flex flex-col">
             <div className="relative overflow-hidden rounded-[28px] shadow-[0_28px_70px_rgba(8,18,46,0.14)]">
               <video className="h-[285px] w-full object-cover lg:h-[315px]" src="/family-international.mp4" autoPlay muted loop playsInline />
@@ -352,13 +351,18 @@ export default function SoleryaLandingPage() {
               <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur">Découvrir Solerya</div>
             </div>
 
-            <div className="mt-4 grid gap-3 rounded-[24px] bg-white/85 p-4 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur sm:grid-cols-2">
-              {highlights.map(([Icon, title, text]) => (
-                <div key={title} className="flex gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><Icon className="h-4 w-4" /></div>
-                  <div><p className="text-sm font-semibold">{title}</p><p className="mt-0.5 text-xs leading-5 text-slate-600">{text}</p></div>
-                </div>
-              ))}
+            <div className="mt-4 flex-1 rounded-[24px] bg-white/85 p-4 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
+              <div className="grid h-full content-center gap-x-6 gap-y-3 sm:grid-cols-2">
+                {highlights.map(([Icon, title, text], index) => (
+                  <div key={title} className={`flex gap-3 ${index === highlights.length - 1 ? "sm:col-span-2 sm:border-t sm:border-orange-100 sm:pt-3" : ""}`}>
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><Icon className="h-4 w-4" /></div>
+                    <div>
+                      <p className="text-sm font-semibold">{title}</p>
+                      <p className="mt-0.5 text-xs leading-5 text-slate-600">{text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -378,17 +382,24 @@ export default function SoleryaLandingPage() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p>
-                  <p className="mt-1 text-xl font-extrabold">{itemCount} article{itemCount > 1 ? "s" : ""} sélectionné{itemCount > 1 ? "s" : ""}</p>
+                  <p className="mt-1 text-xl font-extrabold">{productCount} objet{productCount > 1 ? "s" : ""} sélectionné{productCount > 1 ? "s" : ""}</p>
+                  {serviceCount > 0 && <p className="mt-1 text-xs font-medium text-slate-500">+ {serviceCount} service{serviceCount > 1 ? "s" : ""}</p>}
                 </div>
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><ShoppingCart className="h-5 w-5" /></div>
+                <Link href="/commande" className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220] transition hover:scale-105" aria-label="Voir le résumé de la commande">
+                  <ShoppingCart className="h-5 w-5" />
+                  <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#08122E] px-1 text-[10px] font-bold text-white">{productCount}</span>
+                </Link>
               </div>
               <div className="mt-3 flex items-end justify-between gap-4 border-t border-slate-100 pt-3">
                 <div><p className="text-xs text-slate-500">Total actuel</p><p className="text-3xl font-extrabold">{formatPrice(total)} €</p></div>
-                <span className="rounded-full bg-[#08122E] px-3 py-2 text-xs font-semibold text-white">Sans abonnement</span>
+                <div className="flex flex-col items-end gap-2">
+                  <span className="rounded-full bg-[#08122E] px-3 py-2 text-xs font-semibold text-white">Sans abonnement</span>
+                  <Link href="/commande" className="text-xs font-extrabold text-[#F58220] hover:underline">Voir ma commande →</Link>
+                </div>
               </div>
             </div>
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-[1.35fr_0.85fr]">
+            <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-[1.35fr_0.85fr]">
               <button
                 type="button"
                 onClick={() => scrollTo("boutique")}
@@ -494,24 +505,25 @@ export default function SoleryaLandingPage() {
             })}
           </div>
 
-          <aside className="h-fit xl:sticky xl:top-[108px]">
-            <div className="rounded-[28px] border border-slate-100 bg-white p-5 shadow-[0_24px_60px_rgba(8,18,46,0.10)]">
+          <aside className="h-fit xl:sticky xl:top-[96px]">
+            <div className="flex max-h-[calc(100vh-116px)] min-h-[560px] flex-col rounded-[28px] border border-slate-100 bg-white p-5 shadow-[0_24px_60px_rgba(8,18,46,0.10)]">
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p><h3 className="mt-1 text-xl font-extrabold">Votre panier</h3></div>
                 <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><ShoppingCart className="h-5 w-5" /><span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#08122E] px-1 text-[10px] font-bold text-white">{itemCount}</span></div>
               </div>
-              <div className="mt-4 max-h-[340px] space-y-2 overflow-y-auto pr-1">
+              <div className="mt-4 min-h-0 flex-1 space-y-1.5 overflow-y-auto pr-1">
                 {selectedItems.length === 0 ? <div className="rounded-2xl bg-slate-50 px-4 py-5 text-center text-sm text-slate-500">Votre panier est vide.</div> : selectedItems.map((item) => (
-                  <div key={item.id} className="rounded-2xl bg-slate-50 px-3 py-3"><div className="flex items-start justify-between gap-3"><div><p className="text-xs font-semibold leading-4">{item.name}</p><p className="mt-1 text-[11px] text-slate-500">{cart[item.id]} × {formatPrice(item.price as number)} €</p></div><p className="text-xs font-extrabold">{formatPrice((cart[item.id] ?? 0) * (item.price as number))} €</p></div></div>
+                  <div key={item.id} className="rounded-xl bg-slate-50 px-3 py-2"><div className="flex items-start justify-between gap-3"><div><p className="text-[11px] font-semibold leading-4">{item.name}</p><p className="mt-0.5 text-[10px] text-slate-500">{cart[item.id]} × {formatPrice(item.price as number)} €</p></div><p className="whitespace-nowrap text-[11px] font-extrabold">{formatPrice((cart[item.id] ?? 0) * (item.price as number))} €</p></div></div>
                 ))}
               </div>
-              <div className="mt-4 rounded-[22px] bg-[#08122E] p-5 text-white"><p className="text-xs font-medium text-white/60">Total de votre sélection</p><div className="mt-1 flex items-end justify-between gap-3"><p className="text-3xl font-extrabold">{formatPrice(total)} €</p><span className="rounded-full bg-white/10 px-3 py-2 text-[11px] font-semibold">Sans abonnement</span></div></div>
-
-              <button type="button" onClick={() => scrollTo("services")} className="mt-4 flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-bold transition hover:bg-slate-50">Ajouter des services</button>
-              <button type="button" onClick={() => alert("La page de paiement sera créée à l'étape suivante.")} className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-[#F58220] px-5 py-4 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(245,130,32,0.25)] transition hover:bg-[#E36E08]">
-                <ShoppingCart className="h-4 w-4" /> Passer la commande
-              </button>
-              <p className="mt-2 text-center text-[10px] leading-4 text-slate-400">Paiement sécurisé disponible prochainement.</p>
+              <div className="shrink-0 bg-white pt-3">
+                <div className="rounded-[22px] bg-[#08122E] p-4 text-white"><p className="text-[11px] font-medium text-white/60">Total de votre sélection</p><div className="mt-1 flex items-end justify-between gap-3"><p className="text-2xl font-extrabold">{formatPrice(total)} €</p><span className="rounded-full bg-white/10 px-3 py-2 text-[10px] font-semibold">Sans abonnement</span></div></div>
+                <button type="button" onClick={() => scrollTo("services")} className="mt-3 flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-xs font-bold transition hover:bg-slate-50">Ajouter des services</button>
+                <Link href="/commande" className="mt-2.5 flex w-full items-center justify-center gap-2 rounded-full bg-[#F58220] px-5 py-3.5 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(245,130,32,0.25)] transition hover:bg-[#E36E08]">
+                  <ShoppingCart className="h-4 w-4" /> Passer la commande
+                </Link>
+                <p className="mt-1.5 text-center text-[10px] leading-4 text-slate-400">Vous pourrez vérifier votre panier avant le paiement.</p>
+              </div>
             </div>
           </aside>
         </div>
