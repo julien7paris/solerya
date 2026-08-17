@@ -129,12 +129,12 @@ const products: Product[] = [
   {
     id: "motion-main", ref: "S004", category: "Présence & routines", name: "Capteur de mouvement",
     brand: "Aqara", model: "Motion Sensor P1", description: "Vérifie l'activité générale et déclenche des scénarios simples.",
-    price: 24.99, icon: Activity, accent: "#8E44CC", bg: "bg-purple-50",
+    price: 24.99, icon: Activity, accent: "#8E44CC", bg: "bg-purple-50", border: "border-purple-100", button: "bg-purple-600",
   },
   {
     id: "motion-extra", ref: "F002", category: "Présence & routines", name: "Mouvement complémentaire",
     brand: "Aqara", model: "Motion Sensor P1", description: "Pour couloir, chambre ou salle de bain, notamment la nuit.",
-    price: 24.99, icon: Activity, accent: "#8E44CC", bg: "bg-purple-50",
+    price: 24.99, icon: Activity, accent: "#8E44CC", bg: "bg-purple-50", border: "border-purple-100", button: "bg-purple-600",
   },
   {
     id: "presence-fp300", ref: "A001", category: "Présence & routines", name: "Présence sans caméra",
@@ -179,12 +179,12 @@ const products: Product[] = [
   {
     id: "water-valve", ref: "G001", category: "Eau, air & environnement", name: "Vanne d'arrêt d'eau",
     brand: "Aqara", model: "Valve Controller T1", description: "Peut couper l'eau automatiquement lorsqu'une fuite est détectée.",
-    price: 69.99, icon: Droplets, accent: "#0967D2", bg: "bg-blue-50", badge: "Sur validation logement",
+    price: 69.99, icon: Droplets, accent: "#0967D2", bg: "bg-blue-50", border: "border-blue-100", button: "bg-blue-600", badge: "Sur validation logement",
   },
   {
     id: "night-light", ref: "F001", category: "Confort & automatismes", name: "Ampoule chemin lumineux",
     brand: "ThirdReality", model: "E27 Zigbee ZL4", description: "Crée un éclairage doux et automatique pour les déplacements nocturnes.",
-    price: 15.99, icon: Lightbulb, accent: "#F59E0B", bg: "bg-amber-50",
+    price: 15.99, icon: Lightbulb, accent: "#F59E0B", bg: "bg-amber-50", border: "border-amber-100", button: "bg-amber-500",
   },
   {
     id: "smart-plug-a7z", ref: "O001", category: "Confort & automatismes", name: "Prise connectée 16 A",
@@ -250,36 +250,36 @@ const categoryOrder = [
   "Bien-être & lien social",
 ];
 
-const categoryMeta: Record<string, { eyebrow: string; description: string; icon: LucideIcon; accent: string; bg: string }> = {
+const categoryMeta: Record<string, { eyebrow: string; description: string; icon: LucideIcon; accent: string; bg: string; border: string; button: string }> = {
   "Cœur technique": {
     eyebrow: "La base de votre installation",
     description: "Le cœur du système, sa connexion aux objets et les solutions de secours.",
-    icon: HousePlug, accent: "#0F766E", bg: "bg-teal-50",
+    icon: HousePlug, accent: "#0F766E", bg: "bg-teal-50", border: "border-teal-100", button: "bg-teal-600",
   },
   "Alertes & sécurité": {
     eyebrow: "Prévenir et réagir",
     description: "SOS, fumée, ouverture, sirène et détection de chute.",
-    icon: ShieldAlert, accent: "#F25A1D", bg: "bg-orange-50",
+    icon: ShieldAlert, accent: "#F25A1D", bg: "bg-orange-50", border: "border-orange-100", button: "bg-orange-500",
   },
   "Présence & routines": {
     eyebrow: "Comprendre le quotidien sans caméra",
     description: "Mouvement, présence, lever, repas et habitudes de vie.",
-    icon: Activity, accent: "#8E44CC", bg: "bg-purple-50",
+    icon: Activity, accent: "#8E44CC", bg: "bg-purple-50", border: "border-purple-100", button: "bg-purple-600",
   },
   "Eau, air & environnement": {
     eyebrow: "Protéger le logement",
     description: "Fuite, température, humidité, CO₂ et coupure d'eau.",
-    icon: Droplets, accent: "#0967D2", bg: "bg-blue-50",
+    icon: Droplets, accent: "#0967D2", bg: "bg-blue-50", border: "border-blue-100", button: "bg-blue-600",
   },
   "Confort & automatismes": {
     eyebrow: "Simplifier les gestes du quotidien",
     description: "Éclairage, prises, sonnette et accès pour un quotidien plus simple.",
-    icon: Lightbulb, accent: "#F59E0B", bg: "bg-amber-50",
+    icon: Lightbulb, accent: "#F59E0B", bg: "bg-amber-50", border: "border-amber-100", button: "bg-amber-500",
   },
   "Bien-être & lien social": {
     eyebrow: "Compléter la solution",
     description: "Des solutions complémentaires pour la sécurité et le lien familial.",
-    icon: HeartHandshake, accent: "#0B8A4A", bg: "bg-emerald-50",
+    icon: HeartHandshake, accent: "#0B8A4A", bg: "bg-emerald-50", border: "border-emerald-100", button: "bg-emerald-600",
   },
 };
 
@@ -341,44 +341,57 @@ export default function SoleryaLandingPage() {
         }
       `}</style>
 
-      {/* HERO compact : toute l'action principale doit rester visible sans scroller */}
+      {/* HERO : deux rangées alignées, sans hauteur forcée */}
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto grid max-w-7xl items-stretch gap-8 px-6 pb-6 pt-3 lg:min-h-[748px] lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-7 lg:pt-4">
-          <div className="flex flex-col">
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-4 lg:px-8 lg:pb-10">
+          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
             <div className="relative overflow-hidden rounded-[28px] shadow-[0_28px_70px_rgba(8,18,46,0.14)]">
-              <video className="h-[285px] w-full object-cover lg:h-[315px]" src="/family-international.mp4" autoPlay muted loop playsInline />
+              <video className="h-[310px] w-full object-cover lg:h-[330px]" src="/family-international.mp4" autoPlay muted loop playsInline />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
               <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur">Découvrir Solerya</div>
             </div>
 
-            <div className="mt-4 flex-1 rounded-[24px] bg-white/85 p-4 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
-              <div className="grid h-full content-center gap-x-6 gap-y-3 sm:grid-cols-2">
-                {highlights.map(([Icon, title, text], index) => (
-                  <div key={title} className={`flex gap-3 ${index === highlights.length - 1 ? "sm:col-span-2 sm:border-t sm:border-orange-100 sm:pt-3" : ""}`}>
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><Icon className="h-4 w-4" /></div>
-                    <div>
-                      <p className="text-sm font-semibold">{title}</p>
-                      <p className="mt-0.5 text-xs leading-5 text-slate-600">{text}</p>
-                    </div>
-                  </div>
-                ))}
+            <div className="flex flex-col justify-center py-1">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
+                <HousePlug className="h-4 w-4 text-[#F58220]" /><span>La domotique à la carte, installée si vous le souhaitez</span>
               </div>
+              <h1 className="mt-4 max-w-2xl text-[42px] font-bold leading-[1.03] tracking-[-0.045em] md:text-[52px]">
+                Composez votre logement connecté, à votre rythme.
+              </h1>
+              <p className="mt-4 max-w-xl text-[17px] leading-7 text-slate-600">
+                Choisissez vos objets, ajoutez l'installation, les scénarios ou la formation dont vous avez besoin. Rien de plus.
+              </p>
             </div>
           </div>
 
-          <div className="flex h-full flex-col py-0.5">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
-              <HousePlug className="h-4 w-4 text-[#F58220]" /><span>La domotique à la carte, installée si vous le souhaitez</span>
+          {/* Deux blocs strictement alignés */}
+          <div className="mt-5 grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+            <div className="flex h-full flex-col rounded-[26px] bg-white/90 p-5 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Solerya, pour aujourd'hui et pour demain</p>
+                  <p className="mt-1 text-sm font-extrabold">Bien vivre chez soi. Rassurer ceux qui comptent.</p>
+                </div>
+                <Target className="h-5 w-5 shrink-0 text-[#F58220]" />
+              </div>
+              <div className="mt-4 grid flex-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {categoryOrder.map((category) => {
+                  const meta = categoryMeta[category];
+                  const Icon = meta.icon;
+                  return (
+                    <button key={category} type="button" onClick={() => scrollTo(`cat-${slugify(category)}`)} className={`group flex min-h-[86px] items-start gap-2.5 rounded-2xl border p-3 text-left transition hover:-translate-y-0.5 hover:shadow-sm ${meta.bg} ${meta.border}`}>
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/80"><Icon className="h-4 w-4" style={{ color: meta.accent }} /></div>
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-bold uppercase leading-4 tracking-[0.08em]" style={{ color: meta.accent }}>{meta.eyebrow}</p>
+                        <p className="mt-0.5 text-xs font-extrabold leading-4">{category}</p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            <h1 className="mt-4 max-w-2xl text-[43px] font-bold leading-[1.03] tracking-[-0.045em] md:text-[54px]">
-              Composez votre logement connecté, à votre rythme.
-            </h1>
-            <p className="mt-4 max-w-xl text-[17px] leading-7 text-slate-600">
-              Choisissez vos objets, ajoutez l'installation, les scénarios ou la formation dont vous avez besoin. Rien de plus.
-            </p>
-
-            <div className="mt-5 rounded-[24px] border border-orange-200 bg-white p-5 shadow-[0_18px_50px_rgba(245,130,32,0.11)]">
+            <div className="flex h-full flex-col rounded-[26px] border border-orange-200 bg-white p-5 shadow-[0_18px_50px_rgba(245,130,32,0.11)]">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p>
@@ -392,140 +405,118 @@ export default function SoleryaLandingPage() {
               </div>
               <div className="mt-3 flex items-end justify-between gap-4 border-t border-slate-100 pt-3">
                 <div><p className="text-xs text-slate-500">Total actuel</p><p className="text-3xl font-extrabold">{formatPrice(total)} €</p></div>
-                <div className="flex flex-col items-end gap-2">
-                  <span className="rounded-full bg-[#08122E] px-3 py-2 text-xs font-semibold text-white">Sans abonnement</span>
-                  <Link href="/commande" className="text-xs font-extrabold text-[#F58220] hover:underline">Voir ma commande →</Link>
+                <div className="flex flex-col items-end gap-2"><span className="rounded-full bg-[#08122E] px-3 py-2 text-xs font-semibold text-white">Sans abonnement</span><Link href="/commande" className="text-xs font-extrabold text-[#F58220] hover:underline">Voir ma commande →</Link></div>
+              </div>
+              <div className="mt-auto grid gap-3 pt-4 sm:grid-cols-[1.35fr_0.85fr]">
+                <button type="button" onClick={() => scrollTo("boutique")} className="group flex items-center justify-center gap-2 rounded-full bg-[#F58220] px-7 py-3.5 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]">Composer mon installation <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" /></button>
+                <button type="button" onClick={() => scrollTo("services")} className="rounded-full border border-slate-300 px-5 py-3.5 text-sm font-semibold transition hover:bg-slate-50">Ajouter des services</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ÉQUIPEMENTS : aperçu des 6 univers + panier latéral dès le premier écran */}
+      <section id="boutique" className="scroll-mt-[104px] border-t border-slate-100 bg-white py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
+            <div className="min-w-0">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div className="max-w-3xl">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#F58220]">1. Les équipements</p>
+                  <h2 className="mt-2 text-4xl font-extrabold tracking-tight">Choisissez vos objets connectés</h2>
+                  <p className="mt-3 text-base leading-7 text-slate-600">Commencez par un univers, découvrez les objets qui le composent et ajoutez vos quantités au panier.</p>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-auto grid gap-3 pt-5 sm:grid-cols-[1.35fr_0.85fr]">
-              <button
-                type="button"
-                onClick={() => scrollTo("boutique")}
-                className="group flex items-center justify-center gap-2 rounded-full bg-[#F58220] px-8 py-4 text-sm font-extrabold text-white shadow-[0_18px_40px_rgba(245,130,32,0.35)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]"
-              >
-                Composer mon installation <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
-              </button>
-              <button type="button" onClick={() => scrollTo("services")} className="rounded-full border border-slate-300 px-6 py-4 text-sm font-semibold transition hover:bg-white hover:shadow-sm">Ajouter des services</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* APERÇU DES UNIVERS : navigation commerciale avant la liste complète */}
-      <section id="boutique" className="scroll-mt-[112px] border-t border-slate-100 bg-white py-10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#F58220]">1. Les équipements</p>
-              <h2 className="mt-2 text-4xl font-extrabold tracking-tight">Choisissez vos objets connectés</h2>
-              <p className="mt-3 text-base leading-7 text-slate-600">Commencez par un univers, découvrez les objets qui le composent et ajoutez vos quantités au panier.</p>
-            </div>
-            <div className="hidden text-sm font-semibold text-slate-500 lg:block">Cliquez sur une rubrique pour voir les produits ↓</div>
-          </div>
-
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {categoryOrder.map((category) => {
-              const meta = categoryMeta[category];
-              const Icon = meta.icon;
-              const count = products.filter((p) => p.category === category).length;
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => scrollTo(`cat-${slugify(category)}`)}
-                  className="group flex min-h-[148px] items-start gap-4 rounded-[24px] border border-slate-100 bg-white p-5 text-left shadow-[0_10px_30px_rgba(8,18,46,0.05)] transition hover:-translate-y-1 hover:border-orange-100 hover:shadow-lg"
-                >
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${meta.bg}`}><Icon className="h-5 w-5" style={{ color: meta.accent }} /></div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-[#F58220]">{meta.eyebrow}</p>
-                    <h3 className="mt-1 text-lg font-extrabold leading-5">{category}</h3>
-                    <p className="mt-2 text-xs leading-5 text-slate-500">{meta.description}</p>
-                    <div className="mt-3 flex items-center gap-1 text-xs font-bold text-[#F58220]">Voir {count} produit{count > 1 ? "s" : ""} <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" /></div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUITS DÉTAILLÉS + PANIER */}
-      <section className="mx-auto max-w-7xl px-6 pb-14 lg:px-8">
-        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
-          <div className="space-y-14">
-            {categoryOrder.map((category) => {
-              const items = products.filter((p) => p.category === category);
-              const meta = categoryMeta[category];
-              return (
-                <section key={category} id={`cat-${slugify(category)}`} className="scroll-mt-[112px] rounded-[30px] bg-[#FCFCFD] p-5 sm:p-6">
-                  <div className="mb-5 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">{meta.eyebrow}</p>
-                      <h3 className="mt-1 text-2xl font-extrabold">{category}</h3>
-                    </div>
-                    <p className="max-w-xl text-sm leading-6 text-slate-500 lg:text-right">{meta.description}</p>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {items.map((product) => {
-                      const Icon = product.icon;
-                      const qty = cart[product.id] ?? 0;
-                      const available = product.price !== null;
-                      return (
-                        <article key={product.id} className="flex min-h-[286px] min-w-0 flex-col overflow-hidden rounded-[22px] border border-slate-100 bg-white p-5 shadow-[0_10px_28px_rgba(8,18,46,0.05)] transition hover:-translate-y-1 hover:shadow-md">
-                          <div className="flex items-start justify-between gap-2">
-                            <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${product.bg}`}><Icon className="h-5 w-5" style={{ color: product.accent }} /></div>
-                            <div className="min-w-0 text-right"><span className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{product.ref}</span>{product.badge && <div className="mt-1 max-w-[126px] truncate rounded-full bg-slate-100 px-2 py-1 text-[9px] font-semibold text-slate-600">{product.badge}</div>}</div>
-                          </div>
-                          <h4 className="mt-4 break-words text-[15px] font-extrabold leading-5">{product.name}</h4>
-                          <p className="mt-1 break-words text-[11px] font-semibold leading-4 text-slate-500">{product.brand} · {product.model}</p>
-                          <p className="mt-3 text-[13px] leading-5 text-slate-600">{product.description}</p>
-                          <div className="mt-auto pt-4">
-                            {available ? (
-                              <>
-                                <p className="text-2xl font-extrabold">{formatPrice(product.price as number)} €</p>
-                                <div className="mt-3 flex items-center justify-between rounded-full bg-slate-50 p-1.5">
-                                  <button type="button" onClick={() => updateItem(product.id, -1)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm" aria-label={`Retirer ${product.name}`}><Minus className="h-4 w-4" /></button>
-                                  <span className="text-sm font-bold">{qty}</span>
-                                  <button type="button" onClick={() => updateItem(product.id, 1)} className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220] text-white shadow-sm" aria-label={`Ajouter ${product.name}`}><Plus className="h-4 w-4" /></button>
-                                </div>
-                              </>
-                            ) : (
-                              <div className="rounded-2xl bg-[#FFF7EF] px-4 py-3"><p className="text-sm font-extrabold text-[#C95F07]">Bientôt disponible</p><p className="mt-1 text-xs leading-5 text-slate-500">Référence en cours de validation Solerya.</p></div>
-                            )}
-                          </div>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </section>
-              );
-            })}
-          </div>
-
-          <aside className="h-fit xl:sticky xl:top-[96px]">
-            <div className="flex max-h-[calc(100vh-116px)] min-h-[560px] flex-col rounded-[28px] border border-slate-100 bg-white p-5 shadow-[0_24px_60px_rgba(8,18,46,0.10)]">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p><h3 className="mt-1 text-xl font-extrabold">Votre panier</h3></div>
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]"><ShoppingCart className="h-5 w-5" /><span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#08122E] px-1 text-[10px] font-bold text-white">{itemCount}</span></div>
+              <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {categoryOrder.map((category) => {
+                  const meta = categoryMeta[category];
+                  const Icon = meta.icon;
+                  const count = products.filter((p) => p.category === category).length;
+                  return (
+                    <button key={category} type="button" onClick={() => scrollTo(`cat-${slugify(category)}`)} className={`group flex min-h-[166px] items-start gap-4 rounded-[24px] border p-5 text-left shadow-[0_10px_30px_rgba(8,18,46,0.04)] transition hover:-translate-y-1 hover:shadow-lg ${meta.bg} ${meta.border}`}>
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/80"><Icon className="h-5 w-5" style={{ color: meta.accent }} /></div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: meta.accent }}>{meta.eyebrow}</p>
+                        <h3 className="mt-1 text-lg font-extrabold leading-5">{category}</h3>
+                        <p className="mt-2 text-xs leading-5 text-slate-600">{meta.description}</p>
+                        <div className="mt-3 flex items-center gap-1 text-xs font-extrabold" style={{ color: meta.accent }}>Voir {count} produit{count > 1 ? "s" : ""} <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" /></div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
-              <div className="mt-4 min-h-0 flex-1 space-y-1.5 overflow-y-auto pr-1">
-                {selectedItems.length === 0 ? <div className="rounded-2xl bg-slate-50 px-4 py-5 text-center text-sm text-slate-500">Votre panier est vide.</div> : selectedItems.map((item) => (
-                  <div key={item.id} className="rounded-xl bg-slate-50 px-3 py-2"><div className="flex items-start justify-between gap-3"><div><p className="text-[11px] font-semibold leading-4">{item.name}</p><p className="mt-0.5 text-[10px] text-slate-500">{cart[item.id]} × {formatPrice(item.price as number)} €</p></div><p className="whitespace-nowrap text-[11px] font-extrabold">{formatPrice((cart[item.id] ?? 0) * (item.price as number))} €</p></div></div>
-                ))}
-              </div>
-              <div className="shrink-0 bg-white pt-3">
-                <div className="rounded-[22px] bg-[#08122E] p-4 text-white"><p className="text-[11px] font-medium text-white/60">Total de votre sélection</p><div className="mt-1 flex items-end justify-between gap-3"><p className="text-2xl font-extrabold">{formatPrice(total)} €</p><span className="rounded-full bg-white/10 px-3 py-2 text-[10px] font-semibold">Sans abonnement</span></div></div>
-                <button type="button" onClick={() => scrollTo("services")} className="mt-3 flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-xs font-bold transition hover:bg-slate-50">Ajouter des services</button>
-                <Link href="/commande" className="mt-2.5 flex w-full items-center justify-center gap-2 rounded-full bg-[#F58220] px-5 py-3.5 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(245,130,32,0.25)] transition hover:bg-[#E36E08]">
-                  <ShoppingCart className="h-4 w-4" /> Passer la commande
-                </Link>
-                <p className="mt-1.5 text-center text-[10px] leading-4 text-slate-400">Vous pourrez vérifier votre panier avant le paiement.</p>
+
+              <div className="mt-10 space-y-10">
+                {categoryOrder.map((category) => {
+                  const items = products.filter((p) => p.category === category);
+                  const meta = categoryMeta[category];
+                  return (
+                    <section key={category} id={`cat-${slugify(category)}`} className={`scroll-mt-[104px] rounded-[30px] border p-5 sm:p-6 ${meta.bg} ${meta.border}`}>
+                      <div className="mb-5 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                        <div><p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: meta.accent }}>{meta.eyebrow}</p><h3 className="mt-1 text-2xl font-extrabold">{category}</h3></div>
+                        <p className="max-w-xl text-sm leading-6 text-slate-600 lg:text-right">{meta.description}</p>
+                      </div>
+
+                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {items.map((product) => {
+                          const Icon = product.icon;
+                          const qty = cart[product.id] ?? 0;
+                          const available = product.price !== null;
+                          return (
+                            <article key={product.id} className={`flex min-h-[286px] min-w-0 flex-col overflow-hidden rounded-[22px] border p-5 shadow-[0_10px_28px_rgba(8,18,46,0.045)] transition hover:-translate-y-1 hover:shadow-md ${meta.bg} ${meta.border}`}>
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/85"><Icon className="h-5 w-5" style={{ color: meta.accent }} /></div>
+                                <div className="min-w-0 text-right"><span className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">{product.ref}</span>{product.badge && <div className="mt-1 max-w-[126px] truncate rounded-full bg-white/80 px-2 py-1 text-[9px] font-semibold text-slate-600">{product.badge}</div>}</div>
+                              </div>
+                              <h4 className="mt-4 break-words text-[15px] font-extrabold leading-5">{product.name}</h4>
+                              <p className="mt-1 break-words text-[11px] font-semibold leading-4 text-slate-500">{product.brand} · {product.model}</p>
+                              <p className="mt-3 text-[13px] leading-5 text-slate-600">{product.description}</p>
+                              <div className="mt-auto pt-4">
+                                {available ? (
+                                  <>
+                                    <p className="text-2xl font-extrabold">{formatPrice(product.price as number)} €</p>
+                                    <div className="mt-3 flex items-center justify-between rounded-full bg-white/75 p-1.5 ring-1 ring-white/80">
+                                      <button type="button" onClick={() => updateItem(product.id, -1)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm" aria-label={`Retirer ${product.name}`}><Minus className="h-4 w-4" /></button>
+                                      <span className="text-sm font-bold">{qty}</span>
+                                      <button type="button" onClick={() => updateItem(product.id, 1)} className={`flex h-9 w-9 items-center justify-center rounded-full text-white shadow-sm ${meta.button}`} aria-label={`Ajouter ${product.name}`}><Plus className="h-4 w-4" /></button>
+                                    </div>
+                                  </>
+                                ) : (
+                                  <div className="rounded-2xl bg-white/75 px-4 py-3"><p className="text-sm font-extrabold" style={{ color: meta.accent }}>Bientôt disponible</p><p className="mt-1 text-xs leading-5 text-slate-500">Référence en cours de validation Solerya.</p></div>
+                                )}
+                              </div>
+                            </article>
+                          );
+                        })}
+                      </div>
+                    </section>
+                  );
+                })}
               </div>
             </div>
-          </aside>
+
+            <aside className="h-fit xl:sticky xl:top-[92px]">
+              <div className="flex max-h-[calc(100vh-108px)] min-h-[530px] flex-col rounded-[28px] border border-slate-100 bg-white p-5 shadow-[0_24px_60px_rgba(8,18,46,0.10)]">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                  <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p><h3 className="mt-1 text-xl font-extrabold">Votre panier</h3></div>
+                  <Link href="/commande" className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]" aria-label="Voir ma commande"><ShoppingCart className="h-5 w-5" /><span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#08122E] px-1 text-[10px] font-bold text-white">{itemCount}</span></Link>
+                </div>
+                <div className="mt-4 min-h-0 flex-1 space-y-1.5 overflow-y-auto pr-1">
+                  {selectedItems.length === 0 ? <div className="rounded-2xl bg-slate-50 px-4 py-5 text-center text-sm text-slate-500">Votre panier est vide. Ajoutez les objets utiles depuis les rubriques à gauche.</div> : selectedItems.map((item) => (
+                    <div key={item.id} className="rounded-xl bg-slate-50 px-3 py-2"><div className="flex items-start justify-between gap-3"><div className="min-w-0"><p className="truncate text-[11px] font-semibold leading-4">{item.name}</p><p className="mt-0.5 text-[10px] text-slate-500">{cart[item.id]} × {formatPrice(item.price as number)} €</p></div><p className="whitespace-nowrap text-[11px] font-extrabold">{formatPrice((cart[item.id] ?? 0) * (item.price as number))} €</p></div></div>
+                  ))}
+                </div>
+                <div className="shrink-0 border-t border-slate-100 bg-white pt-3">
+                  <div className="rounded-[22px] bg-[#08122E] p-4 text-white"><p className="text-[11px] font-medium text-white/60">Total de votre sélection</p><div className="mt-1 flex items-end justify-between gap-3"><p className="text-2xl font-extrabold">{formatPrice(total)} €</p><span className="rounded-full bg-white/10 px-3 py-2 text-[10px] font-semibold">Sans abonnement</span></div></div>
+                  <button type="button" onClick={() => scrollTo("services")} className="mt-3 flex w-full items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-xs font-bold transition hover:bg-slate-50">Ajouter des services</button>
+                  <Link href="/commande" className="mt-2.5 flex w-full items-center justify-center gap-2 rounded-full bg-[#F58220] px-5 py-3.5 text-sm font-extrabold text-white shadow-[0_14px_28px_rgba(245,130,32,0.25)] transition hover:bg-[#E36E08]"><ShoppingCart className="h-4 w-4" /> Passer la commande</Link>
+                  <p className="mt-1.5 text-center text-[10px] leading-4 text-slate-400">Vous pourrez vérifier votre panier avant le paiement.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
