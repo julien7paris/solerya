@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-flex">
               <Image
-                src="/logo-solerya-transparent.png"
+                src="/logo-solerya-transparent-bleu-orange.png"
                 alt="Solerya"
                 width={240}
                 height={85}

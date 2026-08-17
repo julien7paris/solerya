@@ -9,7 +9,7 @@ export default function Header() {
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo-solerya-transparent.png"
+            src="/logo-solerya-transparent-bleu-orange.png"
             alt="Solerya"
             width={180}
             height={64}
