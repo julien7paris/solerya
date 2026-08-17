@@ -51,6 +51,8 @@ type Product = {
   icon: LucideIcon;
   accent: string;
   bg: string;
+  border?: string;
+  button?: string;
   badge?: string;
 };
 
