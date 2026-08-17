@@ -66,12 +66,10 @@ type Service = {
 };
 
 const highlights: Array<[LucideIcon, string, string]> = [
-  [BadgeCheck, "Produits référencés", "Des objets sélectionnés pour fonctionner ensemble."],
-  [ShoppingCart, "100 % à la carte", "Vous ajoutez uniquement ce dont vous avez besoin."],
   [Wrench, "Installation possible", "Pose, mise en service et scénarios par Solerya."],
   [HeartHandshake, "Accompagnement humain", "Conseil et formation quand vous en avez besoin."],
-  [HandHeart, "Pour les familles", "Restez informés et rassurés, même lorsque vous êtes à distance."],
-  [Target, "Pour les seniors", "Gagnez en confort et en autonomie, avec une solution simple au quotidien."],
+  [HandHeart, "Pour les familles", "Restez informés et rassurés, même à distance."],
+  [Target, "Pour les seniors", "Plus de confort et d'autonomie, simplement, au quotidien."],
 ];
 
 const products: Product[] = [
@@ -303,7 +301,7 @@ function slugify(value: string) {
 }
 
 export default function SoleryaLandingPage() {
-  const [cart, setCart] = useState<Record<string, number>>({});
+  const [cart, setCart] = useState<Record<string, number>>({ "full-install": 1 });
 
   const purchasableProducts = products.filter((product) => product.price !== null);
   const allPurchasableItems = [...purchasableProducts, ...services];
@@ -346,10 +344,10 @@ export default function SoleryaLandingPage() {
 
       {/* HERO : deux rangées alignées, sans hauteur forcée */}
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,#FFF1E6_0%,transparent_30%),linear-gradient(to_bottom,#ffffff,#fffaf5)]">
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-4 lg:px-8 lg:pb-10">
-          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+        <div className="mx-auto max-w-7xl px-6 pb-5 pt-3 lg:px-8 lg:pb-6">
+          <div className="grid gap-7 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
             <div className="relative overflow-hidden rounded-[28px] shadow-[0_28px_70px_rgba(8,18,46,0.14)]">
-              <video className="h-[310px] w-full object-cover lg:h-[330px]" src="/family-international.mp4" autoPlay muted loop playsInline />
+              <video className="h-[270px] w-full object-cover lg:h-[285px]" src="/family-international.mp4" autoPlay muted loop playsInline />
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
               <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur">Découvrir Solerya</div>
             </div>
@@ -358,42 +356,42 @@ export default function SoleryaLandingPage() {
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
                 <HousePlug className="h-4 w-4 text-[#F58220]" /><span>La domotique à la carte, installée si vous le souhaitez</span>
               </div>
-              <h1 className="mt-4 max-w-2xl text-[42px] font-bold leading-[1.03] tracking-[-0.045em] md:text-[52px]">
+              <h1 className="mt-3 max-w-2xl text-[39px] font-bold leading-[1.02] tracking-[-0.045em] md:text-[47px]">
                 Composez votre logement connecté, à votre rythme.
               </h1>
-              <p className="mt-4 max-w-xl text-[17px] leading-7 text-slate-600">
+              <p className="mt-3 max-w-xl text-[16px] leading-6 text-slate-600">
                 Choisissez vos objets, ajoutez l'installation, les scénarios ou la formation dont vous avez besoin. Rien de plus.
               </p>
             </div>
           </div>
 
           {/* Deux blocs strictement alignés */}
-          <div className="mt-6 grid gap-8 pb-2 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
-            <div className="flex h-full flex-col rounded-[26px] bg-white/90 p-5 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
+          <div className="mt-4 grid gap-7 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+            <div className="flex h-full flex-col rounded-[24px] bg-white/90 p-4 shadow-[0_16px_45px_rgba(8,18,46,0.06)] backdrop-blur">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Pourquoi choisir Solerya ?</p>
-                  <p className="mt-1 text-sm font-extrabold">Une solution simple, libre et accompagnée quand vous le souhaitez.</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Solerya à vos côtés</p>
+                  <p className="mt-1 text-sm font-extrabold">Simple à choisir. Installé et accompagné si vous le souhaitez.</p>
                 </div>
                 <Target className="h-5 w-5 shrink-0 text-[#F58220]" />
               </div>
 
-              <div className="mt-4 grid flex-1 gap-x-5 gap-y-3 sm:grid-cols-2">
+              <div className="mt-3 grid flex-1 gap-x-4 gap-y-2 sm:grid-cols-2">
                 {highlights.map(([Icon, title, description]) => (
-                  <div key={title} className="flex min-w-0 items-start gap-3 rounded-2xl bg-[#FFFDFB] p-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]">
+                  <div key={title} className="flex min-w-0 items-start gap-2.5 rounded-2xl bg-[#FFFDFB] p-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FFF2E8] text-[#F58220]">
                       <Icon className="h-4 w-4" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-extrabold leading-5 text-[#08122E]">{title}</p>
-                      <p className="mt-1 text-xs leading-5 text-slate-600">{description}</p>
+                      <p className="text-[13px] font-extrabold leading-4 text-[#08122E]">{title}</p>
+                      <p className="mt-1 text-[11px] leading-4 text-slate-600">{description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="flex h-full flex-col rounded-[26px] border border-orange-200 bg-white p-5 shadow-[0_18px_50px_rgba(245,130,32,0.11)]">
+            <div className="flex h-full flex-col rounded-[24px] border border-orange-200 bg-white p-4 shadow-[0_18px_50px_rgba(245,130,32,0.11)]">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#F58220]">Mon installation</p>
@@ -405,13 +403,22 @@ export default function SoleryaLandingPage() {
                   <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#08122E] px-1 text-[10px] font-bold text-white">{productCount}</span>
                 </Link>
               </div>
-              <div className="mt-3 flex items-end justify-between gap-4 border-t border-slate-100 pt-3">
-                <div><p className="text-xs text-slate-500">Total actuel</p><p className="text-3xl font-extrabold">{formatPrice(total)} €</p></div>
-                <div className="flex flex-col items-end gap-2"><span className="rounded-full bg-[#08122E] px-3 py-2 text-xs font-semibold text-white">Sans abonnement</span><Link href="/commande" className="text-xs font-extrabold text-[#F58220] hover:underline">Voir ma commande →</Link></div>
+              <div className="mt-3 border-t border-slate-100 pt-3">
+                <div className="flex items-center justify-between gap-3 rounded-2xl bg-orange-50/70 px-3 py-2">
+                  <div className="min-w-0">
+                    <p className="truncate text-xs font-bold text-[#08122E]">Déplacement & installation complète</p>
+                    <p className="text-[11px] text-slate-500">1 × 250 €</p>
+                  </div>
+                  <p className="shrink-0 text-sm font-extrabold">250 €</p>
+                </div>
+                <div className="mt-2 flex items-end justify-between gap-4">
+                  <div><p className="text-xs text-slate-500">Total actuel</p><p className="text-2xl font-extrabold">{formatPrice(total)} €</p></div>
+                  <div className="flex flex-col items-end gap-1.5"><span className="rounded-full bg-[#08122E] px-3 py-1.5 text-[11px] font-semibold text-white">Sans abonnement</span><Link href="/commande" className="text-xs font-extrabold text-[#F58220] hover:underline">Voir ma commande →</Link></div>
+                </div>
               </div>
-              <div className="mt-auto grid gap-3 pt-4 sm:grid-cols-[1.35fr_0.85fr]">
-                <button type="button" onClick={() => scrollTo("boutique")} className="group flex items-center justify-center gap-2 rounded-full bg-[#F58220] px-7 py-3.5 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]">Composer mon installation <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" /></button>
-                <button type="button" onClick={() => scrollTo("services")} className="rounded-full border border-slate-300 px-5 py-3.5 text-sm font-semibold transition hover:bg-slate-50">Ajouter des services</button>
+              <div className="mt-auto grid gap-3 pt-3 sm:grid-cols-[1.35fr_0.85fr]">
+                <button type="button" onClick={() => scrollTo("boutique")} className="group flex items-center justify-center gap-2 rounded-full bg-[#F58220] px-7 py-3 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(245,130,32,0.30)] transition hover:-translate-y-0.5 hover:bg-[#E36E08]">Composer mon installation <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" /></button>
+                <button type="button" onClick={() => scrollTo("services")} className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold transition hover:bg-slate-50">Ajouter des services</button>
               </div>
             </div>
           </div>
