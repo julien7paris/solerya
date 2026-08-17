@@ -66,7 +66,7 @@ type Service = {
 };
 
 const highlights: Array<[LucideIcon, string, string]> = [
-  [Wrench, "Installation possible", "Pose, mise en service et scénarios par Solerya."],
+  [Wrench, "Installation possible", "100% à la carte, Pose, mise en service et scénarios d'automatisation par Solerya."],
   [HeartHandshake, "Accompagnement humain", "Conseil et formation quand vous en avez besoin."],
   [HandHeart, "Pour les familles", "Restez informés et rassurés, même à distance."],
   [Target, "Pour les seniors", "Plus de confort et d'autonomie, simplement, au quotidien."],
@@ -86,16 +86,10 @@ const products: Product[] = [
     price: 16, icon: Radio, accent: "#0967D2", bg: "bg-blue-50",
   },
   {
-    id: "backup-power", ref: "C003", category: "Cœur technique", name: "Batterie de secours",
-    brand: "Référence Solerya à valider", model: "Mini-UPS / onduleur",
-    description: "Maintient le cœur de l'installation alimenté lors d'une coupure de courant.",
-    price: 79, icon: BatteryCharging, accent: "#0B8A4A", bg: "bg-emerald-50", badge: "Recommandé",
-  },
-  {
-    id: "backup-4g", ref: "C004", category: "Cœur technique", name: "Internet de secours 4G",
-    brand: "TP-Link", model: "Routeur 4G LTE",
-    description: "Prend le relais via le réseau mobile si la connexion Internet du logement tombe.",
-    price: 89, icon: Router, accent: "#F25A1D", bg: "bg-orange-50", badge: "Option sécurité",
+    id: "backup-secours", ref: "C003", category: "Cœur technique", name: "Secours alimentation & Internet 4G",
+    brand: "Solerya / TP-Link", model: "Mini-UPS + routeur 4G LTE",
+    description: "Maintient le cœur de l'installation alimenté et conserve une connexion Internet de secours en cas de coupure de courant ou de panne de la box.",
+    price: 168, icon: BatteryCharging, accent: "#0B8A4A", bg: "bg-emerald-50", badge: "Recommandé",
   },
   {
     id: "sos-home", ref: "S001", category: "Alertes & sécurité", name: "Bouton SOS domicile",
@@ -354,13 +348,13 @@ export default function SoleryaLandingPage() {
 
             <div className="flex flex-col justify-center py-1">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#FFF2E8] px-4 py-2 text-sm font-medium text-[#C95F07]">
-                <HousePlug className="h-4 w-4 text-[#F58220]" /><span>La domotique à la carte, installée si vous le souhaitez</span>
+                <HousePlug className="h-4 w-4 text-[#F58220]" /><span>La domotique à la carte, installée chez vous si vous le souhaitez</span>
               </div>
               <h1 className="mt-3 max-w-2xl text-[39px] font-bold leading-[1.02] tracking-[-0.045em] md:text-[47px]">
                 Composez votre logement connecté, à votre rythme.
               </h1>
               <p className="mt-3 max-w-xl text-[16px] leading-6 text-slate-600">
-                Choisissez vos objets, ajoutez l'installation, les scénarios ou la formation dont vous avez besoin. Rien de plus.
+                Composez votre installation à la carte : choisissez vos objets connectés et ajoutez l’installation, les automatisations, les connexions entre équipements ou la formation dont vous avez besoin. Vous ne payez que l’essentiel.
               </p>
             </div>
           </div>
